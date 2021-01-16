@@ -33,13 +33,11 @@ C:\Users\User\Desktop\WPF\WPF_Project\WPF_Project\bin\Debug\MaterialDesignColors
 C:\Users\User\Desktop\WPF\WPF_Project\WPF_Project\bin\Debug\MaterialDesignThemes.Wpf.pdb
 C:\Users\User\Desktop\WPF\WPF_Project\WPF_Project\bin\Debug\MaterialDesignThemes.Wpf.xml
 C:\Users\User\Desktop\WPF\WPF_Project\WPF_Project\obj\Debug\WPF_Project.csprojAssemblyReference.cache
-C:\Users\User\Desktop\WPF\WPF_Project\WPF_Project\obj\Debug\MainWindow.g.cs
 C:\Users\User\Desktop\WPF\WPF_Project\WPF_Project\obj\Debug\App.g.cs
 C:\Users\User\Desktop\WPF\WPF_Project\WPF_Project\obj\Debug\WPF_Project_Content.g.cs
 C:\Users\User\Desktop\WPF\WPF_Project\WPF_Project\obj\Debug\WPF_Project_MarkupCompile.cache
 C:\Users\User\Desktop\WPF\WPF_Project\WPF_Project\obj\Debug\WPF_Project_MarkupCompile.lref
 C:\Users\User\Desktop\WPF\WPF_Project\WPF_Project\obj\Debug\App.baml
-C:\Users\User\Desktop\WPF\WPF_Project\WPF_Project\obj\Debug\MainWindow.baml
 C:\Users\User\Desktop\WPF\WPF_Project\WPF_Project\obj\Debug\WPF_Project.g.resources
 C:\Users\User\Desktop\WPF\WPF_Project\WPF_Project\obj\Debug\WPF_Project.Properties.Resources.resources
 C:\Users\User\Desktop\WPF\WPF_Project\WPF_Project\obj\Debug\WPF_Project.csproj.GenerateResource.cache
@@ -47,3 +45,9 @@ C:\Users\User\Desktop\WPF\WPF_Project\WPF_Project\obj\Debug\WPF_Project.csproj.C
 C:\Users\User\Desktop\WPF\WPF_Project\WPF_Project\obj\Debug\WPF_Project.csproj.CopyComplete
 C:\Users\User\Desktop\WPF\WPF_Project\WPF_Project\obj\Debug\WPF_Project.exe
 C:\Users\User\Desktop\WPF\WPF_Project\WPF_Project\obj\Debug\WPF_Project.pdb
+C:\Users\User\Desktop\WPF\WPF_Project\WPF_Project\obj\Debug\UserRegistration.g.cs
+C:\Users\User\Desktop\WPF\WPF_Project\WPF_Project\obj\Debug\UserAuth.g.cs
+C:\Users\User\Desktop\WPF\WPF_Project\WPF_Project\obj\Debug\UserRegistration.baml
+C:\Users\User\Desktop\WPF\WPF_Project\WPF_Project\obj\Debug\UserAuth.baml
+C:\Users\User\Desktop\WPF\WPF_Project\WPF_Project\obj\Debug\UserPageWindow.g.cs
+C:\Users\User\Desktop\WPF\WPF_Project\WPF_Project\obj\Debug\UserPageWindow.baml

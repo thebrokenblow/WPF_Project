@@ -1,0 +1,30 @@
+﻿<Window x:Class="WPF_Project.Window1"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPF_Project"
+        mc:Ignorable="d"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        Title="Окно входа" Height="500" Width="850">
+    <Grid Background="#ffdadada">
+        <Border MinHeight="300" MaxHeight="350" MinWidth="500" MaxWidth="550" Margin="0 82 0 85" Background="White" VerticalAlignment="Center" Padding="30" CornerRadius="20">
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="30" Color="LightGray" ShadowDepth="0"/>
+            </Border.Effect>
+            <StackPanel>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="123*"/>
+                        <ColumnDefinition Width="367*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock FontSize="25" FontWeight="Bold" Margin="0,21,0,-21" Grid.ColumnSpan="2" Text="Авторизация"/>
+                    <Button Content="Регистрация" Margin="233.667,21,0,0" VerticalAlignment="Top" Grid.Column="1" Click="Button_Transition_Reg_Click"/>
+                    <TextBox x:Name ="textBoxLogin" materialDesign:HintAssist.Hint="Введите Логин" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0,79,0,-29" Grid.ColumnSpan="2" />
+                    <PasswordBox x:Name ="passwordBox" materialDesign:HintAssist.Hint="Введите Пароль" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" Margin="0,123,0,-74" Grid.ColumnSpan="2" />
+                    <Button Content="Войти в кабинет" Margin="0,208,0,-146" Click="Button_Auth_Click" Grid.ColumnSpan="2"/>
+                </Grid>
+            </StackPanel>
+        </Border>
+    </Grid>
+</Window>

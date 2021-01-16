@@ -73,7 +73,14 @@
     </ApplicationDefinition>
     <Compile Include="ApplicationContext.cs" />
     <Compile Include="User.cs" />
-    <Page Include="MainWindow.xaml">
+    <Compile Include="UserAuth.xaml.cs">
+      <DependentUpon>UserAuth.xaml</DependentUpon>
+    </Compile>
+    <Page Include="UserPageWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserRegistration.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -81,10 +88,17 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
+    <Compile Include="UserPageWindow.xaml.cs">
+      <DependentUpon>UserPageWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserRegistration.xaml.cs">
+      <DependentUpon>UserRegistration.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="UserAuth.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">

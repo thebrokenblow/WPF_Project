@@ -13,7 +13,8 @@ namespace WPF_Project
         public int id { get; set; }
         private string login, password, email;
 
-        public string Login {
+        public string Login
+        {
             get { return login; }
             set { login = value; }
         }
@@ -28,7 +29,8 @@ namespace WPF_Project
             set { email = value; }
         }
         public User() { }
-        public User(string login, string password, string email) {
+        public User(string login, string password, string email)
+        {
             this.login = login;
             this.password = password;
             this.email = email;

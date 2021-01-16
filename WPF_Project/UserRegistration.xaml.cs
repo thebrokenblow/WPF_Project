@@ -23,11 +23,6 @@ namespace WPF_Project
         {
             InitializeComponent();
             db = new ApplicationContext();
-            List<User> users = db.Users.ToList();
-            string str = "";
-            foreach (User user in users)
-                str += "Login: " + user.Login + " | ";
-            text.Text = str;
         }
         private void Button_Reg_Click(object sender, RoutedEventArgs e)
         {
@@ -77,9 +72,19 @@ namespace WPF_Project
                 textBoxEmail.Background = Brushes.Transparent;
                 textBoxEmail.ToolTip = null;
             }
-            User user = new User(login, email, password); //Выделение памяти под новую запись в базе данных
+            User user = new User(login, password, email); //Выделение памяти под новую запись в базе данных
             db.Users.Add(user); //Добавление новой записи в базу данных
             db.SaveChanges(); //Сохраняем новую запись в базу данных
+            UserPageWindow userPageWindow = new UserPageWindow(); //Создание новго объекта userPageWindow и выделение под него память
+            userPageWindow.Show(); //Отображение страницы, которая находится в объекте userPageWindow (Окно UserPageWindow (Личный кабинет))
+            Hide(); //Убрать нынешнее окно
+        }
+
+        private void Button_Transition_Auth_Click(object sender, RoutedEventArgs e) //Метод перехода к окну "Авторизация"
+        {
+            Window1 userAuth = new Window1(); //Создание новго объекта userAuth и выделение под него память
+            userAuth.Show(); //Отображение страницы, которая находится в объекте userAuth (Окно Window1 (Авторизация пользователя))
+            Hide(); //Убрать нынешнее окно
         }
     }
 }
