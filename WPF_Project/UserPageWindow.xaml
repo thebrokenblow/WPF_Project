@@ -5,28 +5,70 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPF_Project"
         mc:Ignorable="d"
-        Title="UserPageWindow" Height="450" Width="800">
-    <Grid>
-        <Button Background="#381d60" Foreground ="White" Content="Зарегистрироваться" FontSize="15" Margin="155,184,117.333,188.667" Click="Button_Reg_Click"  BorderBrush="{x:Null}">
-            <Button.Style>
-                <Style TargetType="{x:Type Button}">
-                    <Setter Property="Background" Value="#381d60"/>
-                    <Setter Property="Template">
-                        <Setter.Value>
-                            <ControlTemplate TargetType="{x:Type Button}">
-                                <Border Background="{TemplateBinding Background}" BorderBrush="#381d60" BorderThickness="1">
-                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                                </Border>
-                            </ControlTemplate>
-                        </Setter.Value>
-                    </Setter>
-                    <Style.Triggers>
-                        <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Background" Value="#ff5e5b"/>
-                        </Trigger>
-                    </Style.Triggers>
-                </Style>
-            </Button.Style>
-        </Button>
+xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        Title="Окно регистрации" Height="600" Width="1000">
+    <Grid Background="#371f60">
+        <Border MinHeight="450" Margin="0 0 0 0" Background="White" VerticalAlignment="Center" Padding="30" MaxWidth="700" CornerRadius="20" Height="400">
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="30" Color="LightGray" ShadowDepth="0"/>
+            </Border.Effect>
+            <StackPanel>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="123*"/>
+                        <ColumnDefinition Width="367*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Foreground="#371f60" FontSize="25" FontWeight="Bold" Margin="0,20,0,-20" Grid.ColumnSpan="2" Text="Best hotels"/>
+                    <TextBlock Foreground="#371f60" FontSize="25" FontWeight="Bold" Margin="0,50,0,-50" Grid.ColumnSpan="2" Text="And"/>
+                    <TextBlock Foreground="#371f60" FontSize="25" FontWeight="Bold" Margin="0,80,0,-80" Grid.ColumnSpan="2" Text="Accommodation!"/>
+                    <Button Content="Войти" FontWeight="Bold" Foreground="White" Background="#371f60" Margin="354.333,20,0,0" FontSize="15" VerticalAlignment="Top" Grid.Column="1" BorderBrush="{x:Null}" Height="30">
+                        <Button.Style>
+                            <Style TargetType="{x:Type Button}">
+                                <Setter Property="Background" Value="#371f60"/>
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="{x:Type Button}">
+                                            <Border Background="{TemplateBinding Background}" BorderBrush="#371f60" BorderThickness="1">
+                                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                            </Border>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="#ff5e5b"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                    </Button>
+                    <TextBox FontWeight="Bold" x:Name ="textBoxLogin" Foreground="#371f60" FontSize="15" materialDesign:HintAssist.Hint="Введите Логин" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0,119,0,-69" Grid.ColumnSpan="2" />
+                    <PasswordBox FontWeight="Bold" x:Name ="passwordBox" Foreground="#371f60" FontSize="15" materialDesign:HintAssist.Hint="Введите Пароль" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" Margin="0,165,0,-116" Grid.ColumnSpan="2" />
+                    <PasswordBox FontWeight="Bold" x:Name ="passwordRepeatBox" Foreground="#371f60" FontSize="15" materialDesign:HintAssist.Hint="Повторите Пароль" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" Margin="0,213,0,-162" Grid.ColumnSpan="2" />
+                    <TextBox FontWeight="Bold" x:Name ="textBoxEmail" Foreground="#371f60" FontSize="15" materialDesign:HintAssist.Hint="Введите email" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0,260,0,-209" Grid.ColumnSpan="2" />
+                    <Button Background="#371f60" Foreground="White" FontWeight="Bold" Content="Зарегистрироваться" FontSize="15" Margin="0,346,0,-284" Grid.ColumnSpan="2"  BorderBrush="{x:Null}">
+                        <Button.Style>
+                            <Style TargetType="{x:Type Button}">
+                                <Setter Property="Background" Value="#371f60"/>
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="{x:Type Button}">
+                                            <Border Background="{TemplateBinding Background}" BorderBrush="#371f60" BorderThickness="1">
+                                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                            </Border>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="#ff5e5b"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                    </Button>
+                </Grid>
+            </StackPanel>
+        </Border>
     </Grid>
 </Window>

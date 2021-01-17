@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         Title="Окно регистрации" Height="600" Width="1000">
-    <Grid Background="#ffdadada">
+    <Grid Background="#371f60">
         <Border MinHeight="450" Margin="0 0 0 0" Background="White" VerticalAlignment="Center" Padding="30" MaxWidth="700" CornerRadius="20" Height="400">
             <Border.Effect>
                 <DropShadowEffect BlurRadius="30" Color="LightGray" ShadowDepth="0"/>
@@ -18,52 +18,90 @@
                         <ColumnDefinition Width="123*"/>
                         <ColumnDefinition Width="367*"/>
                     </Grid.ColumnDefinitions>
-                    <TextBlock Foreground="#371f60" FontSize="25" FontWeight="Bold" Margin="0,21,0,-21" Grid.ColumnSpan="2" Text="Лучшие отели и жильё!"/>
-                    <Button Content="Войти" Foreground ="#ffffff" Background="#371f60" Margin="358.333,21,0,0" FontSize="15" VerticalAlignment="Top" Grid.Column="1" Click="Button_Transition_Auth_Click" BorderBrush="{x:Null}" Height="29">
-                        <Button.Style>
-                            <Style TargetType="{x:Type Button}">
-                                <Setter Property="Background" Value="#371f60"/>
-                                <Setter Property="Template">
-                                    <Setter.Value>
-                                        <ControlTemplate TargetType="{x:Type Button}">
-                                            <Border Background="{TemplateBinding Background}" BorderBrush="#371f60" BorderThickness="1">
-                                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                                            </Border>
-                                        </ControlTemplate>
-                                    </Setter.Value>
-                                </Setter>
-                                <Style.Triggers>
-                                    <Trigger Property="IsMouseOver" Value="True">
-                                        <Setter Property="Background" Value="#ff5e5b"/>
-                                    </Trigger>
-                                </Style.Triggers>
-                            </Style>
-                        </Button.Style>
+                    <TextBlock Foreground="#371f60" FontSize="25" FontWeight="Bold" Margin="0,20,0,-20" Grid.ColumnSpan="2" Text="Best hotels"/>
+                    <TextBlock Foreground="#371f60" FontSize="25" FontWeight="Bold" Margin="0,50,0,-50" Grid.ColumnSpan="2" Text="And"/>
+                    <TextBlock Foreground="#371f60" FontSize="25" FontWeight="Bold" Margin="0,80,0,-80" Grid.ColumnSpan="2" Text="Accommodation!"/>
+                    <Button Content="Enter" FontWeight="Bold" Foreground="White" Background="#371f60" Margin="354.333,20,0,0" 
+                            FontSize="15" VerticalAlignment="Top" Grid.Column="1" Click="Button_Transition_Auth_Click" BorderBrush="{x:Null}" Height="30">
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+                                <Border
+                BorderBrush="{TemplateBinding BorderBrush}"
+                BorderThickness="{TemplateBinding BorderThickness}"
+                Height="{TemplateBinding Height}"
+                Width="{TemplateBinding Width}">
+                                    <Border.Background>
+                                        <SolidColorBrush x:Name="BorderColor" Color="#371f60" />
+                                    </Border.Background>
+                                    <ContentControl Margin="{TemplateBinding Padding}"
+                    HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                    VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                    Content="{TemplateBinding Content}" />
+                                    <VisualStateManager.VisualStateGroups>
+                                        <VisualStateGroup Name="CommonStates">
+                                            <VisualState Name="MouseOver">
+                                                <Storyboard>
+                                                    <ColorAnimation Storyboard.TargetName="BorderColor"
+                                    Storyboard.TargetProperty="Color" To="#ff5e5b" />
+                                                </Storyboard>
+                                            </VisualState>
+                                            <VisualState Name="Normal">
+                                                <Storyboard>
+                                                    <ColorAnimation Storyboard.TargetName="BorderColor"
+                                    Storyboard.TargetProperty="Color" To="#371f60" />
+                                                </Storyboard>
+                                            </VisualState>
+                                        </VisualStateGroup>
+                                    </VisualStateManager.VisualStateGroups>
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
                     </Button>
-                    <TextBox x:Name ="textBoxLogin" Foreground="#371f60" FontSize="15" materialDesign:HintAssist.Hint="Введите Логин" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0,119,0,-69" Grid.ColumnSpan="2" />
-                    <PasswordBox x:Name ="passwordBox" Foreground="#371f60" FontSize="15" materialDesign:HintAssist.Hint="Введите Пароль" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" Margin="0,165,0,-116" Grid.ColumnSpan="2" />
-                    <PasswordBox x:Name ="passwordRepeatBox" Foreground="#371f60" FontSize="15" materialDesign:HintAssist.Hint="Повторите Пароль" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" Margin="0,213,0,-162" Grid.ColumnSpan="2" />
-                    <TextBox x:Name ="textBoxEmail" Foreground="#371f60" FontSize="15" materialDesign:HintAssist.Hint="Введите email" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0,260,0,-209" Grid.ColumnSpan="2" />
-                    <Button Background="#371f60" Foreground ="#ffffff" Content="Зарегистрироваться" FontSize="15" Margin="0,346,0,-284" Click="Button_Reg_Click" Grid.ColumnSpan="2"  BorderBrush="{x:Null}">
-                        <Button.Style>
-                            <Style TargetType="{x:Type Button}">
-                                <Setter Property="Background" Value="#371f60"/>
-                                <Setter Property="Template">
-                                    <Setter.Value>
-                                        <ControlTemplate TargetType="{x:Type Button}">
-                                            <Border Background="{TemplateBinding Background}" BorderBrush="#371f60" BorderThickness="1">
-                                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                                            </Border>
-                                        </ControlTemplate>
-                                    </Setter.Value>
-                                </Setter>
-                                <Style.Triggers>
-                                    <Trigger Property="IsMouseOver" Value="True">
-                                        <Setter Property="Background" Value="#ff5e5b"/>
-                                    </Trigger>
-                                </Style.Triggers>
-                            </Style>
-                        </Button.Style>
+                    <TextBox FontWeight="Bold" x:Name ="textBoxLogin" Foreground="#371f60" FontSize="15" materialDesign:HintAssist.Hint="Enter login"
+                             Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0,119,0,-69" Grid.ColumnSpan="2" />
+                    <PasswordBox FontWeight="Bold" x:Name ="passwordBox" Foreground="#371f60" FontSize="15" materialDesign:HintAssist.Hint="Enter password" 
+                                 Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" Margin="0,165,0,-116" Grid.ColumnSpan="2" />
+                    <PasswordBox FontWeight="Bold" x:Name ="passwordRepeatBox" Foreground="#371f60" FontSize="15" 
+                                 materialDesign:HintAssist.Hint="Repeat password" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" 
+                                 Margin="0,213,0,-162" Grid.ColumnSpan="2" />
+                    <TextBox FontWeight="Bold" x:Name ="textBoxEmail" Foreground="#371f60" FontSize="15" 
+                             materialDesign:HintAssist.Hint="Enter email" Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                             Margin="0,260,0,-209" Grid.ColumnSpan="2" />
+                    <Button Background="#371f60" Foreground="White" FontWeight="Bold" Content="Register" FontSize="15" 
+                            Margin="0,346,0,-284" Click="Button_Reg_Click" Grid.ColumnSpan="2"  BorderBrush="{x:Null}">
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+                                <Border
+                BorderBrush="{TemplateBinding BorderBrush}"
+                BorderThickness="{TemplateBinding BorderThickness}"
+                Height="{TemplateBinding Height}"
+                Width="{TemplateBinding Width}">
+                                    <Border.Background>
+                                        <SolidColorBrush x:Name="BorderColor" Color="#371f60" />
+                                    </Border.Background>
+                                    <ContentControl Margin="{TemplateBinding Padding}"
+                    HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                    VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                    Content="{TemplateBinding Content}" />
+                                    <VisualStateManager.VisualStateGroups>
+                                        <VisualStateGroup Name="CommonStates">
+                                            <VisualState Name="MouseOver">
+                                                <Storyboard>
+                                                    <ColorAnimation Storyboard.TargetName="BorderColor"
+                                    Storyboard.TargetProperty="Color" To="#ff5e5b" />
+                                                </Storyboard>
+                                            </VisualState>
+                                            <VisualState Name="Normal">
+                                                <Storyboard>
+                                                    <ColorAnimation Storyboard.TargetName="BorderColor"
+                                    Storyboard.TargetProperty="Color" To="#371f60" />
+                                                </Storyboard>
+                                            </VisualState>
+                                        </VisualStateGroup>
+                                    </VisualStateManager.VisualStateGroups>
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
                     </Button>
                 </Grid>
             </StackPanel>
