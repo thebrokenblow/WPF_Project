@@ -8,7 +8,7 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         Title="Окно регистрации" Height="600" Width="1000">
     <Grid Background="#ffdadada">
-        <Border MinHeight="400" Margin="0 0 0 0" Background="White" VerticalAlignment="Center" Padding="30" MaxWidth="550" CornerRadius="20" Height="400">
+        <Border MinHeight="450" Margin="0 0 0 0" Background="White" VerticalAlignment="Center" Padding="30" MaxWidth="700" CornerRadius="20" Height="400">
             <Border.Effect>
                 <DropShadowEffect BlurRadius="30" Color="LightGray" ShadowDepth="0"/>
             </Border.Effect>
@@ -18,13 +18,53 @@
                         <ColumnDefinition Width="123*"/>
                         <ColumnDefinition Width="367*"/>
                     </Grid.ColumnDefinitions>
-                    <TextBlock FontSize="25" FontWeight="Bold" Margin="0,21,0,-21" Grid.ColumnSpan="2" Text="Лучшие отели и жильё!"/>
-                    <Button Content="Войти" Margin="285.667,21,0,0" VerticalAlignment="Top" Grid.Column="1" Click="Button_Transition_Auth_Click"/>
-                    <TextBox x:Name ="textBoxLogin" materialDesign:HintAssist.Hint="Введите Логин" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0,87,0,-37" Grid.ColumnSpan="2" />
-                    <PasswordBox x:Name ="passwordBox" materialDesign:HintAssist.Hint="Введите Пароль" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" Margin="0,131,0,-82" Grid.ColumnSpan="2" />
-                    <PasswordBox x:Name ="passwordRepeatBox" materialDesign:HintAssist.Hint="Повторите Пароль" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" Margin="0,175,0,-124" Grid.ColumnSpan="2" />
-                    <TextBox x:Name ="textBoxEmail" materialDesign:HintAssist.Hint="Введите email" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0,218,0,-167" Grid.ColumnSpan="2" />
-                    <Button Content="Зарегистрироваться" Margin="0,290,0,-228" Click="Button_Reg_Click" Grid.ColumnSpan="2"/>
+                    <TextBlock Foreground="#371f60" FontSize="25" FontWeight="Bold" Margin="0,21,0,-21" Grid.ColumnSpan="2" Text="Лучшие отели и жильё!"/>
+                    <Button Content="Войти" Foreground ="#ffffff" Background="#371f60" Margin="358.333,21,0,0" FontSize="15" VerticalAlignment="Top" Grid.Column="1" Click="Button_Transition_Auth_Click" BorderBrush="{x:Null}" Height="29">
+                        <Button.Style>
+                            <Style TargetType="{x:Type Button}">
+                                <Setter Property="Background" Value="#371f60"/>
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="{x:Type Button}">
+                                            <Border Background="{TemplateBinding Background}" BorderBrush="#371f60" BorderThickness="1">
+                                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                            </Border>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="#ff5e5b"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                    </Button>
+                    <TextBox x:Name ="textBoxLogin" Foreground="#371f60" FontSize="15" materialDesign:HintAssist.Hint="Введите Логин" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0,119,0,-69" Grid.ColumnSpan="2" />
+                    <PasswordBox x:Name ="passwordBox" Foreground="#371f60" FontSize="15" materialDesign:HintAssist.Hint="Введите Пароль" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" Margin="0,165,0,-116" Grid.ColumnSpan="2" />
+                    <PasswordBox x:Name ="passwordRepeatBox" Foreground="#371f60" FontSize="15" materialDesign:HintAssist.Hint="Повторите Пароль" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" Margin="0,213,0,-162" Grid.ColumnSpan="2" />
+                    <TextBox x:Name ="textBoxEmail" Foreground="#371f60" FontSize="15" materialDesign:HintAssist.Hint="Введите email" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0,260,0,-209" Grid.ColumnSpan="2" />
+                    <Button Background="#371f60" Foreground ="#ffffff" Content="Зарегистрироваться" FontSize="15" Margin="0,346,0,-284" Click="Button_Reg_Click" Grid.ColumnSpan="2"  BorderBrush="{x:Null}">
+                        <Button.Style>
+                            <Style TargetType="{x:Type Button}">
+                                <Setter Property="Background" Value="#371f60"/>
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="{x:Type Button}">
+                                            <Border Background="{TemplateBinding Background}" BorderBrush="#371f60" BorderThickness="1">
+                                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                            </Border>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="#ff5e5b"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                    </Button>
                 </Grid>
             </StackPanel>
         </Border>

@@ -20,7 +20,6 @@ namespace WPF_Project
         {
             InitializeComponent();
         }
-
         private void Button_Auth_Click(object sender, RoutedEventArgs e)
         {
             string login = textBoxLogin.Text.Trim(); //Trim - удаляет пробелы слева и справа

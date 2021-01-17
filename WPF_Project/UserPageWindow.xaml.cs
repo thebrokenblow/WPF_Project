@@ -14,14 +14,11 @@ using System.Windows.Shapes;
 
 namespace WPF_Project
 {
-    /// <summary>
-    /// Логика взаимодействия для UserPageWindow.xaml
-    /// </summary>
     public partial class UserPageWindow : Window
     {
         public UserPageWindow()
         {
-            InitializeComponent();
+             InitializeComponent();
         }
     }
 }

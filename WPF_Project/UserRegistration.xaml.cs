@@ -15,7 +15,6 @@ using System.Windows.Shapes;
 
 namespace WPF_Project
 {
-
     public partial class MainWindow : Window
     {
         ApplicationContext db; //Сылка на каш класс, для работы с базой данных
@@ -26,65 +25,64 @@ namespace WPF_Project
         }
         private void Button_Reg_Click(object sender, RoutedEventArgs e)
         {
+            //string login = textBoxLogin.Text.Trim(); //Trim - удаляет пробелы слева и справа
+            //string password = passwordBox.Password.Trim();
+            //string passwordRepeat = passwordRepeatBox.Password.Trim();
+            //string email = textBoxEmail.Text.Trim().ToLower(); //ToLower - перевод в нижний регист символы
 
-            string login = textBoxLogin.Text.Trim(); //Trim - удаляет пробелы слева и справа
-            string password = passwordBox.Password.Trim();
-            string passwordRepeat = passwordRepeatBox.Password.Trim();
-            string email = textBoxEmail.Text.Trim().ToLower(); //ToLower - перевод в нижний регист символы
-
-            if (login.Length <= 5)
+            //if (login.Length <= 5)
             {
-                textBoxLogin.ToolTip = "Слишком короткий логин, введите больше 5 символов";   //ToolTip - подсказка    
-                textBoxLogin.Background = Brushes.Red;
+                //  textBoxLogin.ToolTip = "Слишком короткий логин, введите больше 5 символов"; //ToolTip - подсказка    
+                //textBoxLogin.Background = Brushes.Red;
             }
-            else
+            //else
             {
-                textBoxLogin.Background = Brushes.Transparent;
-                textBoxLogin.ToolTip = null;
+                //  textBoxLogin.Background = Brushes.Transparent;
+                // textBoxLogin.ToolTip = null;
             }
-            if (password.Length <= 5)
+            //if (password.Length <= 5)
             {
-                passwordBox.ToolTip = "Слишком короткий пароль, введите больше 5 символов";
-                passwordBox.Background = Brushes.Red;
+                //  passwordBox.ToolTip = "Слишком короткий пароль, введите больше 5 символов";
+                //passwordBox.Background = Brushes.Red;
             }
-            else
+            //else
             {
-                passwordBox.Background = Brushes.Transparent;
-                passwordBox.ToolTip = null;
+                //  passwordBox.Background = Brushes.Transparent;
+                //passwordBox.ToolTip = null;
             }
-            if (password != passwordRepeat)
+            //if (password != passwordRepeat)
             {
-                passwordRepeatBox.ToolTip = "Пароли не совпадают";
-                passwordRepeatBox.Background = Brushes.Red;
+                //  passwordRepeatBox.ToolTip = "Пароли не совпадают";
+                // passwordRepeatBox.Background = Brushes.Red;
+                //}
+                //else
+                //{
+                //passwordRepeatBox.Background = Brushes.Transparent;
+                // passwordRepeatBox.ToolTip = null;
+                //}
+                //if (email.Length <= 5 || !email.Contains("@") || !email.Contains("."))
+                //{
+                //textBoxEmail.ToolTip = "Это поле введено некорректно";
+                //textBoxEmail.Background = Brushes.Red;
+                //}
+                //else
+                //{
+                //textBoxEmail.Background = Brushes.Transparent;
+                //textBoxEmail.ToolTip = null;
+                //}
+                //User user = new User(login, password, email); //Выделение памяти под новую запись в базе данных
+                //db.Users.Add(user); //Добавление новой записи в базу данных
+                //db.SaveChanges(); //Сохраняем новую запись в базу данных
+                UserPageWindow userPageWindow = new UserPageWindow(); //Создание новго объекта userPageWindow и выделение под него память
+                userPageWindow.Show(); //Отображение страницы, которая находится в объекте userPageWindow (Окно UserPageWindow (Личный кабинет))
+                Hide(); //Убрать нынешнее окно
             }
-            else
+            //private void Button_Transition_Auth_Click(object sender, RoutedEventArgs e) //Метод перехода к окну "Авторизация"
             {
-                passwordRepeatBox.Background = Brushes.Transparent;
-                passwordRepeatBox.ToolTip = null;
+                Window1 userAuth = new Window1(); //Создание новго объекта userAuth и выделение под него память
+                userAuth.Show(); //Отображение страницы, которая находится в объекте userAuth (Окно Window1 (Авторизация пользователя))
+                Hide(); //Убрать нынешнее окно
             }
-            if (email.Length <= 5 || !email.Contains("@") || !email.Contains("."))
-            {
-                textBoxEmail.ToolTip = "Это поле введено некорректно";
-                textBoxEmail.Background = Brushes.Red;
-            }
-            else
-            {
-                textBoxEmail.Background = Brushes.Transparent;
-                textBoxEmail.ToolTip = null;
-            }
-            User user = new User(login, password, email); //Выделение памяти под новую запись в базе данных
-            db.Users.Add(user); //Добавление новой записи в базу данных
-            db.SaveChanges(); //Сохраняем новую запись в базу данных
-            UserPageWindow userPageWindow = new UserPageWindow(); //Создание новго объекта userPageWindow и выделение под него память
-            userPageWindow.Show(); //Отображение страницы, которая находится в объекте userPageWindow (Окно UserPageWindow (Личный кабинет))
-            Hide(); //Убрать нынешнее окно
-        }
-
-        private void Button_Transition_Auth_Click(object sender, RoutedEventArgs e) //Метод перехода к окну "Авторизация"
-        {
-            Window1 userAuth = new Window1(); //Создание новго объекта userAuth и выделение под него память
-            userAuth.Show(); //Отображение страницы, которая находится в объекте userAuth (Окно Window1 (Авторизация пользователя))
-            Hide(); //Убрать нынешнее окно
         }
     }
 }
