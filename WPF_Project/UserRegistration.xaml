@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:WPF_Project"
         mc:Ignorable="d"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        Title="Окно регистрации" Height="600" Width="1000">
+        Title="The registration window" Height="600" Width="1000">
     <Grid Background="#371f60">
         <Border MinHeight="450" Margin="0 0 0 0" Background="White" VerticalAlignment="Center" Padding="30" MaxWidth="700" CornerRadius="20" Height="400">
             <Border.Effect>
@@ -21,8 +21,8 @@
                     <TextBlock Foreground="#371f60" FontSize="25" FontWeight="Bold" Margin="0,20,0,-20" Grid.ColumnSpan="2" Text="Best hotels"/>
                     <TextBlock Foreground="#371f60" FontSize="25" FontWeight="Bold" Margin="0,50,0,-50" Grid.ColumnSpan="2" Text="And"/>
                     <TextBlock Foreground="#371f60" FontSize="25" FontWeight="Bold" Margin="0,80,0,-80" Grid.ColumnSpan="2" Text="Accommodation!"/>
-                    <Button Content="Enter" FontWeight="Bold" Foreground="White" Background="#371f60" Margin="354.333,20,0,0" 
-                            FontSize="15" VerticalAlignment="Top" Grid.Column="1" Click="Button_Transition_Auth_Click" BorderBrush="{x:Null}" Height="30">
+                    <Button Content="Enter" FontWeight="Bold" Foreground="White" Background="#371f60" Margin="336.333,18,0,0" 
+                            FontSize="15" VerticalAlignment="Top" Grid.Column="1" Click="Button_Transition_Auth_Click" BorderBrush="{x:Null}" Height="40">
                         <Button.Template>
                             <ControlTemplate TargetType="Button">
                                 <Border

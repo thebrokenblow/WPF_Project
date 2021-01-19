@@ -27,45 +27,47 @@ namespace WPF_Project
 
             if (login.Length <= 5)
             {
-                textBoxLogin.ToolTip = "Слишком короткий логин, введите больше 5 символов";   //ToolTip - подсказка    
-                textBoxLogin.Background = Brushes.Red;
+                textBoxLogin.ToolTip = "The login is too short, enter more than 5 characters.";   //ToolTip - подсказка  
+                var backgroundColor = new BrushConverter();
+                textBoxLogin.Background = (Brush)backgroundColor.ConvertFrom("#ff5e5b");
             }
             else
             {
                 textBoxLogin.Background = Brushes.Transparent;
                 textBoxLogin.ToolTip = null;
+                if (password.Length <= 5)
+                {
+                    passwordBox.ToolTip = "The password is too short, enter more than 5 characters.";
+                    var backgroundColor = new BrushConverter();
+                    passwordBox.Background = (Brush)backgroundColor.ConvertFrom("#ff5e5b");
+                }
+                else
+                {
+                    passwordBox.Background = Brushes.Transparent;
+                    passwordBox.ToolTip = null;
+                    User authUser = null; //Объект для работы с базой данных
+                                          //using - Зактрытое окружение для подключения к базе данных
+                                          //ApplicationContext conte = new ApplicationContext() - 
+                                          //Создание оьъектра и выделение под него память
+                                          //db - пременная для обращенияе к базе данных (db - DataBase) 
+                    using (ApplicationContext db = new ApplicationContext())
+                    {
+                        //check => check.Login == login && check.Password == password - создание переменной check, 
+                        //которая будет проверять, есть ли login и password 
+                        //в базе данных, которые ввёл пользователь
+                        //FirstOrDefault() - метод, который находите первую найденную запись, либо ничего
+                        authUser = db.Users.Where(check => check.Login == login && check.Password == password).FirstOrDefault();
+                    }
+                    if (authUser != null)
+                    {
+                        UserPageWindow userPageWindow = new UserPageWindow(); //Создание новго объекта userPageWindow и выделение под него память
+                        userPageWindow.Show(); //Отображение страницы, которая находится в объекте userPageWindow (Окно userPageWindow (Личный кабинет)) 
+                        Hide(); //Убрать нынешнее окно
+                    }
+                    else
+                        errorBox.Text = "Make sure the login and password you entered is correct.";
+                }
             }
-            if (password.Length <= 5)
-            {
-                passwordBox.ToolTip = "Слишком короткий пароль, введите больше 5 символов";
-                passwordBox.Background = Brushes.Red;
-            }
-            else
-            {
-                passwordBox.Background = Brushes.Transparent;
-                passwordBox.ToolTip = null;
-
-            }
-            User authUser = null; //Объект для работы с базой данных
-            //using - Зактрытое окружение для подключения к базе данных
-            //ApplicationContext conte = new ApplicationContext() - Создание оьъектра и выделение под него память
-            //db - пременная для обращенияе к базе данных (db - DataBase) 
-            using (ApplicationContext db = new ApplicationContext()) 
-            {
-                //check => check.Login == login && check.Password == password - создание переменной check, 
-                //которая будет проверять, есть ли login и password 
-                //в базе данных, которые ввёл пользователь
-                //FirstOrDefault() - метод, который находите первую найденную запись, либо ничего
-                authUser = db.Users.Where(check => check.Login == login && check.Password == password).FirstOrDefault();
-            }
-            if (authUser != null)
-            {
-                UserPageWindow userPageWindow = new UserPageWindow(); //Создание новго объекта userPageWindow и выделение под него память
-                userPageWindow.Show(); //Отображение страницы, которая находится в объекте userPageWindow (Окно userPageWindow (Личный кабинет)) 
-                Hide(); //Убрать нынешнее окно
-            }
-            else
-                MessageBox.Show("Вы не вошли");
         }
         private void Button_Transition_Reg_Click(object sender, RoutedEventArgs e) //Метод перехода к окну "Регистрация пользователя"
         {

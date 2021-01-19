@@ -6,9 +6,9 @@
         xmlns:local="clr-namespace:WPF_Project"
         mc:Ignorable="d"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        Title="Окно входа" Height="500" Width="850">
-    <Grid Background="#ffdadada">
-        <Border MinHeight="300" MaxHeight="350" MinWidth="500" MaxWidth="550" Margin="0 82 0 85" Background="White" VerticalAlignment="Center" Padding="30" CornerRadius="20">
+        Title="The auth window" Height="600" Width="1000">
+    <Grid Background="#371f60">
+        <Border MinHeight="300" Margin="0,60,0.333,56.667" Background="White" VerticalAlignment="Center" Padding="30" MaxWidth="650" CornerRadius="20" Height="300">
             <Border.Effect>
                 <DropShadowEffect BlurRadius="30" Color="LightGray" ShadowDepth="0"/>
             </Border.Effect>
@@ -18,13 +18,87 @@
                         <ColumnDefinition Width="123*"/>
                         <ColumnDefinition Width="367*"/>
                     </Grid.ColumnDefinitions>
-                    <TextBlock FontSize="25" FontWeight="Bold" Margin="0,21,0,-21" Grid.ColumnSpan="2" Text="Авторизация"/>
-                    <Button Content="Регистрация" Margin="233.667,21,0,0" VerticalAlignment="Top" Grid.Column="1" Click="Button_Transition_Reg_Click"/>
-                    <TextBox x:Name ="textBoxLogin" materialDesign:HintAssist.Hint="Введите Логин" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0,79,0,-29" Grid.ColumnSpan="2" />
-                    <PasswordBox x:Name ="passwordBox" materialDesign:HintAssist.Hint="Введите Пароль" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" Margin="0,123,0,-74" Grid.ColumnSpan="2" />
-                    <Button Content="Войти в кабинет" Margin="0,208,0,-146" Click="Button_Auth_Click" Grid.ColumnSpan="2"/>
+                    <TextBlock FontSize="25" FontWeight="Bold" Foreground="#371f60" Margin="0,0,0,0" Grid.ColumnSpan="2" Text="The auth"/>
+                    <Button Content="Register" FontSize="15" Foreground="White" FontWeight="Bold" 
+                            Margin="291.333,1,0,0" VerticalAlignment="Top" Grid.Column="1" BorderBrush="{x:Null}" 
+                            Height="40" Click="Button_Transition_Reg_Click">
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+                                <Border
+                BorderBrush="{TemplateBinding BorderBrush}"
+                BorderThickness="{TemplateBinding BorderThickness}"
+                Height="{TemplateBinding Height}"
+                Width="{TemplateBinding Width}">
+                                    <Border.Background>
+                                        <SolidColorBrush x:Name="BorderColor" Color="#371f60" />
+                                    </Border.Background>
+                                    <ContentControl Margin="{TemplateBinding Padding}"
+                    HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                    VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                    Content="{TemplateBinding Content}" />
+                                    <VisualStateManager.VisualStateGroups>
+                                        <VisualStateGroup Name="CommonStates">
+                                            <VisualState Name="MouseOver">
+                                                <Storyboard>
+                                                    <ColorAnimation Storyboard.TargetName="BorderColor"
+                                    Storyboard.TargetProperty="Color" To="#ff5e5b" />
+                                                </Storyboard>
+                                            </VisualState>
+                                            <VisualState Name="Normal">
+                                                <Storyboard>
+                                                    <ColorAnimation Storyboard.TargetName="BorderColor"
+                                    Storyboard.TargetProperty="Color" To="#371f60" />
+                                                </Storyboard>
+                                            </VisualState>
+                                        </VisualStateGroup>
+                                    </VisualStateManager.VisualStateGroups>
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
+                    <TextBox x:Name ="textBoxLogin" Foreground="#371f60" materialDesign:HintAssist.Hint="Enter login" FontWeight="Bold"
+                             Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0,53,0,-3.667" Grid.ColumnSpan="2" />
+                    <PasswordBox x:Name ="passwordBox" Foreground="#371f60" materialDesign:HintAssist.Hint="Enter password" FontWeight="Bold"
+                             Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" Margin="0,97,0,-48.667" Grid.ColumnSpan="2" />
+                    <Button Background="#371f60" Foreground="White" FontWeight="Bold" Content="Enter" FontSize="15" 
+                            Margin="0,194,0,-131.333" Grid.ColumnSpan="2" Click="Button_Auth_Click" BorderBrush="{x:Null}">
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+                                <Border
+                BorderBrush="{TemplateBinding BorderBrush}"
+                BorderThickness="{TemplateBinding BorderThickness}"
+                Height="{TemplateBinding Height}"
+                Width="{TemplateBinding Width}">
+                                    <Border.Background>
+                                        <SolidColorBrush x:Name="BorderColor" Color="#371f60" />
+                                    </Border.Background>
+                                    <ContentControl Margin="{TemplateBinding Padding}"
+                    HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                    VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                    Content="{TemplateBinding Content}" />
+                                    <VisualStateManager.VisualStateGroups>
+                                        <VisualStateGroup Name="CommonStates">
+                                            <VisualState Name="MouseOver">
+                                                <Storyboard>
+                                                    <ColorAnimation Storyboard.TargetName="BorderColor"
+                                    Storyboard.TargetProperty="Color" To="#ff5e5b" />
+                                                </Storyboard>
+                                            </VisualState>
+                                            <VisualState Name="Normal">
+                                                <Storyboard>
+                                                    <ColorAnimation Storyboard.TargetName="BorderColor"
+                                    Storyboard.TargetProperty="Color" To="#371f60" />
+                                                </Storyboard>
+                                            </VisualState>
+                                        </VisualStateGroup>
+                                    </VisualStateManager.VisualStateGroups>
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
                 </Grid>
             </StackPanel>
         </Border>
+        <TextBlock x:Name="errorBox" Text="" Foreground="#ff5e5b" FontSize="15" FontWeight="Bold" HorizontalAlignment="Left" Margin="203,324,0,0" VerticalAlignment="Top" Height="29" Width="439"/>
     </Grid>
 </Window>
