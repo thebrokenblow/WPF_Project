@@ -75,11 +75,18 @@
     <Compile Include="HotelSearch.xaml.cs">
       <DependentUpon>HotelSearch.xaml</DependentUpon>
     </Compile>
+    <Compile Include="test.xaml.cs">
+      <DependentUpon>test.xaml</DependentUpon>
+    </Compile>
     <Compile Include="User.cs" />
     <Compile Include="UserAuth.xaml.cs">
       <DependentUpon>UserAuth.xaml</DependentUpon>
     </Compile>
     <Page Include="HotelSearch.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="test.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

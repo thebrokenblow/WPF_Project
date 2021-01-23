@@ -53,3 +53,5 @@ C:\Users\User\Desktop\WPF\WPF_Project\WPF_Project\obj\Debug\UserPageWindow.g.cs
 C:\Users\User\Desktop\WPF\WPF_Project\WPF_Project\obj\Debug\UserPageWindow.baml
 C:\Users\User\Desktop\WPF\WPF_Project\WPF_Project\obj\Debug\HotelSearch.g.cs
 C:\Users\User\Desktop\WPF\WPF_Project\WPF_Project\obj\Debug\HotelSearch.baml
+C:\Users\User\Desktop\WPF\WPF_Project\WPF_Project\obj\Debug\test.g.cs
+C:\Users\User\Desktop\WPF\WPF_Project\WPF_Project\obj\Debug\test.baml

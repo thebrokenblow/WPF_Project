@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Media.Animation; //Библиотека для анимации
 
 namespace WPF_Project
 {
@@ -22,6 +23,11 @@ namespace WPF_Project
         {
             InitializeComponent();
             db = new ApplicationContext();
+            /*DoubleAnimation regButtonAnimation = new DoubleAnimation();
+                regButtonAnimation.From = 0;
+                regButtonAnimation.From = 500;
+                regButtonAnimation.Duration = TimeSpan.FromSeconds(3);
+                regButton.BeginAnimation(Button.WidthProperty, regButtonAnimation); */
         }
         private void Button_Reg_Click(object sender, RoutedEventArgs e)
         {
@@ -73,8 +79,8 @@ namespace WPF_Project
                             User user = new User(login, password, email); //Выделение памяти под новую запись в базе данных
                             db.Users.Add(user); //Добавление новой записи в базу данных
                             db.SaveChanges(); //Сохраняем новую запись в базу данных
-                            UserPageWindow userPageWindow = new UserPageWindow(); //Создание новго объекта userPageWindow и выделение под него память
-                            userPageWindow.Show(); //Отображение страницы, которая находится в объекте userPageWindow (Окно UserPageWindow (Личный кабинет))
+                            HotelSearch hotelSearch = new HotelSearch(); //Создание новго объекта userPageWindow и выделение под него память
+                            hotelSearch.Show(); //Отображение страницы, которая находится в объекте userPageWindow (Окно UserPageWindow (Личный кабинет))
                             Hide(); //Убрать нынешнее окно
                         }
                     }

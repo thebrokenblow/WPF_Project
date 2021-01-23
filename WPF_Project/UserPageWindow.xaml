@@ -6,60 +6,7 @@
         xmlns:local="clr-namespace:WPF_Project"
         mc:Ignorable="d"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        Title="Hotel search" Height="600" Width="1000">
+        Title="User page" Height="600" Width="1000">
     <Grid Background="#371f60">
-        <Border MinHeight="450" Margin="0 0 0 0" Background="White" VerticalAlignment="Center" Padding="30" MaxWidth="700" CornerRadius="20" Height="400">
-            <Border.Effect>
-                <DropShadowEffect BlurRadius="30" Color="LightGray" ShadowDepth="0"/>
-            </Border.Effect>
-            <StackPanel>
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="123*"/>
-                        <ColumnDefinition Width="367*"/>
-                    </Grid.ColumnDefinitions>
-                    <Button Content="Personal account" FontWeight="Bold" Foreground="White" Background="#371f60" Margin="359.333,-10,-10,-14" 
-                            FontSize="10" VerticalAlignment="Top" Grid.Column="1" BorderBrush="{x:Null}" Height="40">
-                        <Button.Template>
-                            <ControlTemplate TargetType="Button">
-                                <Border
-                BorderBrush="{TemplateBinding BorderBrush}"
-                BorderThickness="{TemplateBinding BorderThickness}"
-                Height="{TemplateBinding Height}"
-                Width="{TemplateBinding Width}">
-                                    <Border.Background>
-                                        <SolidColorBrush x:Name="BorderColor" Color="#371f60" />
-                                    </Border.Background>
-                                    <ContentControl Margin="{TemplateBinding Padding}"
-                    HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                    VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                    Content="{TemplateBinding Content}" />
-                                    <VisualStateManager.VisualStateGroups>
-                                        <VisualStateGroup Name="CommonStates">
-                                            <VisualState Name="MouseOver">
-                                                <Storyboard>
-                                                    <ColorAnimation Storyboard.TargetName="BorderColor"
-                                    Storyboard.TargetProperty="Color" To="#ff5e5b" />
-                                                </Storyboard>
-                                            </VisualState>
-                                            <VisualState Name="Normal">
-                                                <Storyboard>
-                                                    <ColorAnimation Storyboard.TargetName="BorderColor"
-                                    Storyboard.TargetProperty="Color" To="#371f60" />
-                                                </Storyboard>
-                                            </VisualState>
-                                        </VisualStateGroup>
-                                    </VisualStateManager.VisualStateGroups>
-                                </Border>
-                            </ControlTemplate>
-                        </Button.Template>
-                    </Button>
-                    <TextBox Foreground="#371f60" materialDesign:HintAssist.Hint="Where are you going?" FontWeight="Bold"
-                             Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0,25,479,24" Grid.ColumnSpan="2" />
-                    <TextBox Foreground="#371f60" materialDesign:HintAssist.Hint="Web, Jan 20 - Sun, Jan 24" FontWeight="Bold"
-                             Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="1.333,25,317,24" Grid.Column="1" />
-                </Grid>
-            </StackPanel>
-        </Border>
     </Grid>
 </Window>
