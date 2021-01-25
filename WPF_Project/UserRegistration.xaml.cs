@@ -22,12 +22,6 @@ namespace WPF_Project
         public MainWindow()
         {
             InitializeComponent();
-            db = new ApplicationContext();
-            /*DoubleAnimation regButtonAnimation = new DoubleAnimation();
-                regButtonAnimation.From = 0;
-                regButtonAnimation.From = 500;
-                regButtonAnimation.Duration = TimeSpan.FromSeconds(3);
-                regButton.BeginAnimation(Button.WidthProperty, regButtonAnimation); */
         }
         private void Button_Reg_Click(object sender, RoutedEventArgs e)
         {

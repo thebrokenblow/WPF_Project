@@ -7,11 +7,37 @@
         mc:Ignorable = "d"
         xmlns:materialDesign = "http://materialdesigninxaml.net/winfx/xaml/themes"
         Title = "Hotel search" Height = "600" Width = "1000">
+    <Window.Resources>
+        <Storyboard x:Key="CloseMenu">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" 
+                                           Storyboard.TargetName="GridMenu">
+                <EasingDoubleKeyFrame KeyTime="0" Value="250"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" 
+                                           Storyboard.TargetName="GridBackground">
+                <EasingDoubleKeyFrame KeyTime="0" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="OpenMenu">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" 
+                                           Storyboard.TargetName="GridMenu">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="250"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" 
+                                           Storyboard.TargetName="GridBackground">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+    </Window.Resources>
     <Window.Triggers>
         <EventTrigger RoutedEvent = "Loaded">
             <EventTrigger.Actions>
                 <BeginStoryboard>
-                    <Storyboard TargetProperty = "Width" TargetName = "enterButton">
+                    <Storyboard TargetProperty = "Width" TargetName = "personalAccountButton">
                         <DoubleAnimation From = "0" To = "130"
                                          AutoReverse = "True"
                                          RepeatBehavior = "0:0:1.5"
@@ -21,10 +47,21 @@
                 </BeginStoryboard>
             </EventTrigger.Actions>
         </EventTrigger>
+        <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="ButtonClose">
+            <BeginStoryboard x:Name="CloseMenu_BeginStoryboard" Storyboard="{StaticResource CloseMenu}"/>
+        </EventTrigger>
+        <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="ButtonOpen">
+            <BeginStoryboard Storyboard="{StaticResource OpenMenu}"/>
+        </EventTrigger>
     </Window.Triggers>
     <Grid Background = "#371f60">
-        <Border MinHeight = "450" Margin = "0 0 0 0" Background = "White" VerticalAlignment = "Center" Padding = "30" MaxWidth = "700" 
-                CornerRadius = "20" Height = "400">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="13*"/>
+            <RowDefinition Height="558*"/>
+        </Grid.RowDefinitions>
+        <Grid x:Name="GridBackground" Background = "#371f60" Margin="0,0,0.333,-0.333" Opacity="0" Grid.RowSpan="2"/>
+        <Border MinHeight = "450" Margin = "0,47,0.333,60.667" Background = "White" VerticalAlignment = "Center" Padding = "30" 
+                MaxWidth = "700" CornerRadius = "20" Height = "400" Grid.Row="1">
             <Border.Effect>
                 <DropShadowEffect BlurRadius = "30" Color = "LightGray" ShadowDepth = "0"/>
             </Border.Effect>
@@ -35,8 +72,9 @@
                         <ColumnDefinition Width = "367*"/>
                     </Grid.ColumnDefinitions>
                     <Button x:Name = "personalAccountButton" Content = "Personal account" FontWeight = "Bold" 
-                            Foreground = "White" Background = "#371f60" Margin = "359,-10,-10,-14" 
-                            FontSize = "11" VerticalAlignment = "Top" Grid.Column = "1" BorderBrush = "{x:Null}" Height = "40">
+                            Foreground = "White" Background = "#371f60" Margin = "353.333,-4,-4,-20" 
+                            FontSize = "11" VerticalAlignment = "Top" Grid.Column = "1" BorderBrush = "{x:Null}" Height = "40" 
+                            Click="personalAccountButton_Click">
                         <Button.Template>
                             <ControlTemplate TargetType="Button">
                                 <Border
@@ -71,14 +109,62 @@
                             </ControlTemplate>
                         </Button.Template>
                     </Button>
-                    <TextBox Foreground = "#371f60" materialDesign:HintAssist.Hint = "Where are you going?" FontWeight = "Bold"
-                            HorizontalContentAlignment = "Center"
-                            Style = "{StaticResource MaterialDesignFloatingHintTextBox}" Margin = "0,47,479,1.667" Grid.ColumnSpan = "2" />
-                    <TextBox Foreground = "#371f60" materialDesign:HintAssist.Hint = "Date" FontWeight = "Bold"
-                            HorizontalContentAlignment = "Center" 
-                            Style = "{StaticResource MaterialDesignFloatingHintTextBox}" Margin = "1 ,47,317,1.667" Grid.Column = "1" />
                 </Grid>
             </StackPanel>
         </Border>
+        <Button x:Name="ButtonOpen" HorizontalAlignment="Left" VerticalAlignment="Top" 
+                Background="{x:Null}" BorderBrush="{x:Null}" Width="50" Height="50" Padding="0" Grid.RowSpan="2">
+            <materialDesign:PackIcon Kind="Menu" Foreground="White" Height="25" Width="25"/>
+        </Button>
+        <Grid x:Name="GridMenu" Width="250" HorizontalAlignment="Left" Margin="-250,0,0,-0.333" Background="White" 
+              RenderTransformOrigin="0.5,0.5" Grid.RowSpan="2">
+            <Grid.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Grid.RenderTransform>
+            <StackPanel>
+                <Image Height="140" Source="Resources/mountains.jpg" Stretch="Fill"/>
+                <ListView Foreground="#371f60" FontFamily="Champagne &amp; Limousines" FontSize="18">
+                    <ListViewItem Height="45" Padding="0">
+                        <StackPanel Orientation="Horizontal" Margin="10 0">
+                            <materialDesign:PackIcon Kind="Language" Width="20" Height="20" Foreground="#371f60" Margin="5" VerticalAlignment="Center"/>
+                            <TextBlock Text="Language" Margin="10"/>
+                        </StackPanel>
+                    </ListViewItem>
+                    <ListViewItem Height="45" Padding="0">
+                        <StackPanel Orientation="Horizontal" Margin="10 0">
+                            <materialDesign:PackIcon Kind="HelpCircleOutline" Width="20" Height="20" Foreground="#371f60" Margin="5" VerticalAlignment="Center"/>
+                            <TextBlock Text="Help" Margin="10"/>
+                        </StackPanel>
+                    </ListViewItem>
+                    <ListViewItem Height="45" Padding="0">
+                        <StackPanel Orientation="Horizontal" Margin="10 0">
+                            <materialDesign:PackIcon Kind="Lightbulb" Width="20" Height="20" Foreground="#371f60" Margin="5" VerticalAlignment="Center"/>
+                            <TextBlock Text="Send Feedback" Margin="10"/>
+                        </StackPanel>
+                    </ListViewItem>
+                    <ListViewItem Height="45" Padding="0">
+                        <StackPanel Orientation="Horizontal" Margin="10 0">
+                            <materialDesign:PackIcon Kind="Heart" Width="20" Height="20" Foreground="#371f60" Margin="5" VerticalAlignment="Center"/>
+                            <TextBlock Text="Recommend" Margin="10"/>
+                        </StackPanel>
+                    </ListViewItem>
+                    <ListViewItem Height="45" Padding="0">
+                        <StackPanel Orientation="Horizontal" Margin="10 0">
+                            <materialDesign:PackIcon Kind="Settings" Width="20" Height="20" Foreground="#371f60" Margin="5" VerticalAlignment="Center"/>
+                            <TextBlock Text="Settings" Margin="10"/>
+                        </StackPanel>
+                    </ListViewItem>
+                </ListView>
+            </StackPanel>
+            <Button x:Name="ButtonClose" HorizontalAlignment="Right" VerticalAlignment="Top" Background="{x:Null}" 
+                    BorderBrush="{x:Null}" Width="40" Height="40" Padding="0">
+                <materialDesign:PackIcon Kind="Close"/>
+            </Button>
+        </Grid>
     </Grid>
 </Window>

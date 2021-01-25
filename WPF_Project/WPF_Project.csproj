@@ -75,8 +75,8 @@
     <Compile Include="HotelSearch.xaml.cs">
       <DependentUpon>HotelSearch.xaml</DependentUpon>
     </Compile>
-    <Compile Include="test.xaml.cs">
-      <DependentUpon>test.xaml</DependentUpon>
+    <Compile Include="PersonalAccount.xaml.cs">
+      <DependentUpon>PersonalAccount.xaml</DependentUpon>
     </Compile>
     <Compile Include="User.cs" />
     <Compile Include="UserAuth.xaml.cs">
@@ -86,7 +86,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="test.xaml">
+    <Page Include="PersonalAccount.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -142,6 +142,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="mountains.jpg" />
+    <Resource Include="Resources\mainPhoto.jpg" />
+    <Resource Include="Resources\mountains.jpg" />
     <Content Include="Users.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

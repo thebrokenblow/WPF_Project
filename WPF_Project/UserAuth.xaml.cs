@@ -60,8 +60,8 @@ namespace WPF_Project
                     }
                     if (authUser != null)
                     {
-                        UserPageWindow userPageWindow = new UserPageWindow(); //Создание новго объекта userPageWindow и выделение под него память
-                        userPageWindow.Show(); //Отображение страницы, которая находится в объекте userPageWindow (Окно userPageWindow (Личный кабинет)) 
+                        HotelSearch hotelSearch = new HotelSearch(); //Создание новго объекта hotelSearch и выделение под него память
+                        hotelSearch.Show(); //Отображение страницы, которая находится в объекте hotelSearch (Окно HotelSearch (Поиск отелей)) 
                         Hide(); //Убрать нынешнее окно
                     }
                     else

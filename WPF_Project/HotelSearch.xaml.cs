@@ -14,14 +14,17 @@ using System.Windows.Shapes;
 
 namespace WPF_Project
 {
-    /// <summary>
-    /// Логика взаимодействия для HotelSearch.xaml
-    /// </summary>
     public partial class HotelSearch : Window
     {
         public HotelSearch()
         {
-            InitializeComponent();
+            //InitializeComponent();
+        }
+        private void personalAccountButton_Click(object sender, RoutedEventArgs e)
+        {
+            PersonalAccount personalAccount = new PersonalAccount(); //Создание новго объекта personalAccount и выделение под него память
+            personalAccount.Show(); //Отображение страницы, которая находится в объекте personalAccount (Окно PersonalAccount (Личный кабинет))
+            Hide(); //Убрать нынешнее окно
         }
     }
 }
