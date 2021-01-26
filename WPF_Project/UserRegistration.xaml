@@ -101,7 +101,7 @@
                              materialDesign:HintAssist.Hint = "Enter email" Style = "{StaticResource MaterialDesignFloatingHintTextBox}" 
                              Margin = "0,260,0,-209" Grid.ColumnSpan = "2"/>
                     <Button x:Name = "regButton" Background = "#371f60" Foreground = "White" FontWeight = "Bold" Content = "Register" 
-                            FontSize ="15" Margin="0,348,0,-285" Click = "Button_Reg_Click" Grid.ColumnSpan = "2"  
+                            FontSize ="15" Margin="0,348,0,-285" IsDefault="True" Click = "Button_Reg_Click" Grid.ColumnSpan = "2"  
                             BorderBrush = "{x:Null}" Height = "Auto">
                         <Button.Template>
                             <ControlTemplate TargetType = "Button">

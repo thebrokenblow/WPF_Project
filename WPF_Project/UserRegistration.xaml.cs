@@ -18,61 +18,68 @@ namespace WPF_Project
 {
     public partial class MainWindow : Window
     {
-        ApplicationContext db; //Сылка на каш класс, для работы с базой данных
         public MainWindow()
         {
             InitializeComponent();
         }
         private void Button_Reg_Click(object sender, RoutedEventArgs e)
         {
-            string login = textBoxLogin.Text.Trim(); //Trim - удаляет пробелы слева и справа
-            string password = passwordBox.Password.Trim();
-            string passwordRepeat = passwordRepeatBox.Password.Trim();
-            string email = textBoxEmail.Text.Trim().ToLower(); //ToLower - перевод в нижний регист символы
+            string loginOfUser = textBoxLogin.Text.Trim(); //loginOfUser - логин, который вводит пользователь Trim - удаляет пробелы слева и справа
+            string passwordOfUser = passwordBox.Password.Trim(); //passwordOfUser - пароль, который вводит пользователь  
+            string passwordOfUserRepeat = passwordRepeatBox.Password.Trim(); //passwordOfUserRepeat - повторный пароль, который вводит пользователь
+            string emailOfUser = textBoxEmail.Text.Trim().ToLower(); //emailOfUser - email, который вводит пользователь ToLower - перевод в нижний регист символы
 
-            if (login.Length <= 5)
+            if (loginOfUser.Length <= 5) //Проверка на длину логина пользователя
             {
-                textBoxLogin.ToolTip = "The login is too short, enter more than 5 characters."; //ToolTip - подсказка    
-                var backgroundColor = new BrushConverter();
-                textBoxLogin.Background = (Brush)backgroundColor.ConvertFrom("#ff5e5b");
+                textBoxLogin.ToolTip = "The login is too short, enter more than 5 characters."; //ToolTip - подсказка при наведении на поле    
+                var backgroundColor = new BrushConverter(); //создание объекта на основе BrushConverter и выделением под него память 
+                textBoxLogin.Background = (Brush)backgroundColor.ConvertFrom("#ff5e5b"); //изменение задего фона при неправельных введённых данных
             }
             else
             {
                 textBoxLogin.Background = Brushes.Transparent; //Transparent - очищение заднего фона текстового блока
-                textBoxLogin.ToolTip = null;
-                if (password.Length <= 5)
+                textBoxLogin.ToolTip = null; //очищаем подсказку
+                if (passwordOfUser.Length <= 5)
                 {
                     passwordBox.ToolTip = "The password is too short, enter more than 5 characters.";
-                    var backgroundColor = new BrushConverter();
-                    textBoxLogin.Background = (Brush)backgroundColor.ConvertFrom("#ff5e5b");
+                    var backgroundColor = new BrushConverter(); //создание объекта на основе BrushConverter и выделением под него память 
+                    textBoxLogin.Background = (Brush)backgroundColor.ConvertFrom("#ff5e5b"); //изменение задего фона при неправельных введённых данных
                 }
                 else
                 {
-                    passwordBox.Background = Brushes.Transparent;
-                    passwordBox.ToolTip = null;
-                    if (password != passwordRepeat)
+                    passwordBox.Background = Brushes.Transparent; //Transparent - очищение заднего фона текстового блока
+                    passwordBox.ToolTip = null; //очищаем подсказку
+                    if (passwordOfUser != passwordOfUserRepeat)
                     {
                         passwordRepeatBox.ToolTip = "Passwords don't match.";
-                        var backgroundColor = new BrushConverter();
-                        passwordRepeatBox.Background = (Brush)backgroundColor.ConvertFrom("#ff5e5b");
+                        var backgroundColor = new BrushConverter(); //создание объекта на основе BrushConverter и выделением под него память 
+                        passwordRepeatBox.Background = (Brush)backgroundColor.ConvertFrom("#ff5e5b"); //изменение задего фона при неправельных введённых данных
                     }
                     else
                     {
-                        passwordRepeatBox.Background = Brushes.Transparent;
-                        passwordRepeatBox.ToolTip = null;
-                        if (email.Length <= 5 || !email.Contains("@") || !email.Contains("."))
+                        passwordRepeatBox.Background = Brushes.Transparent; //Transparent - очищение заднего фона текстового блока
+                        passwordRepeatBox.ToolTip = null; //очищаем подсказку
+                        if (emailOfUser.Length <= 5 || !emailOfUser.Contains("@") || !emailOfUser.Contains("."))
                         {
                             textBoxEmail.ToolTip = "Incorrectly entered email.";
-                            var backgroundColor = new BrushConverter();
-                            textBoxEmail.Background = (Brush)backgroundColor.ConvertFrom("#ff5e5b");
+                            var backgroundColor = new BrushConverter(); //создание объекта на основе BrushConverter и выделением под него память 
+                            textBoxEmail.Background = (Brush)backgroundColor.ConvertFrom("#ff5e5b"); //изменение задего фона при неправельных введённых данных
                         }
                         else
                         {
-                            textBoxEmail.Background = Brushes.Transparent;
-                            textBoxEmail.ToolTip = null;
-                            User user = new User(login, password, email); //Выделение памяти под новую запись в базе данных
-                            db.Users.Add(user); //Добавление новой записи в базу данных
-                            db.SaveChanges(); //Сохраняем новую запись в базу данных
+                            textBoxEmail.Background = Brushes.Transparent; //Transparent - очищение заднего фона текстового блока
+                            textBoxEmail.ToolTip = null; //очищаем подсказку
+                            using (var context = new ApplicationContext()) //Использование базы данных
+                            {                                              //и выделение памяти для context - переменная для добавление и сохранения информации в базу даннных
+                                var user = new User() //Выделение памяти для занесения информации в базу данных
+                                {
+                                    login = loginOfUser, //записываем в loginOfUser
+                                    password = passwordOfUser, //записываем в passwordOfUser
+                                    email = emailOfUser, //записываем emailOfUser
+                                };
+                                context.Users.Add(user); //Добавляем наши данные в базу данных
+                                context.SaveChanges(); //Сохраняем наши данные в базу данных
+                            }
                             HotelSearch hotelSearch = new HotelSearch(); //Создание новго объекта userPageWindow и выделение под него память
                             hotelSearch.Show(); //Отображение страницы, которая находится в объекте userPageWindow (Окно UserPageWindow (Личный кабинет))
                             Hide(); //Убрать нынешнее окно

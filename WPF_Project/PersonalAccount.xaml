@@ -53,7 +53,7 @@
                         <ColumnDefinition Width = "367*"/>
                     </Grid.ColumnDefinitions>
                     <Button x:Name = "exitButton" Content = "Exit" FontWeight = "Bold" Foreground = "White" Background = "#371f60" 
-                            Margin = "329.333,18,0,0" Click="Exit_Button_Click"
+                            Margin = "329.333,18,0,0" Click="Exit_Button_Click" IsCancel="True"
                             FontSize = "15" VerticalAlignment = "Top" Grid.Column = "1"
                             BorderBrush = "{x:Null}" Height = "35">
                         <Button.Template>
@@ -113,7 +113,7 @@
                             <ImageBrush ImageSource="Resources/mainPhoto.jpg" Stretch="UniformToFill"/>
                         </Ellipse.Fill>
                     </Ellipse>
-                    <Button x:Name = "saveChangesButton" Background = "#371f60" Foreground = "White" FontWeight = "Bold" Content = "Save changes" 
+                    <Button x:Name = "saveChangesButton" IsDefault="True" Background = "#371f60" Foreground = "White" FontWeight = "Bold" Content = "Save changes" 
                             FontSize ="15" Margin="0,348,0,-285" Grid.ColumnSpan = "2"  
                             BorderBrush = "{x:Null}" Height = "Auto">
                         <Button.Template>

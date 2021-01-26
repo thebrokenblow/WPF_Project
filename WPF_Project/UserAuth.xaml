@@ -47,7 +47,7 @@
                                Text = "The auth"/>
                     <Button x:Name = "regButton" Content = "Register" FontSize = "15" Foreground = "White" FontWeight = "Bold" 
                             Margin = "292,1,0,0" VerticalAlignment = "Top" Grid.Column = "1" BorderBrush = "{x:Null}" 
-                            Height = "35" Click = "Button_Transition_Reg_Click">
+                            Height = "35" Click = "Button_Transition_Reg_Click" IsCancel="True">
                         <Button.Template>
                             <ControlTemplate TargetType = "Button">
                                 <Border
@@ -87,7 +87,7 @@
                     <PasswordBox x:Name = "passwordBox" Foreground = "#371f60" materialDesign:HintAssist.Hint = "Enter password" FontWeight ="Bold"
                              Style = "{StaticResource MaterialDesignFloatingHintPasswordBox}" Margin = "0,97,0,-48.667" Grid.ColumnSpan = "2" />
                     <Button x:Name = "enterButton" Background = "#371f60" Foreground = "White" FontWeight = "Bold" Content = "Enter" FontSize = "15" 
-                            Height = "35" Margin = "0,194,0,-136.333" Grid.ColumnSpan = "2" Click = "Button_Auth_Click" BorderBrush = "{x:Null}">
+                            Height = "35" Margin = "0,194,0,-136.333" Grid.ColumnSpan = "2" IsDefault="True" Click = "Button_Auth_Click" BorderBrush = "{x:Null}">
                         <Button.Template>
                             <ControlTemplate TargetType = "Button">
                                 <Border

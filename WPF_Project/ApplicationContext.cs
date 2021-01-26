@@ -9,7 +9,7 @@ namespace WPF_Project
 {
     class ApplicationContext : DbContext
     {
-        public DbSet<User> Users { get; set; } //Использование базы данных
-        public ApplicationContext() : base("DefaultConnection") { } //Имя для подклучения к базы данных
+            public ApplicationContext() : base("DbConnectionString") { } // base("DbConnectionString") Имя для подклучения к базы данных
+            public DbSet<User> Users { get; set; } //Использование переменных в базе данных
     }
 }
