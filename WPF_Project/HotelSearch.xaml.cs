@@ -18,13 +18,17 @@ namespace WPF_Project
     {
         public HotelSearch()
         {
-            //InitializeComponent();
+            InitializeComponent();
         }
         private void personalAccountButton_Click(object sender, RoutedEventArgs e)
         {
             PersonalAccount personalAccount = new PersonalAccount(); //Создание новго объекта personalAccount и выделение под него память
             personalAccount.Show(); //Отображение страницы, которая находится в объекте personalAccount (Окно PersonalAccount (Личный кабинет))
             Hide(); //Убрать нынешнее окно
+        }
+        private void ListViewItem_Selected(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

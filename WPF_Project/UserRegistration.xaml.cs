@@ -94,5 +94,9 @@ namespace WPF_Project
             userAuth.Show(); //Отображение страницы, которая находится в объекте userAuth (Окно Window1 (Авторизация пользователя))
             Hide(); //Убрать нынешнее окно
         }
+
+        private void ListViewItem_Selected(object sender, RoutedEventArgs e)
+        {
+        }
     }
 }

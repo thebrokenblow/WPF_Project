@@ -75,5 +75,10 @@ namespace WPF_Project
             mainWindow.Show(); //Отображение страницы, которая находится в объекте mainWindow (Окно MainWindow (Регистрация пользователя))
             Hide(); //Убрать нынешнее окно
         }
+
+        private void ListViewItem_Selected(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

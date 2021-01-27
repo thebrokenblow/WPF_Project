@@ -27,5 +27,10 @@ namespace WPF_Project
             hotelSearch.Show(); //Отображение страницы, которая находится в объекте hotelSearch (Окно HotelSearch (Поиск отелей)) 
             Hide(); //Убрать нынешнее окно
         }
+
+        private void ListViewItem_Selected(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

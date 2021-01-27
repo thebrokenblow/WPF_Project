@@ -54,7 +54,7 @@
             <BeginStoryboard Storyboard="{StaticResource OpenMenu}"/>
         </EventTrigger>
     </Window.Triggers>
-    <Grid Background = "#371f60" >
+    <Grid Background = "#371f60">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="142*"/>
             <ColumnDefinition Width="851*"/>
@@ -131,9 +131,9 @@
                 </TransformGroup>
             </Grid.RenderTransform>
             <StackPanel>
-                <Image Height="181" Source="Resources/hotel.jpg" Stretch="Fill"/>
+                <Image Height="327" Source="Resources/hotel3.jpg" Stretch="Fill"/>
                 <ListView Foreground="#371f60" FontFamily="Champagne &amp; Limousines" FontSize="18">
-                    <ListViewItem Height="45" Padding="0" Selected="ListViewItem_Selected">
+                    <ListViewItem Height="56" Padding="0" Selected="ListViewItem_Selected">
                         <StackPanel Orientation="Horizontal" Margin="10 0">
                             <materialDesign:PackIcon Kind="Language" Width="20" Height="20" Foreground="#371f60" Margin="5" VerticalAlignment="Center"/>
                             <TextBlock Text="Language" Margin="10"/>
