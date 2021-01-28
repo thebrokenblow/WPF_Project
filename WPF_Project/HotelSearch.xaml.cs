@@ -10,25 +10,30 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace WPF_Project
 {
-    public partial class HotelSearch : Window
+    /// <summary>
+    /// Логика взаимодействия для HotelSearch.xaml
+    /// </summary>
+    public partial class HotelSearch : Page
     {
         public HotelSearch()
         {
             InitializeComponent();
         }
+        /// <summary>
+        /// Метод по обработки события нажатия на кнопку прехода к личному кабинету пользователя
+        /// </summary>
         private void personalAccountButton_Click(object sender, RoutedEventArgs e)
         {
-            PersonalAccount personalAccount = new PersonalAccount(); //Создание новго объекта personalAccount и выделение под него память
-            personalAccount.Show(); //Отображение страницы, которая находится в объекте personalAccount (Окно PersonalAccount (Личный кабинет))
-            Hide(); //Убрать нынешнее окно
+            Uri PersonalAccount = new Uri("PersonalAccount.xaml", UriKind.Relative);
+            this.NavigationService.Navigate(PersonalAccount); //Переход на страницу Авторизации пользователя
         }
         private void ListViewItem_Selected(object sender, RoutedEventArgs e)
         {
-
         }
     }
 }

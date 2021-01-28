@@ -12,16 +12,21 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using System.Windows.Media.Animation; //Библиотека для анимации
 
 namespace WPF_Project
 {
-    public partial class MainWindow : Window
+    public partial class Registration : Page
     {
-        public MainWindow()
+        /// <summary>
+        /// Логика взаимодействия для Registration.xaml
+        /// </summary>
+        public Registration()
         {
             InitializeComponent();
         }
+        /// <summary>
+        /// Метод по обработки события нажатия на кнопку регистрации пользователя
+        /// </summary>
         private void Button_Reg_Click(object sender, RoutedEventArgs e)
         {
             string loginOfUser = textBoxLogin.Text.Trim(); //loginOfUser - логин, который вводит пользователь Trim - удаляет пробелы слева и справа
@@ -43,7 +48,7 @@ namespace WPF_Project
                 {
                     passwordBox.ToolTip = "The password is too short, enter more than 5 characters.";
                     var backgroundColor = new BrushConverter(); //создание объекта на основе BrushConverter и выделением под него память 
-                    textBoxLogin.Background = (Brush)backgroundColor.ConvertFrom("#ff5e5b"); //изменение задего фона при неправельных введённых данных
+                    passwordBox.Background = (Brush)backgroundColor.ConvertFrom("#ff5e5b"); //изменение задего фона при неправельных введённых данных
                 }
                 else
                 {
@@ -80,21 +85,21 @@ namespace WPF_Project
                                 context.Users.Add(user); //Добавляем наши данные в базу данных
                                 context.SaveChanges(); //Сохраняем наши данные в базу данных
                             }
-                            HotelSearch hotelSearch = new HotelSearch(); //Создание новго объекта userPageWindow и выделение под него память
-                            hotelSearch.Show(); //Отображение страницы, которая находится в объекте userPageWindow (Окно UserPageWindow (Личный кабинет))
-                            Hide(); //Убрать нынешнее окно
+                            Uri HotelSearch = new Uri("HotelSearch.xaml", UriKind.Relative);
+                            this.NavigationService.Navigate(HotelSearch); //Переход на страницу Авторизации пользователя
                         }
                     }
                 }
             }
         }
+        /// <summary>
+        /// Метод по обработки события нажатия на кнопку перехода на авторизацию пользователя (Если пользователь уже зарегистрирован)
+        /// </summary>
         private void Button_Transition_Auth_Click(object sender, RoutedEventArgs e) //Метод перехода к окну "Авторизация"
         {
-            Window1 userAuth = new Window1(); //Создание новго объекта userAuth и выделение под него память
-            userAuth.Show(); //Отображение страницы, которая находится в объекте userAuth (Окно Window1 (Авторизация пользователя))
-            Hide(); //Убрать нынешнее окно
+            Uri Authorization = new Uri("Authorization.xaml", UriKind.Relative);
+            this.NavigationService.Navigate(Authorization); //Переход на страницу Авторизации пользователя
         }
-
         private void ListViewItem_Selected(object sender, RoutedEventArgs e)
         {
         }

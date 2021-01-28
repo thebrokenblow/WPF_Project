@@ -1,13 +1,14 @@
-﻿<Window x:Class = "WPF_Project.HotelSearch"
-        xmlns = "http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x = "http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d = "http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc = "http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local = "clr-namespace:WPF_Project"
-        mc:Ignorable = "d"
-        xmlns:materialDesign = "http://materialdesigninxaml.net/winfx/xaml/themes"
-        Title = "Hotel search" Height = "600" Width = "1000">
-    <Window.Resources>
+﻿<Page x:Class="WPF_Project.HotelSearch"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WPF_Project"
+      xmlns:materialDesign = "http://materialdesigninxaml.net/winfx/xaml/themes"
+      mc:Ignorable="d" 
+      d:DesignHeight="600" d:DesignWidth="1000"
+      Title="HotelSearch">
+    <Page.Resources>
         <Storyboard x:Key="CloseMenu">
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" 
                                            Storyboard.TargetName="GridMenu">
@@ -32,8 +33,8 @@
                 <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="1"/>
             </DoubleAnimationUsingKeyFrames>
         </Storyboard>
-    </Window.Resources>
-    <Window.Triggers>
+    </Page.Resources>
+    <Page.Triggers>
         <EventTrigger RoutedEvent = "Loaded">
             <EventTrigger.Actions>
                 <BeginStoryboard>
@@ -53,7 +54,7 @@
         <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="ButtonOpen">
             <BeginStoryboard Storyboard="{StaticResource OpenMenu}"/>
         </EventTrigger>
-    </Window.Triggers>
+    </Page.Triggers>
     <Grid Background = "#371f60">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="142*"/>
@@ -171,4 +172,4 @@
             </Button>
         </Grid>
     </Grid>
-</Window>
+    </Page>

@@ -10,16 +10,19 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace WPF_Project
 {
-    public partial class Window1 : Window
+    /// <summary>
+    /// Логика взаимодействия для Authorization.xaml
+    /// </summary>
+    public partial class Authorization : Page
     {
-        public Window1()
-        {
-            InitializeComponent();
-        }
+        /// <summary>
+        /// Метод по обработки события нажатия на кнопку входа пользователя (авторизация)
+        /// </summary>
         private void Button_Auth_Click(object sender, RoutedEventArgs e)
         {
             string login = textBoxLogin.Text.Trim(); //Trim - удаляет пробелы слева и справа
@@ -60,25 +63,24 @@ namespace WPF_Project
                     }
                     if (authUser != null)
                     {
-                        HotelSearch hotelSearch = new HotelSearch(); //Создание новго объекта hotelSearch и выделение под него память
-                        hotelSearch.Show(); //Отображение страницы, которая находится в объекте hotelSearch (Окно HotelSearch (Поиск отелей)) 
-                        Hide(); //Убрать нынешнее окно
+                        Uri HotelSearch = new Uri("HotelSearch.xaml", UriKind.Relative);
+                        this.NavigationService.Navigate(HotelSearch); //Переход на страницу поиска отелей
                     }
                     else
                         errorBox.Text = "Make sure the login and password you entered is correct."; //Сообщение об ошибке неправельно введёееых данных
                 }
             }
         }
+        /// <summary>
+        /// Метод по обработки события нажатия на кнопку перехода к регистрации пользователя
+        /// </summary>
         private void Button_Transition_Reg_Click(object sender, RoutedEventArgs e) //Метод перехода к окну "Регистрация пользователя"
         {
-            MainWindow mainWindow = new MainWindow(); //Создание новго объекта mainWindow и выделение под него память
-            mainWindow.Show(); //Отображение страницы, которая находится в объекте mainWindow (Окно MainWindow (Регистрация пользователя))
-            Hide(); //Убрать нынешнее окно
+            Uri Registration = new Uri("Registration.xaml", UriKind.Relative);
+            this.NavigationService.Navigate(Registration); //Переход на страницу Авторизации пользователя
         }
-
         private void ListViewItem_Selected(object sender, RoutedEventArgs e)
         {
-
         }
     }
 }
