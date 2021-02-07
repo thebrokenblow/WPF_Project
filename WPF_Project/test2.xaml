@@ -6,8 +6,7 @@
         xmlns:local="clr-namespace:WPF_Project"
         mc:Ignorable="d"
         Title="test2" Height="450" Width="800">
-    <ComboBox ItemsSource="{Binding}" x:Name="CB"
-          TextBoxBase.TextChanged="OnComboboxTextChanged"
-          IsTextSearchEnabled="False" IsEditable="True"
-          VerticalAlignment="Top"/>
+    <Grid>
+        <ListBox Margin="17,8,15,26" x:Name="listBox1"   />
+    </Grid>
 </Window>

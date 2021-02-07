@@ -19,19 +19,10 @@ namespace WPF_Project
     /// </summary>
     public partial class test2 : Window
     {
+        List<Сountry> data = new List<Сountry>();
         public test2()
         {
             InitializeComponent();
-        }
-        void OnComboboxTextChanged(object sender, RoutedEventArgs e)
-        {
-            CB.IsDropDownOpen = true;
-            // убрать selection, если dropdown только открылся
-            var tb = (TextBox)e.OriginalSource;
-            tb.Select(tb.SelectionStart + tb.SelectionLength, 0);
-            CollectionView cv = (CollectionView)CollectionViewSource.GetDefaultView(CB.ItemsSource);
-            cv.Filter = s =>
-                ((string)s).IndexOf(CB.Text, StringComparison.CurrentCultureIgnoreCase) >= 0;
         }
     }
 }

@@ -19,6 +19,7 @@ namespace WPF_Project
         {
             this.City = new HashSet<City>();
         }
+    
         public int id { get; set; }
         public string nameOfCountry { get; set; }
         public string fullNameOfCountry { get; set; }

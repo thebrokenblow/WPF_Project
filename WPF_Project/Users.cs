@@ -11,7 +11,7 @@ namespace WPF_Project
 {
     using System;
     using System.Collections.Generic;
-   
+    
     public partial class Users
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -19,6 +19,7 @@ namespace WPF_Project
         {
             this.Reservation = new HashSet<Reservation>();
         }
+    
         public int id { get; set; }
         public string login { get; set; }
         public string password { get; set; }

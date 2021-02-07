@@ -13,10 +13,10 @@ namespace WPF_Project
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class CourseProjectEntities : DbContext
+    public partial class CourseProjectEntitiesFramework : DbContext
     {
-        public CourseProjectEntities()
-            : base("name=CourseProjectEntities")
+        public CourseProjectEntitiesFramework()
+            : base("name=CourseProjectEntitiesFramework")
         {
         }
     

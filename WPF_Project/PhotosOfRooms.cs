@@ -14,10 +14,17 @@ namespace WPF_Project
     
     public partial class PhotosOfRooms
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public PhotosOfRooms()
+        {
+            this.ListOfRooms = new HashSet<ListOfRooms>();
+        }
+    
         public int id { get; set; }
         public int idOfRooms { get; set; }
         public byte[] photo { get; set; }
     
-        public virtual ListOfRooms ListOfRooms { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ListOfRooms> ListOfRooms { get; set; }
     }
 }

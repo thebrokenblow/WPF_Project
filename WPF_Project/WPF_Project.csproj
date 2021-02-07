@@ -93,49 +93,50 @@
       <DependentUpon>Authorization.xaml</DependentUpon>
     </Compile>
     <Compile Include="City.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>ClassOfDataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ClassOfDataBase.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ClassOfDataBase.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ClassOfDataBase.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ClassOfDataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ClassOfDataBase.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ClassOfDataBase.edmx</DependentUpon>
     </Compile>
     <Compile Include="Hotel.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>ClassOfDataBase.tt</DependentUpon>
     </Compile>
     <Compile Include="HotelSearch.xaml.cs">
       <DependentUpon>HotelSearch.xaml</DependentUpon>
     </Compile>
     <Compile Include="ListOfRooms.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>ClassOfDataBase.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model1.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model1.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DataBase.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DataBase.edmx</DependentUpon>
-    </Compile>
+    <Compile Include="ModelData.cs" />
     <Compile Include="PersonalAccount.xaml.cs">
       <DependentUpon>PersonalAccount.xaml</DependentUpon>
     </Compile>
     <Compile Include="PhotosOfHotels.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>ClassOfDataBase.tt</DependentUpon>
     </Compile>
     <Compile Include="PhotosOfRooms.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>ClassOfDataBase.tt</DependentUpon>
     </Compile>
     <Compile Include="Registration.xaml.cs">
       <DependentUpon>Registration.xaml</DependentUpon>
     </Compile>
     <Compile Include="Reservation.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>ClassOfDataBase.tt</DependentUpon>
     </Compile>
     <Compile Include="sysdiagrams.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>ClassOfDataBase.tt</DependentUpon>
     </Compile>
     <Compile Include="test.xaml.cs">
       <DependentUpon>test.xaml</DependentUpon>
@@ -144,13 +145,13 @@
       <DependentUpon>test2.xaml</DependentUpon>
     </Compile>
     <Compile Include="TypeOfRoom.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>ClassOfDataBase.tt</DependentUpon>
     </Compile>
     <Compile Include="Users.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>ClassOfDataBase.tt</DependentUpon>
     </Compile>
     <Compile Include="Сountry.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>ClassOfDataBase.tt</DependentUpon>
     </Compile>
     <Page Include="Authorization.xaml">
       <SubType>Designer</SubType>
@@ -199,12 +200,12 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EntityDeploy Include="DataBase.edmx">
+    <EntityDeploy Include="ClassOfDataBase.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>DataBase.Designer.cs</LastGenOutput>
+      <LastGenOutput>ClassOfDataBase.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="DataBase.edmx.diagram">
-      <DependentUpon>DataBase.edmx</DependentUpon>
+    <None Include="ClassOfDataBase.edmx.diagram">
+      <DependentUpon>ClassOfDataBase.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -227,18 +228,6 @@
     <Resource Include="Resources\hotel4.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Model1.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Model1.Context.cs</LastGenOutput>
-      <DependentUpon>DataBase.edmx</DependentUpon>
-    </Content>
-    <Content Include="Model1.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>DataBase.edmx</DependentUpon>
-      <LastGenOutput>Model1.cs</LastGenOutput>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
       <Visible>False</Visible>
       <ProductName>Microsoft .NET Framework 4.7.2 %28x86 и x64%29</ProductName>
@@ -252,6 +241,18 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ClassOfDataBase.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ClassOfDataBase.edmx</DependentUpon>
+      <LastGenOutput>ClassOfDataBase.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="ClassOfDataBase.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ClassOfDataBase.edmx</DependentUpon>
+      <LastGenOutput>ClassOfDataBase.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\MaterialDesignThemes.3.2.0\build\MaterialDesignThemes.targets" Condition="Exists('..\packages\MaterialDesignThemes.3.2.0\build\MaterialDesignThemes.targets')" />
