@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="6fb9ffd0566d4580a765ba8fc7fb4ded" Name="Diagram1" ZoomLevel="74">
+        <EntityTypeShape EntityType="CourseProjectModel.City" Width="1.5" PointX="3" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="CourseProjectModel.Hotel" Width="1.5" PointX="5.25" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CourseProjectModel.ListOfRooms" Width="1.5" PointX="7.5" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="CourseProjectModel.PhotosOfHotels" Width="1.5" PointX="5" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="CourseProjectModel.PhotosOfRooms" Width="1.5" PointX="7.375" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CourseProjectModel.Reservation" Width="1.5" PointX="9.75" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CourseProjectModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="6.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="CourseProjectModel.TypeOfRoom" Width="1.5" PointX="7.5" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="CourseProjectModel.Users" Width="1.5" PointX="9.625" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CourseProjectModel.Сountry" Width="1.5" PointX="0.75" PointY="3.875" IsExpanded="true" />
+        <AssociationConnector Association="CourseProjectModel.FK_City_Сountry" ManuallyRouted="false" />
+        <AssociationConnector Association="CourseProjectModel.FK_Hotel_City" ManuallyRouted="false" />
+        <AssociationConnector Association="CourseProjectModel.FK_ListOfRooms_Hotel" ManuallyRouted="false" />
+        <AssociationConnector Association="CourseProjectModel.FK_photosOfHotels_Hotel" ManuallyRouted="false" />
+        <AssociationConnector Association="CourseProjectModel.FK_ListOfRooms_PhotosOfRooms" ManuallyRouted="false" />
+        <AssociationConnector Association="CourseProjectModel.FK_ListOfRooms_TypeOfRoom" ManuallyRouted="false" />
+        <AssociationConnector Association="CourseProjectModel.FK_Reservation_ListOfRooms" ManuallyRouted="false" />
+        <AssociationConnector Association="CourseProjectModel.FK_Reservation_Users" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

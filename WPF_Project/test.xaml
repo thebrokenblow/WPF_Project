@@ -11,11 +11,11 @@
             <Style.Setters>
                 <Setter Property="HorizontalAlignment" Value="Center"/>
                 <Setter Property="VerticalAlignment" Value="Top"/>
-                <Setter Property="MinHeight" Value="50"/>
-                <Setter Property="MinWidth" Value="50"/>
-                <Setter Property="MaxHeight" Value="50"/>
-                <Setter Property="MaxWidth" Value="50"/>
-                <Setter Property="Margin" Value="0 0 0 0"/>
+                <Setter Property="MinHeight" Value="32"/>
+                <Setter Property="MinWidth" Value="32"/>
+                <Setter Property="MaxHeight" Value="32"/>
+                <Setter Property="MaxWidth" Value="32"/>
+                <Setter Property="Margin" Value="0 5 0 0"/>
                 <Setter Property="Template">
                     <Setter.Value>
                         <ControlTemplate>
@@ -49,7 +49,7 @@
                         <Grid Width="180" Height="Auto" >
                             <Path Panel.ZIndex="1" Stroke="Orange" StrokeThickness="0.02" 
         Data="M11.3,0 L11.3,0 L168.5,0 A12,12 0 0 1 179.99,12 L179.99,78.5 A12,12 0 0 1 168.5,90 L11.3,90 A12,12 0 0 1 0,78.5 L0,12 A12,12 0 0 1 11.3,0 z "/>
-                            <Border Background="White" CornerRadius="10">
+                            <Border Background="#FF646464" CornerRadius="12">
                                 <StackPanel>
                                     <ContentPresenter Content="{TemplateBinding ContentControl.Content}" />
                                 </StackPanel>
@@ -60,10 +60,11 @@
             </Setter>
         </Style>
     </Window.Resources>
+
     <Grid>
-        <ToggleButton x:Name="Popup_button" Margin="371,169,364.333,0"
+        <ToggleButton x:Name="Popup_button" Margin="0 40 0 0"
                       HorizontalAlignment="Center"
-                      Style="{StaticResource PopupToggleButton}" Width="60"/>
+                      Style="{StaticResource PopupToggleButton}"/>
         <Popup StaysOpen="True" IsOpen="{Binding IsChecked, ElementName=Popup_button, Mode=TwoWay}" 
                PlacementTarget="{Binding ElementName=Popup_button}" 
                AllowsTransparency="True"
@@ -72,9 +73,9 @@
                VerticalOffset="0">
             <ContentControl Style="{DynamicResource Popup_style}">
                 <StackPanel Margin="5 10 5 5" >
-                    <Button Content="English" Width="120" Margin="0"/>
-                    <Button Content="Deutsch" Width="120" Margin="0 5 0 0"/>
-                    <Button Content="Français" Width="120" Margin="0 5 0 0"/>
+                    <Button Content="Click1" Width="120" Margin="0"/>
+                    <Button Content="Click2" Width="120" Margin="0 5 0 0"/>
+                    <Button Content="Click3" Width="120" Margin="0 5 0 0"/>
                 </StackPanel>
             </ContentControl>
         </Popup>

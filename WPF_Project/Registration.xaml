@@ -6,7 +6,7 @@
       xmlns:materialDesign = "http://materialdesigninxaml.net/winfx/xaml/themes"
       xmlns:local="clr-namespace:WPF_Project"
       mc:Ignorable="d" 
-      d:DesignHeight="600" d:DesignWidth="1000"
+      d:DesignHeight="600" d:DesignWidth="1080" ShowsNavigationUI="False" 
       Title="Registration">
     <Page.Resources>
         <Storyboard x:Key="CloseMenu">
@@ -74,8 +74,9 @@
             <RowDefinition Height="558*"/>
         </Grid.RowDefinitions>
         <Grid x:Name="GridBackground" Background = "#371f60" Margin="0,0,0 0" Opacity="0" Grid.RowSpan="2" Grid.ColumnSpan="2"/>
-        <Border Height="400" Width ="700" MinHeight = "450" MaxHeight="600" MaxWidth = "700" MinWidth ="400" Margin = "0,45,0,59" 
-                Background = "White" VerticalAlignment = "Center" Padding = "30" CornerRadius = "20" Grid.Row="1" Grid.ColumnSpan="2">
+        <Border Margin="15" MinWidth = "600" MaxWidth = "800" MinHeight = "450" MaxHeight = "700" Background="White" VerticalAlignment="Center" 
+                Padding="30"   
+                 CornerRadius = "20" Grid.Row = "1" Grid.ColumnSpan="2">
             <Border.Effect>
                 <DropShadowEffect BlurRadius = "30" Color = "LightGray" ShadowDepth = "0"/>
             </Border.Effect>

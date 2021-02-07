@@ -48,7 +48,7 @@ namespace WPF_Project
                 {
                     passwordBox.Background = Brushes.Transparent;
                     passwordBox.ToolTip = null;
-                    User authUser = null; //Объект для работы с базой данных
+                    Users authUser = null; //Объект для работы с базой данных
                                           //using - Зактрытое окружение для подключения к базе данных
                                           //ApplicationContext conte = new ApplicationContext() - 
                                           //Создание оьъектра и выделение под него память

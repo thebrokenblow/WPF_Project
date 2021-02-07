@@ -76,7 +76,7 @@ namespace WPF_Project
                             textBoxEmail.ToolTip = null; //очищаем подсказку
                             using (var context = new ApplicationContext()) //Использование базы данных
                             {                                              //и выделение памяти для context - переменная для добавление и сохранения информации в базу даннных
-                                var user = new User() //Выделение памяти для занесения информации в базу данных
+                                var user = new Users() //Выделение памяти для занесения информации в базу данных
                                 {
                                     login = loginOfUser, //записываем в loginOfUser
                                     password = passwordOfUser, //записываем в passwordOfUser

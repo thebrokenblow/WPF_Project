@@ -44,12 +44,6 @@ C:\Users\User\Desktop\WPF\WPF_Project\WPF_Project\obj\Debug\WPF_Project.csproj.C
 C:\Users\User\Desktop\WPF\WPF_Project\WPF_Project\obj\Debug\WPF_Project.csproj.CopyComplete
 C:\Users\User\Desktop\WPF\WPF_Project\WPF_Project\obj\Debug\WPF_Project.exe
 C:\Users\User\Desktop\WPF\WPF_Project\WPF_Project\obj\Debug\WPF_Project.pdb
-C:\Users\User\Desktop\WPF\WPF_Project\WPF_Project\obj\Debug\UserRegistration.g.cs
-C:\Users\User\Desktop\WPF\WPF_Project\WPF_Project\obj\Debug\UserAuth.g.cs
-C:\Users\User\Desktop\WPF\WPF_Project\WPF_Project\obj\Debug\UserRegistration.baml
-C:\Users\User\Desktop\WPF\WPF_Project\WPF_Project\obj\Debug\UserAuth.baml
-C:\Users\User\Desktop\WPF\WPF_Project\WPF_Project\obj\Debug\UserPageWindow.g.cs
-C:\Users\User\Desktop\WPF\WPF_Project\WPF_Project\obj\Debug\UserPageWindow.baml
 C:\Users\User\Desktop\WPF\WPF_Project\WPF_Project\obj\Debug\HotelSearch.g.cs
 C:\Users\User\Desktop\WPF\WPF_Project\WPF_Project\obj\Debug\HotelSearch.baml
 C:\Users\User\Desktop\WPF\WPF_Project\WPF_Project\obj\Debug\PersonalAccount.g.cs
@@ -61,3 +55,5 @@ C:\Users\User\Desktop\WPF\WPF_Project\WPF_Project\obj\Debug\Registration.g.cs
 C:\Users\User\Desktop\WPF\WPF_Project\WPF_Project\obj\Debug\Registration.baml
 C:\Users\User\Desktop\WPF\WPF_Project\WPF_Project\obj\Debug\Authorization.g.cs
 C:\Users\User\Desktop\WPF\WPF_Project\WPF_Project\obj\Debug\Authorization.baml
+C:\Users\User\Desktop\WPF\WPF_Project\WPF_Project\obj\Debug\test2.g.cs
+C:\Users\User\Desktop\WPF\WPF_Project\WPF_Project\obj\Debug\test2.baml

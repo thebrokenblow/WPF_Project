@@ -9,7 +9,8 @@ namespace WPF_Project
 {
     class ApplicationContext : DbContext
     {
-            public ApplicationContext() : base("DbConnectionString") { } // base("DbConnectionString") Имя для подклучения к базы данных
-            public DbSet<User> Users { get; set; } //Использование переменных в базе данных
+            public ApplicationContext() : base("DbConnectionString") { } //base("DbConnectionString") определяет контекст данных, 
+                                                                         //используемый для взаимодействия с базой данных.
+        public DbSet<Users> Users { get; set; } //Представляет набор сущностей, хранящихся в базе данных
     }
 }
