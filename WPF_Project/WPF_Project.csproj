@@ -119,7 +119,6 @@
     <Compile Include="ListOfRooms.cs">
       <DependentUpon>ClassOfDataBase.tt</DependentUpon>
     </Compile>
-    <Compile Include="ModelData.cs" />
     <Compile Include="PersonalAccount.xaml.cs">
       <DependentUpon>PersonalAccount.xaml</DependentUpon>
     </Compile>

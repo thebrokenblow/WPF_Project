@@ -95,7 +95,7 @@
                     <Button x:Name = "enterButton" Content = "Enter" FontWeight = "Bold" Foreground = "White" Background = "#371f60" 
                             Margin = "329.333,18,0,0" 
                             FontSize = "15" VerticalAlignment = "Top" Grid.Column = "1" Click = "Button_Transition_Auth_Click"
-                            BorderBrush = "{x:Null}" Height = "35">
+                            BorderBrush = "{x:Null}" Height = "35" Width ="160">
                         <Button.Template>
                             <ControlTemplate TargetType = "Button">
                                 <Border
@@ -131,21 +131,23 @@
                         </Button.Template>
                     </Button>
                     <TextBox FontWeight = "Bold" x:Name = "textBoxLogin" Foreground = "#371f60" FontSize = "15" 
-                             materialDesign:HintAssist.Hint = "Enter login"
+                             materialDesign:HintAssist.Hint = "Enter login" Height="48"
                              Style = "{StaticResource MaterialDesignFloatingHintTextBox}" Margin = "0,119,0,-69" Grid.ColumnSpan = "2" />
                     <PasswordBox FontWeight = "Bold" x:Name = "passwordBox" Foreground = "#371f60" FontSize = "15" 
-                                 materialDesign:HintAssist.Hint = "Enter password" 
+                                 materialDesign:HintAssist.Hint = "Enter password" Height="48"
                                  Style = "{StaticResource MaterialDesignFloatingHintPasswordBox}" Margin = "0,165,0,-116" Grid.ColumnSpan = "2" />
                     <PasswordBox FontWeight = "Bold" x:Name = "passwordRepeatBox" Foreground = "#371f60" FontSize = "15" 
-                                 materialDesign:HintAssist.Hint = "Repeat password" 
+                                 materialDesign:HintAssist.Hint = "Repeat password" Height="48"
                                  Style = "{StaticResource MaterialDesignFloatingHintPasswordBox}" 
                                  Margin = "0,213,0,-162" Grid.ColumnSpan = "2"/>
-                    <TextBox FontWeight = "Bold" x:Name = "textBoxEmail" Foreground = "#371f60" FontSize = "15" 
+                    <TextBox FontWeight = "Bold" x:Name = "textBoxEmail" Foreground = "#371f60" FontSize = "15" Height="48"
                              materialDesign:HintAssist.Hint = "Enter email" Style = "{StaticResource MaterialDesignFloatingHintTextBox}" 
                              Margin = "0,260,0,-209" Grid.ColumnSpan = "2"/>
+                    <TextBlock x:Name="errorBox" Text = "{x:Null}" Foreground = "#ff5e5b" FontSize = "15" FontWeight = "Bold" 
+                               Margin="0,317,291,-242.667" Grid.ColumnSpan="2" Height="25"/>
                     <Button x:Name = "regButton" Background = "#371f60" Foreground = "White" FontWeight = "Bold" Content = "Register" 
-                            FontSize ="15" Margin="0,348,0,-285" IsDefault="True" Click = "Button_Reg_Click" Grid.ColumnSpan = "2"  
-                            BorderBrush = "{x:Null}" Height = "Auto">
+                            FontSize ="15" Margin="0,349,0,-284.667" IsDefault="True" Click = "Button_Reg_Click" Grid.ColumnSpan = "2"  
+                            BorderBrush = "{x:Null}" Height = "35" Width="740">
                         <Button.Template>
                             <ControlTemplate TargetType = "Button">
                                 <Border

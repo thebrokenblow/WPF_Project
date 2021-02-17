@@ -7,6 +7,16 @@
         mc:Ignorable="d"
         Title="test2" Height="450" Width="800">
     <Grid>
-        <ListBox Margin="17,8,15,26" x:Name="listBox1"   />
+        <ComboBox Name="CbNaimTov" HorizontalAlignment="Left" Margin="111,14,0,0" SelectedIndex="-1"
+                  VerticalAlignment="Top" Width="375" Loaded="CbNaimTov_Loaded"  
+                  TextBoxBase.TextChanged="OnComboBoxTextChanged" IsTextSearchEnabled="False" IsEditable="True" >
+         <!--   <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding}"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ComboBox.ItemTemplate> -->
+        </ComboBox>
     </Grid>
 </Window>

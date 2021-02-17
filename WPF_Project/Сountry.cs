@@ -28,5 +28,6 @@ namespace WPF_Project
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<City> City { get; set; }
+        public Func<object, bool> Filter { get; internal set; }
     }
 }

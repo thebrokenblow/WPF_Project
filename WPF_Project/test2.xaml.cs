@@ -19,10 +19,26 @@ namespace WPF_Project
     /// </summary>
     public partial class test2 : Window
     {
-        List<Сountry> data = new List<Сountry>();
         public test2()
         {
             InitializeComponent();
+        }
+        void OnComboBoxTextChanged(object sender, RoutedEventArgs e)
+        {
+            CbNaimTov.IsDropDownOpen = true;
+            var tb = (TextBox)e.OriginalSource;
+            tb.Select(tb.SelectionStart + tb.SelectionLength, 0);
+            CollectionView cv = (CollectionView)CollectionViewSource.GetDefaultView(CbNaimTov.ItemsSource);
+            cv.Filter = s => ((string)s).IndexOf(CbNaimTov.Text, StringComparison.CurrentCultureIgnoreCase) >= 0;
+        }
+        private void CbNaimTov_Loaded(object sender, RoutedEventArgs e)
+        {
+            using (ApplicationContext context = new ApplicationContext())
+            {
+                var tovararr = (from Сountry in context.Country select Сountry.nameOfCountry).ToList();
+                CbNaimTov.Items.Clear();
+                CbNaimTov.ItemsSource = tovararr;
+            }
         }
     }
 }

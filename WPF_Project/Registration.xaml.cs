@@ -74,19 +74,34 @@ namespace WPF_Project
                         {
                             textBoxEmail.Background = Brushes.Transparent; //Transparent - очищение заднего фона текстового блока
                             textBoxEmail.ToolTip = null; //очищаем подсказку
-                            using (var context = new ApplicationContext()) //Использование базы данных
-                            {                                              //и выделение памяти для context - переменная для добавление и сохранения информации в базу даннных
-                                var user = new Users() //Выделение памяти для занесения информации в базу данных
+                            Users regUser = null; //Объект для работы с базой данных
+                                                  //using - Зактрытое окружение для подключения к базе данных
+                                                  //ApplicationContext conte = new ApplicationContext() - 
+                                                  //Создание объектра и выделение под него память
+                                                  //context - пременная для обращенияе к базе данных 
+                            using (ApplicationContext context = new ApplicationContext())
+                            {
+                                //check => check.Login == login && check.Password == password - создание переменной check, 
+                                //которая будет проверять, есть ли login и password 
+                                //в базе данных, которые ввёл пользователь
+                                //FirstOrDefault() - метод, который находите первую найденную запись, либо ничего
+                                regUser = context.Users.Where(check => check.login == loginOfUser || check.email == emailOfUser).FirstOrDefault();
+                                if (regUser == null)
                                 {
-                                    login = loginOfUser, //записываем в loginOfUser
-                                    password = passwordOfUser, //записываем в passwordOfUser
-                                    email = emailOfUser, //записываем emailOfUser
-                                };
-                                context.Users.Add(user); //Добавляем наши данные в базу данных
-                                context.SaveChanges(); //Сохраняем наши данные в базу данных
+                                    var user = new Users() //Выделение памяти для занесения информации в базу данных
+                                    {
+                                        login = loginOfUser, //записываем в loginOfUser
+                                        password = passwordOfUser, //записываем в passwordOfUser
+                                        email = emailOfUser, //записываем emailOfUser
+                                    };
+                                    context.Users.Add(user); //Добавляем наши данные в базу данных
+                                    context.SaveChanges(); //Сохраняем наши данные в базу данных
+                                    Uri HotelSearch = new Uri("HotelSearch.xaml", UriKind.Relative);
+                                    this.NavigationService.Navigate(HotelSearch); //Переход на страницу Авторизации пользователя
+                                }
+                                else
+                                    errorBox.Text = "This login or email is already registered"; //Сообщение об ошибке неправельно введёееых данных
                             }
-                            Uri HotelSearch = new Uri("HotelSearch.xaml", UriKind.Relative);
-                            this.NavigationService.Navigate(HotelSearch); //Переход на страницу Авторизации пользователя
                         }
                     }
                 }
