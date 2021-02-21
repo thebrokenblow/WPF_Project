@@ -19,5 +19,10 @@ namespace WPF_Project
         public byte[] photo { get; set; }
     
         public virtual Hotel Hotel { get; set; }
+
+        internal static object GetContext()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

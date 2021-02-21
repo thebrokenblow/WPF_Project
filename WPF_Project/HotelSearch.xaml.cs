@@ -1,17 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace WPF_Project
 {
@@ -20,23 +11,22 @@ namespace WPF_Project
     /// </summary>
     public partial class HotelSearch : Page
     {
-        // static void mainButtonText(int countAdults,
-        //int countChildren,
-        //int countRooms) {
-        //mainButoon.Content = (countAdults).ToString() + "  adult  ·  " + (countChildren).ToString() + "  children  ·  " +
-        //(countRooms).ToString() + "  room";
-
         int countAdults = 1;
         int countChildren = 0;
         int countRooms = 1;
+        public void mainButtonText(int countAdults, int countChildren, int countRooms)
+        {
+            mainButton.Content = (countAdults).ToString() + "  adult  ·  " + (countChildren).ToString() + "  children  ·  " +
+            (countRooms).ToString() + "  room";
+        }
         public HotelSearch()
         {
             InitializeComponent();
             textAdults.Text = (countAdults).ToString();
             textChildren.Text = (countChildren).ToString();
             textRooms.Text = (countRooms).ToString();
-            mainButoon.Content = (countAdults).ToString() + "  adult  ·  " + (countChildren).ToString() + "  children  ·  " +
-                (countRooms).ToString() + "  room";
+            mainButtonText(countAdults, countChildren, countRooms);
+            buttonCalender.Content = "Check-in  -  Check-out";
         }
         private void Button_Adults_Minus_Click(object sender, RoutedEventArgs e)
         {
@@ -44,8 +34,7 @@ namespace WPF_Project
             {
                 countAdults--;
                 textAdults.Text = (countAdults).ToString();
-                mainButoon.Content = (countAdults).ToString() + "  adult  ·  " + (countChildren).ToString() + "  children  ·  " +
-                (countRooms).ToString() + "  room";
+                mainButtonText(countAdults, countChildren, countRooms);
             }
         }
         private void Button_Adults_Plus_Click(object sender, RoutedEventArgs e)
@@ -54,8 +43,7 @@ namespace WPF_Project
             {
                 countAdults++;
                 textAdults.Text = (countAdults).ToString();
-                mainButoon.Content = (countAdults).ToString() + "  adult  ·  " + (countChildren).ToString() + "  children  ·  " +
-                (countRooms).ToString() + "  room";
+                mainButtonText(countAdults, countChildren, countRooms);
             }
         }
         private void Button_Children_Minus_Click(object sender, RoutedEventArgs e)
@@ -64,8 +52,7 @@ namespace WPF_Project
             {
                 countChildren--;
                 textChildren.Text = (countChildren).ToString();
-                mainButoon.Content = (countAdults).ToString() + "  adult  ·  " + (countChildren).ToString() + "  children  ·  " +
-                (countRooms).ToString() + "  room";
+                mainButtonText(countAdults, countChildren, countRooms);
             }
         }
         private void Button_Children_Plus_Click(object sender, RoutedEventArgs e)
@@ -74,8 +61,7 @@ namespace WPF_Project
             {
                 countChildren++;
                 textChildren.Text = (countChildren).ToString();
-                mainButoon.Content = (countAdults).ToString() + "  adult  ·  " + (countChildren).ToString() + "  children  ·  " +
-                (countRooms).ToString() + "  room";
+                mainButtonText(countAdults, countChildren, countRooms);
             }
         }
         private void Button_Rooms_Minus_Click(object sender, RoutedEventArgs e)
@@ -84,8 +70,7 @@ namespace WPF_Project
             {
                 countRooms--;
                 textRooms.Text = (countRooms).ToString();
-                mainButoon.Content = (countAdults).ToString() + "  adult  ·  " + (countChildren).ToString() + "  children  ·  " +
-                (countRooms).ToString() + "  room";
+                mainButtonText(countAdults, countChildren, countRooms);
             }
         }
         private void Button_Rooms_Plus_Click(object sender, RoutedEventArgs e)
@@ -94,19 +79,10 @@ namespace WPF_Project
             {
                 countRooms++;
                 textRooms.Text = (countRooms).ToString();
-                mainButoon.Content = (countAdults).ToString() + "  adult  ·  " + (countChildren).ToString() + "  children  ·  " +
-                (countRooms).ToString() + "  room";
+                mainButtonText(countAdults, countChildren, countRooms);
             }
 
         }
-        /*public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
-        {
-            return (bool)value ? Visibility.Visible : Visibility.Hidden;
-        }
-        private void mainButoon_Click(object sender, RoutedEventArgs e)
-        {
-            mainGrid.Visibility = Convert();
-        } */
         void OnComboBoxTextChanged(object sender, RoutedEventArgs e)
         {
             CbNaimTov.IsDropDownOpen = true;
@@ -119,11 +95,28 @@ namespace WPF_Project
         {
             using (ApplicationContext context = new ApplicationContext())
             {
-                var tovararr = (from Users in context.Users select Users.login).ToList();
+                var tovararr = (from Сountry in context.Country select Сountry.nameOfCountry).ToList();
                 CbNaimTov.Items.Clear();
                 CbNaimTov.ItemsSource = tovararr;
             }
         }
+       /* void OnComboBoxTextChanged1(object sender, RoutedEventArgs e)
+        {
+            CbNaimTov1.IsDropDownOpen = true;
+            var tb = (TextBox)e.OriginalSource;
+            tb.Select(tb.SelectionStart + tb.SelectionLength, 0);
+            CollectionView cv = (CollectionView)CollectionViewSource.GetDefaultView(CbNaimTov1.ItemsSource);
+            cv.Filter = s => ((string)s).IndexOf(CbNaimTov1.Text, StringComparison.CurrentCultureIgnoreCase) >= 0;
+        }
+        private void CbNaimTov_Loaded1(object sender, RoutedEventArgs e)
+        {
+            using (ApplicationContext context = new ApplicationContext())
+            {
+                var tovararr1 = (from City in context.City select City.nameOfCity).ToList();
+                CbNaimTov1.Items.Clear();
+                CbNaimTov1.ItemsSource = tovararr1;
+            }
+        } */
         /// <summary>
         /// Метод по обработки события нажатия на кнопку прехода к личному кабинету пользователя
         /// </summary>
@@ -132,13 +125,44 @@ namespace WPF_Project
             Uri PersonalAccount = new Uri("PersonalAccount.xaml", UriKind.Relative);
             this.NavigationService.Navigate(PersonalAccount); //Переход на страницу Авторизации пользователя
         }
-        private void ListViewItem_Selected(object sender, RoutedEventArgs e)
+        private bool flagFirstButton = false;
+        private bool flagSecondButton = false;
+        private void mainButoon1_Click(object sender, RoutedEventArgs e)
         {
+            if (flagFirstButton == false)
+            {
+                mainBorder1.Visibility = Visibility.Visible;
+                flagFirstButton = true;
+            }
+            else
+            {
+                mainBorder1.Visibility = Visibility.Collapsed;
+                flagFirstButton = false;
+            }
         }
-
         private void mainButoon_Click(object sender, RoutedEventArgs e)
         {
-            mainBorder.Visibility = Visibility;
+            if (flagSecondButton == false)
+            {
+                mainBorder.Visibility = Visibility.Visible;
+                flagSecondButton = true;
+            }
+            else
+            {
+                mainBorder.Visibility = Visibility.Collapsed;
+                flagSecondButton = false;
+            }
+        }
+        private void Calendar_SelectedDatesChanged(object sender, SelectionChangedEventArgs e)
+        {
+            DateTime? selectionDate = Calendar.SelectedDate;
+            buttonCalender.Content = selectionDate.Value.Date.ToShortDateString();
+        }
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+        }
+        private void ListViewItem_Selected(object sender, RoutedEventArgs e)
+        {
         }
     }
 }

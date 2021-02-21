@@ -15,16 +15,21 @@ namespace WPF_Project
     
     public partial class CourseProjectEntitiesFramework : DbContext
     {
+        private static CourseProjectEntitiesFramework _context; //Приватное статичное поле, которое будет контекстом
         public CourseProjectEntitiesFramework()
             : base("name=CourseProjectEntitiesFramework")
         {
         }
-    
+        public static CourseProjectEntitiesFramework GetContext() //Метод получения экземпляра этого контекста
+        {
+            if (_context == null) //Есди экземпляра контекста нет
+                _context = new CourseProjectEntitiesFramework(); //То создаём новый
+            return _context; //Возвращаем экземпляр
+        }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             throw new UnintentionalCodeFirstException();
         }
-    
         public virtual DbSet<City> City { get; set; }
         public virtual DbSet<Hotel> Hotel { get; set; }
         public virtual DbSet<ListOfRooms> ListOfRooms { get; set; }

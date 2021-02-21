@@ -49,11 +49,11 @@ C:\Users\User\Desktop\WPF\WPF_Project\WPF_Project\obj\Debug\HotelSearch.baml
 C:\Users\User\Desktop\WPF\WPF_Project\WPF_Project\obj\Debug\PersonalAccount.g.cs
 C:\Users\User\Desktop\WPF\WPF_Project\WPF_Project\obj\Debug\PersonalAccount.baml
 C:\Users\User\Desktop\WPF\WPF_Project\WPF_Project\obj\Debug\WPF_Project_Content.g.cs
-C:\Users\User\Desktop\WPF\WPF_Project\WPF_Project\obj\Debug\test.g.cs
-C:\Users\User\Desktop\WPF\WPF_Project\WPF_Project\obj\Debug\test.baml
 C:\Users\User\Desktop\WPF\WPF_Project\WPF_Project\obj\Debug\Registration.g.cs
 C:\Users\User\Desktop\WPF\WPF_Project\WPF_Project\obj\Debug\Registration.baml
 C:\Users\User\Desktop\WPF\WPF_Project\WPF_Project\obj\Debug\Authorization.g.cs
 C:\Users\User\Desktop\WPF\WPF_Project\WPF_Project\obj\Debug\Authorization.baml
-C:\Users\User\Desktop\WPF\WPF_Project\WPF_Project\obj\Debug\test2.g.cs
-C:\Users\User\Desktop\WPF\WPF_Project\WPF_Project\obj\Debug\test2.baml
+C:\Users\User\Desktop\WPF\WPF_Project\WPF_Project\obj\Debug\HotelsPage.g.cs
+C:\Users\User\Desktop\WPF\WPF_Project\WPF_Project\obj\Debug\HotelsPage.baml
+C:\Users\User\Desktop\WPF\WPF_Project\WPF_Project\obj\Debug\AddEditPage.g.cs
+C:\Users\User\Desktop\WPF\WPF_Project\WPF_Project\obj\Debug\AddEditPage.baml

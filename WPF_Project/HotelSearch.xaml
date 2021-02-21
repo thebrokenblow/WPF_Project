@@ -3,7 +3,6 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:WPF_Project"
       xmlns:materialDesign = "http://materialdesigninxaml.net/winfx/xaml/themes"
       mc:Ignorable="d" 
       d:DesignHeight="600" d:DesignWidth="1000" ShowsNavigationUI="False"
@@ -57,30 +56,35 @@
     </Page.Triggers>
     <Grid Background = "#371f60">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="142*"/>
-            <ColumnDefinition Width="851*"/>
+            <ColumnDefinition Width="0*"/>
+            <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="13*"/>
             <RowDefinition Height="558*"/>
         </Grid.RowDefinitions>
-        <Grid x:Name="GridBackground" Background = "#371f60" Margin="0,0,0.334,-0.333" Opacity="0" Grid.RowSpan="2" Grid.ColumnSpan="2"/>
-        <Border Height="400" Width ="700" MinHeight = "450" MaxHeight="600" MaxWidth = "700" MinWidth ="400" Margin = "9.667,61.667,147,75" 
+        <Grid x:Name="GridBackground" Background = "#371f60" Opacity="0" Grid.RowSpan="2" Grid.ColumnSpan="2"/>
+        <Border Height="500" MinHeight = "450" MaxHeight="600" MaxWidth = "1000" MinWidth ="400" Margin = "10,48.667,10,38" 
                 Background = "White" VerticalAlignment = "Center" Padding = "30" CornerRadius = "20" Grid.Row="1" Grid.Column="1">
             <Border.Effect>
                 <DropShadowEffect BlurRadius = "30" Color = "LightGray" ShadowDepth = "0"/>
             </Border.Effect>
-            <StackPanel>
+            <StackPanel Margin="-6,0,0,-30">
                 <Grid RenderTransformOrigin="0.481,0.573">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width = "123*"/>
                         <ColumnDefinition Width = "367*"/>
                     </Grid.ColumnDefinitions>
-                    <ComboBox Name="CbNaimTov" HorizontalAlignment="Left" Margin="-1,96,0,-82" SelectedIndex="-1"
-                  VerticalAlignment="Top" Width="180" Height="Auto" Loaded="CbNaimTov_Loaded"  
-                  TextBoxBase.TextChanged="OnComboBoxTextChanged" IsTextSearchEnabled="False" IsEditable="True" Grid.ColumnSpan="2" />
-                    <Button x:Name="mainButoon" Grid.Column="1" Foreground = "White" FontSize="13" BorderBrush = "{x:Null}" Margin="86.333,98,133,252" 
-                Background="#371f60" Height="30" Width="260" Click="mainButoon_Click">
+                    <ComboBox Name="CbNaimTov" Foreground="#371f60" FontWeight = "Bold" HorizontalAlignment="Left" Margin="0,83,0,0" SelectedIndex="-1"
+                  VerticalAlignment="Top" Width="150" Height="35" Loaded="CbNaimTov_Loaded"  
+                  TextBoxBase.TextChanged="OnComboBoxTextChanged" IsTextSearchEnabled="False" IsEditable="True" >
+                    </ComboBox>
+                    <ComboBox Foreground="#371f60" FontWeight = "Bold" HorizontalAlignment="Left" Margin="171,83,0,0" SelectedIndex="-1"
+                  VerticalAlignment="Top"  Width="150" Height="35"
+                        IsTextSearchEnabled="False" IsEditable="True" Grid.ColumnSpan="2" >
+                    </ComboBox>
+                    <Button  x:Name="buttonCalender" Foreground = "White" FontSize="13" BorderBrush = "{x:Null}" 
+                Background="#371f60" Height="35" Width="200" Click="mainButoon1_Click" Grid.Column="1" Margin="101.333,85,374,375">
                         <Button.Template>
                             <ControlTemplate TargetType="Button">
                                 <Border
@@ -115,10 +119,52 @@
                             </ControlTemplate>
                         </Button.Template>
                     </Button>
-                    <Border x:Name="mainBorder" Visibility="Collapsed" Grid.Column="1" Margin="26.333,129,142,80" >
-                        <Grid Margin="0,2,0.333,-2.333">
-                            <TextBlock Text="Adults" Foreground = "#371f60" FontSize = "13" FontWeight = "Bold" Margin="21,25,201.333,122.667"/>
-                            <Button Margin="167,15,94.333,113.667" FontSize = "13" BorderBrush = "{x:Null}" Content="-" Background = "#371f60"
+                    <Border x:Name="mainBorder1" Margin="180,190,350,-35" Visibility="Collapsed" Grid.ColumnSpan="2">
+                        <Grid Margin="0,-24,0,24">
+                            <Calendar x:Name="Calendar" SelectedDatesChanged="Calendar_SelectedDatesChanged" Height="325" Width="250" 
+                                      Margin="100,-34,28,49" BorderBrush = "Black" Background="White"/>
+                        </Grid>
+                    </Border>
+                    <Button x:Name="mainButton" Grid.Column="1" Foreground = "White" FontSize="13" BorderBrush = "{x:Null}" Margin="343.333,85,112,375" 
+                Background="#371f60" Height="35" Width="220" Click="mainButoon_Click">
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+                                <Border
+                BorderBrush = "{TemplateBinding BorderBrush}"
+                BorderThickness = "{TemplateBinding BorderThickness}"
+                Height = "{TemplateBinding Height}"
+                Width = "{TemplateBinding Width}">
+                                    <Border.Background>
+                                        <SolidColorBrush x:Name = "BorderColor" Color = "#371f60" />
+                                    </Border.Background>
+                                    <ContentControl Margin = "{TemplateBinding Padding}"
+                    HorizontalAlignment = "{TemplateBinding HorizontalContentAlignment}"
+                    VerticalAlignment = "{TemplateBinding VerticalContentAlignment}"
+                    Content = "{TemplateBinding Content}" />
+                                    <VisualStateManager.VisualStateGroups>
+                                        <VisualStateGroup Name = "CommonStates">
+                                            <VisualState Name = "MouseOver">
+                                                <Storyboard>
+                                                    <ColorAnimation Storyboard.TargetName = "BorderColor"
+                                    Storyboard.TargetProperty = "Color" To = "#ff5e5b"/>
+                                                </Storyboard>
+                                            </VisualState>
+                                            <VisualState Name = "Normal">
+                                                <Storyboard>
+                                                    <ColorAnimation Storyboard.TargetName ="BorderColor"
+                                    Storyboard.TargetProperty = "Color" To = "#371f60" />
+                                                </Storyboard>
+                                            </VisualState>
+                                        </VisualStateGroup>
+                                    </VisualStateManager.VisualStateGroups>
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
+                    <Border x:Name="mainBorder" Visibility="Collapsed" Grid.Column="1" Margin="43.333,112,111,96.667" >
+                        <Grid Margin="-60,2,-54.667,-2">
+                            <TextBlock Text="Adults" Foreground = "#371f60" Width="55" FontSize = "13" FontWeight = "Bold" Margin="335,23,250.667,219"/>
+                            <Button Margin="407,12,183.667,224" FontSize = "13" BorderBrush = "{x:Null}" Content="-" Background = "#371f60"
                                     Click="Button_Adults_Minus_Click" Width="50" Height="50">
                                 <Button.Template>
                                     <ControlTemplate TargetType="Button">
@@ -155,8 +201,8 @@
                                 </Button.Template>
                             </Button>
                             <TextBlock x:Name="textAdults"  FontSize = "13" FontWeight = "Bold" TextAlignment="Center" 
-                             Text="{x:Null}" Foreground = "#371f60" Height="30" Width="30" Margin="227,33,54.333,115.667"/>
-                            <Button Margin="268,13,-6.667,115.667" BorderBrush = "{x:Null}" Content="+" FontSize = "13" Background = "#371f60"
+                             Text="{x:Null}" Foreground = "#371f60" Height="30" Width="30" Margin="480,30,130.667,226"/>
+                            <Button Margin="532,13,58.667,223" BorderBrush = "{x:Null}" Content="+" FontSize = "13" Background = "#371f60"
                                     Click="Button_Adults_Plus_Click" Width="50" Height="50">
                                 <Button.Template>
                                     <ControlTemplate TargetType="Button">
@@ -192,8 +238,18 @@
                                     </ControlTemplate>
                                 </Button.Template>
                             </Button>
-                            <TextBlock Text="Children" Foreground = "#371f60" FontSize = "13" FontWeight = "Bold" Margin="21,81,201.333,64.667"/>
-                            <Button Margin="166,70,95.333,58.667" FontSize = "13" BorderBrush = "{x:Null}" Content="-" Background = "#371f60" 
+                            <TextBlock Text="Children" Foreground = "#371f60" Width="55" FontSize = "13" FontWeight = "Bold" Margin="334,79,251.667,168" 
+                                       RenderTransformOrigin="0.5,0.5">
+                                <TextBlock.RenderTransform>
+                                    <TransformGroup>
+                                        <ScaleTransform/>
+                                        <SkewTransform AngleX="-0.438"/>
+                                        <RotateTransform/>
+                                        <TranslateTransform X="-0.492"/>
+                                    </TransformGroup>
+                                </TextBlock.RenderTransform>
+                            </TextBlock>
+                            <Button Margin="407,73,183.667,163" FontSize = "13" BorderBrush = "{x:Null}" Content="-" Background = "#371f60" 
                                     Click="Button_Children_Minus_Click" Width="50" Height="50">
                                 <Button.Template>
                                     <ControlTemplate TargetType="Button">
@@ -230,8 +286,8 @@
                                 </Button.Template>
                             </Button>
                             <TextBlock x:Name="textChildren"  FontSize = "13" FontWeight = "Bold" TextAlignment="Center" 
-                            Text="{x:Null}" Foreground = "#371f60" Width="30" Height="30" Margin="227,90,54.333,58.667"/>
-                            <Button Margin="268,71,-6.667,57.667" FontSize = "13" BorderBrush = "{x:Null}" Content="+" Background = "#371f60" 
+                            Text="{x:Null}" Foreground = "#371f60" Width="30" Height="30" Margin="480,93,130.667,163"/>
+                            <Button Margin="532,73,58.667,163" FontSize = "13" BorderBrush = "{x:Null}" Content="+" Background = "#371f60" 
                                     Click="Button_Children_Plus_Click" Width="50" Height="50">
                                 <Button.Template>
                                     <ControlTemplate TargetType="Button">
@@ -268,8 +324,8 @@
                                 </Button.Template>
                             </Button>
 
-                            <TextBlock Text="Rooms"  Foreground = "#371f60" FontSize = "13" FontWeight = "Bold" Margin="21,139,201.333,3.667"/>
-                            <Button Margin="167,129,94.333,-0.333" FontSize = "13" BorderBrush = "{x:Null}" Content="-" Background = "#371f60" 
+                            <TextBlock Text="Rooms" Width="55" Foreground = "#371f60" FontSize = "13" FontWeight = "Bold" Margin="335,137,250.667,104"/>
+                            <Button Margin="407,132,183.667,104" FontSize = "13" BorderBrush = "{x:Null}" Content="-" Background = "#371f60" 
                                     Click="Button_Rooms_Minus_Click" Width="50" Height="50">
                                 <Button.Template>
                                     <ControlTemplate TargetType="Button">
@@ -306,8 +362,8 @@
                                 </Button.Template>
                             </Button>
                             <TextBlock x:Name="textRooms"  FontSize = "13" FontWeight = "Bold" TextAlignment="Center" 
-                             Text="{x:Null}" Foreground = "#371f60" Height="30" Width="30" Margin="227,149,54.333,-0.333"/>
-                            <Button Margin="268,129,-6.667,-0.333" FontSize = "13" BorderBrush = "{x:Null}" Content="+" Background = "#371f60" 
+                             Text="{x:Null}" Foreground = "#371f60" Height="30" Width="30" Margin="480,146,130.667,110" RenderTransformOrigin="1.711,1.978"/>
+                            <Button Margin="532,132,58.667,104" FontSize = "13" BorderBrush = "{x:Null}" Content="+" Background = "#371f60" 
                                     Click="Button_Rooms_Plus_Click" Width="50" Height="50">
                                 <Button.Template>
                                     <ControlTemplate TargetType="Button">
@@ -345,9 +401,45 @@
                             </Button>
                         </Grid>
                     </Border>
+                    <Button Margin="594.333,84,1,376" Width="80" Height="35" FontSize ="13" Content="Search" Foreground = "White" 
+                            Background = "#371f60" Grid.Column="1"  BorderBrush = "{x:Null}" Click="Button_Click">
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+                                <Border
+                BorderBrush = "{TemplateBinding BorderBrush}"
+                BorderThickness = "{TemplateBinding BorderThickness}"
+                Height = "{TemplateBinding Height}"
+                Width = "{TemplateBinding Width}">
+                                    <Border.Background>
+                                        <SolidColorBrush x:Name = "BorderColor" Color = "#371f60" />
+                                    </Border.Background>
+                                    <ContentControl Margin = "{TemplateBinding Padding}"
+                    HorizontalAlignment = "{TemplateBinding HorizontalContentAlignment}"
+                    VerticalAlignment = "{TemplateBinding VerticalContentAlignment}"
+                    Content = "{TemplateBinding Content}" />
+                                    <VisualStateManager.VisualStateGroups>
+                                        <VisualStateGroup Name = "CommonStates">
+                                            <VisualState Name = "MouseOver">
+                                                <Storyboard>
+                                                    <ColorAnimation Storyboard.TargetName = "BorderColor"
+                                    Storyboard.TargetProperty = "Color" To = "#ff5e5b"/>
+                                                </Storyboard>
+                                            </VisualState>
+                                            <VisualState Name = "Normal">
+                                                <Storyboard>
+                                                    <ColorAnimation Storyboard.TargetName ="BorderColor"
+                                    Storyboard.TargetProperty = "Color" To = "#371f60" />
+                                                </Storyboard>
+                                            </VisualState>
+                                        </VisualStateGroup>
+                                    </VisualStateManager.VisualStateGroups>
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
                     <Button x:Name = "personalAccountButton" Content = "Personal account" FontWeight = "Bold" 
-                            Foreground = "White" Background = "#371f60" Margin = "353.333,-4,-4,-20" 
-                            FontSize = "11" VerticalAlignment = "Top" Grid.Column = "1" BorderBrush = "{x:Null}" Height = "40" Width="130" 
+                            Foreground = "White" Background = "#371f60" Margin = "544.333,0,1,0" 
+                            FontSize = "11" VerticalAlignment = "Top" Grid.Column = "1" BorderBrush = "{x:Null}" Height = "35" Width="130" 
                             Click="personalAccountButton_Click">
                         <Button.Template>
                             <ControlTemplate TargetType="Button">
@@ -387,10 +479,10 @@
             </StackPanel>
         </Border>
         <Button x:Name="ButtonOpen" HorizontalAlignment="Left" VerticalAlignment="Top" 
-                Background="{x:Null}" BorderBrush="{x:Null}" Width="50" Height="50" Padding="0" Grid.RowSpan="2">
+                Background="{x:Null}" BorderBrush="{x:Null}" Width="50" Height="50" Padding="0" Grid.RowSpan="2" Grid.ColumnSpan="2">
             <materialDesign:PackIcon Kind="Menu" Foreground="White" Height="25" Width="25"/>
         </Button>
-        <Grid x:Name="GridMenu" Width="246" HorizontalAlignment="Left" Margin="-250,0,0,-0.333" Background="White" 
+        <Grid x:Name="GridMenu" Width="246" HorizontalAlignment="Left" Margin="-250,0,0,0" Background="White" 
               RenderTransformOrigin="0.5,0.5" Grid.RowSpan="2">
             <Grid.RenderTransform>
                 <TransformGroup>
