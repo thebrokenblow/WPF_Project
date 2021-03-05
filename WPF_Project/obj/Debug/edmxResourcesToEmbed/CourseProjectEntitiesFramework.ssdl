@@ -19,6 +19,7 @@
     <Property Name="phoneNumber" Type="char" MaxLength="16" Nullable="false" />
     <Property Name="hotelDescription" Type="nvarchar(max)" Nullable="false" />
     <Property Name="countOfStars" Type="int" Nullable="false" />
+    <Property Name="ImagePreview" Type="image" />
   </EntityType>
   <EntityType Name="ListOfRooms">
     <Key>

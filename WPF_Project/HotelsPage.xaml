@@ -17,9 +17,10 @@
                 <DataGridTextColumn Header="Страна" Binding="{Binding Сountry.nameOfCountry}" Width="*"/>
                 <DataGridTextColumn Header="Город" Binding="{Binding City.nameOfCity}" Width="*"/>
                 <DataGridTextColumn Header="Название отеля" Binding="{Binding nameOfHotel}" Width="*"/>
-                <DataGridTextColumn Header="Количесво звёзд" Binding="{Binding address}" Width="*"/>
+                <DataGridTextColumn Header="Количесво звёзд" Binding="{Binding countOfStars}" Width="*"/>
                 <DataGridTextColumn Header="Адресс отеля" Binding="{Binding address}" Width="*"/>
                 <DataGridTextColumn Header="Номер телефона" Binding="{Binding phoneNumber}" Width="*"/>
+                <DataGridTextColumn Header="Описание отеля" Binding="{Binding hotelDescription}" Width="*"/>
                 <DataGridTemplateColumn Width="auto">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>

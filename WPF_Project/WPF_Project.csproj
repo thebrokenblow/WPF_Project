@@ -96,25 +96,28 @@
       <DependentUpon>Authorization.xaml</DependentUpon>
     </Compile>
     <Compile Include="City.cs">
-      <DependentUpon>ClassOfDataBase.tt</DependentUpon>
+      <DependentUpon>CourseProjectEntitiesFramework.tt</DependentUpon>
     </Compile>
-    <Compile Include="ClassOfDataBase.Context.cs">
+    <Compile Include="CourseProjectEntitiesFramework.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ClassOfDataBase.Context.tt</DependentUpon>
+      <DependentUpon>CourseProjectEntitiesFramework.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="ClassOfDataBase.cs">
+    <Compile Include="CourseProjectEntitiesFramework.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ClassOfDataBase.tt</DependentUpon>
+      <DependentUpon>CourseProjectEntitiesFramework.tt</DependentUpon>
     </Compile>
-    <Compile Include="ClassOfDataBase.Designer.cs">
+    <Compile Include="CourseProjectEntitiesFramework.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ClassOfDataBase.edmx</DependentUpon>
+      <DependentUpon>CourseProjectEntitiesFramework.edmx</DependentUpon>
     </Compile>
     <Compile Include="Hotel.cs">
-      <DependentUpon>ClassOfDataBase.tt</DependentUpon>
+      <DependentUpon>CourseProjectEntitiesFramework.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HotelsList.xaml.cs">
+      <DependentUpon>HotelsList.xaml</DependentUpon>
     </Compile>
     <Compile Include="HotelSearch.xaml.cs">
       <DependentUpon>HotelSearch.xaml</DependentUpon>
@@ -123,40 +126,45 @@
       <DependentUpon>HotelsPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="ListOfRooms.cs">
-      <DependentUpon>ClassOfDataBase.tt</DependentUpon>
+      <DependentUpon>CourseProjectEntitiesFramework.tt</DependentUpon>
     </Compile>
+    <Compile Include="Menager.cs" />
     <Compile Include="PersonalAccount.xaml.cs">
       <DependentUpon>PersonalAccount.xaml</DependentUpon>
     </Compile>
-    <Compile Include="PhotosOfHotels.cs">
-      <DependentUpon>ClassOfDataBase.tt</DependentUpon>
+    <Compile Include="photosOfHotels.cs">
+      <DependentUpon>CourseProjectEntitiesFramework.tt</DependentUpon>
     </Compile>
     <Compile Include="PhotosOfRooms.cs">
-      <DependentUpon>ClassOfDataBase.tt</DependentUpon>
+      <DependentUpon>CourseProjectEntitiesFramework.tt</DependentUpon>
     </Compile>
     <Compile Include="Registration.xaml.cs">
       <DependentUpon>Registration.xaml</DependentUpon>
     </Compile>
     <Compile Include="Reservation.cs">
-      <DependentUpon>ClassOfDataBase.tt</DependentUpon>
+      <DependentUpon>CourseProjectEntitiesFramework.tt</DependentUpon>
     </Compile>
     <Compile Include="sysdiagrams.cs">
-      <DependentUpon>ClassOfDataBase.tt</DependentUpon>
+      <DependentUpon>CourseProjectEntitiesFramework.tt</DependentUpon>
     </Compile>
     <Compile Include="TypeOfRoom.cs">
-      <DependentUpon>ClassOfDataBase.tt</DependentUpon>
+      <DependentUpon>CourseProjectEntitiesFramework.tt</DependentUpon>
     </Compile>
     <Compile Include="Users.cs">
-      <DependentUpon>ClassOfDataBase.tt</DependentUpon>
+      <DependentUpon>CourseProjectEntitiesFramework.tt</DependentUpon>
     </Compile>
     <Compile Include="Сountry.cs">
-      <DependentUpon>ClassOfDataBase.tt</DependentUpon>
+      <DependentUpon>CourseProjectEntitiesFramework.tt</DependentUpon>
     </Compile>
     <Page Include="AddEditPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Authorization.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="HotelsList.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -199,12 +207,12 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EntityDeploy Include="ClassOfDataBase.edmx">
+    <EntityDeploy Include="CourseProjectEntitiesFramework.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>ClassOfDataBase.Designer.cs</LastGenOutput>
+      <LastGenOutput>CourseProjectEntitiesFramework.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="ClassOfDataBase.edmx.diagram">
-      <DependentUpon>ClassOfDataBase.edmx</DependentUpon>
+    <None Include="CourseProjectEntitiesFramework.edmx.diagram">
+      <DependentUpon>CourseProjectEntitiesFramework.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -242,17 +250,19 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="ClassOfDataBase.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ClassOfDataBase.edmx</DependentUpon>
-      <LastGenOutput>ClassOfDataBase.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="ClassOfDataBase.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ClassOfDataBase.edmx</DependentUpon>
-      <LastGenOutput>ClassOfDataBase.cs</LastGenOutput>
-    </Content>
     <Resource Include="Resources\no_image.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CourseProjectEntitiesFramework.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>CourseProjectEntitiesFramework.edmx</DependentUpon>
+      <LastGenOutput>CourseProjectEntitiesFramework.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="CourseProjectEntitiesFramework.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>CourseProjectEntitiesFramework.edmx</DependentUpon>
+      <LastGenOutput>CourseProjectEntitiesFramework.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\MaterialDesignThemes.3.2.0\build\MaterialDesignThemes.targets" Condition="Exists('..\packages\MaterialDesignThemes.3.2.0\build\MaterialDesignThemes.targets')" />

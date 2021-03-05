@@ -12,17 +12,12 @@ namespace WPF_Project
     using System;
     using System.Collections.Generic;
     
-    public partial class PhotosOfHotels
+    public partial class photosOfHotels
     {
         public int id { get; set; }
         public int idOfHotel { get; set; }
         public byte[] photo { get; set; }
     
         public virtual Hotel Hotel { get; set; }
-
-        internal static object GetContext()
-        {
-            throw new NotImplementedException();
-        }
     }
 }

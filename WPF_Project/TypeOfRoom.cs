@@ -18,6 +18,7 @@ namespace WPF_Project
         public string roomName { get; set; }
         public decimal pricePerDay { get; set; }
         public int idOfRooms { get; set; }
+        public string roomDescription { get; set; }
     
         public virtual ListOfRooms ListOfRooms { get; set; }
     }

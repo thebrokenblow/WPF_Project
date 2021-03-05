@@ -24,13 +24,8 @@ namespace WPF_Project
         public AddEditPage()
         {
             InitializeComponent();
-            //if (selectedHotel != null)
-            //    _currentHotel = selectedHotel;
-
             DataContext = _currentHotel;
-            ComboCountries.ItemsSource = CourseProjectEntitiesFramework.GetContext().City.ToList();
         }
-
         private void BtnSave_Click(object sender, RoutedEventArgs e)
         {
             StringBuilder errors = new StringBuilder();
@@ -38,8 +33,14 @@ namespace WPF_Project
             if (string.IsNullOrWhiteSpace(_currentHotel.nameOfHotel))
                 errors.AppendLine("Укажите название отеля");
 
-            //if (_currentHotel.City == null)
-            //    errors.AppendLine("Выберите страну");
+            if (string.IsNullOrWhiteSpace(_currentHotel.address))
+                errors.AppendLine("Укажите адресс отеля");
+
+            if (_currentHotel.countOfStars < 1 || _currentHotel.countOfStars > 5)
+                errors.AppendLine("Количесво звёзд - число от 1 до 5");
+
+            if (string.IsNullOrWhiteSpace(_currentHotel.phoneNumber))
+                errors.AppendLine("Укажите адресс отеля");
 
             if (errors.Length > 0)
             {
@@ -47,16 +48,23 @@ namespace WPF_Project
                 return;
             }
             if (_currentHotel.id == 0)
-                CourseProjectEntitiesFramework.GetContext().Hotel.Add(_currentHotel);
+                HotelsEntitiesFramework.GetContext().Hotel.Add(_currentHotel);
             try
             {
-                CourseProjectEntitiesFramework.GetContext().SaveChanges();
+                HotelsEntitiesFramework.GetContext().SaveChanges();
                 MessageBox.Show("Информация сохранена");
+                Uri AddEditPage = new Uri("HotelsPage.xaml", UriKind.Relative);
+                this.NavigationService.Navigate(AddEditPage); //Переход на страницу Добавляения записи об отеле
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message.ToString());
             }
+        }
+        private void BtnBack_Click(object sender, RoutedEventArgs e)
+        {
+            Uri AddEditPage = new Uri("HotelsPage.xaml", UriKind.Relative);
+            this.NavigationService.Navigate(AddEditPage); //Переход на страницу Добавляения записи об отеле
         }
     }
 }

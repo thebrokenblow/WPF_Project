@@ -23,7 +23,6 @@ namespace WPF_Project
         public HotelsPage()
         {
             InitializeComponent();
-            DGridHotels.ItemsSource = CourseProjectEntitiesFramework.GetContext().Hotel.ToList();
         }
         private void BtnDelete_Click(object sender, RoutedEventArgs e)
         {
@@ -34,11 +33,11 @@ namespace WPF_Project
             {
                 try
                 {
-                    CourseProjectEntitiesFramework.GetContext().Hotel.RemoveRange(hotelsForRemoving);
-                    CourseProjectEntitiesFramework.GetContext().SaveChanges();
+                    HotelsEntitiesFramework.GetContext().Hotel.RemoveRange(hotelsForRemoving);
+                    HotelsEntitiesFramework.GetContext().SaveChanges();
                     MessageBox.Show("Данные удалены");
 
-                    DGridHotels.ItemsSource = CourseProjectEntitiesFramework.GetContext().Hotel.ToList(); //Обращаемся к списку отелей, через контекст
+                    DGridHotels.ItemsSource = HotelsEntitiesFramework.GetContext().Hotel.ToList(); //Обращаемся к списку отелей, через контекст
                 }
                 catch (Exception ex)
                 {
@@ -48,7 +47,7 @@ namespace WPF_Project
         }
         private void BtnEdit_Click(object sender, RoutedEventArgs e) 
         {
-
+            //Menager.MainFrame.Navigate(new AddEditPage((sender as Button).DataContext as Hotel));
         }
         private void BtnAdd_Click(object sender, RoutedEventArgs e)
         {
@@ -57,8 +56,11 @@ namespace WPF_Project
         }
         private void Page_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
-            CourseProjectEntitiesFramework.GetContext().ChangeTracker.Entries().ToList().ForEach(p => p.Reload());
-            DGridHotels.ItemsSource = CourseProjectEntitiesFramework.GetContext().Hotel.ToList();
+            if (Visibility == Visibility.Visible)
+            {
+                HotelsEntitiesFramework.GetContext().ChangeTracker.Entries().ToList().ForEach(p => p.Reload());
+                DGridHotels.ItemsSource = HotelsEntitiesFramework.GetContext().Hotel.ToList();
+            }
         }
     }
 }

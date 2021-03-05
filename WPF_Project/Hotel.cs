@@ -18,7 +18,7 @@ namespace WPF_Project
         public Hotel()
         {
             this.ListOfRooms = new HashSet<ListOfRooms>();
-            this.PhotosOfHotels = new HashSet<PhotosOfHotels>();
+            this.photosOfHotels = new HashSet<photosOfHotels>();
         }
     
         public int id { get; set; }
@@ -26,11 +26,13 @@ namespace WPF_Project
         public int idOfCity { get; set; }
         public string address { get; set; }
         public string phoneNumber { get; set; }
+        public string hotelDescription { get; set; }
+        public int countOfStars { get; set; }
+        public byte[] ImagePreview { get; set; }
     
-        public virtual City City { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ListOfRooms> ListOfRooms { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<PhotosOfHotels> PhotosOfHotels { get; set; }
+        public virtual ICollection<photosOfHotels> photosOfHotels { get; set; }
     }
 }

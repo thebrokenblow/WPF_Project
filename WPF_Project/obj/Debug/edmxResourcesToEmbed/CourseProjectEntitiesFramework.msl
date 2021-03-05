@@ -1,25 +1,26 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="Хранилище CourseProjectModelContainer" CdmEntityContainer="CourseProjectEntitiesFramework">
+  <EntityContainerMapping StorageEntityContainer="Хранилище CourseProjectModelContainer" CdmEntityContainer="HotelsEntitiesFramework">
     <EntitySetMapping Name="City">
       <EntityTypeMapping TypeName="CourseProjectModel.City">
         <MappingFragment StoreEntitySet="City">
           <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="nameOfCity" ColumnName="nameOfCity" />
           <ScalarProperty Name="idCountry" ColumnName="idCountry" />
+          <ScalarProperty Name="nameOfCity" ColumnName="nameOfCity" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Hotel">
       <EntityTypeMapping TypeName="CourseProjectModel.Hotel">
         <MappingFragment StoreEntitySet="Hotel">
-          <ScalarProperty Name="countOfStars" ColumnName="countOfStars" />
-          <ScalarProperty Name="hotelDescription" ColumnName="hotelDescription" />
+          <ScalarProperty Name="ImagePreview" ColumnName="ImagePreview" />
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="nameOfHotel" ColumnName="nameOfHotel" />
           <ScalarProperty Name="idOfCity" ColumnName="idOfCity" />
           <ScalarProperty Name="address" ColumnName="address" />
           <ScalarProperty Name="phoneNumber" ColumnName="phoneNumber" />
+          <ScalarProperty Name="hotelDescription" ColumnName="hotelDescription" />
+          <ScalarProperty Name="countOfStars" ColumnName="countOfStars" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -29,6 +30,15 @@
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="idOfHotel" ColumnName="idOfHotel" />
           <ScalarProperty Name="idOfPhotosRooms" ColumnName="idOfPhotosRooms" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="photosOfHotels">
+      <EntityTypeMapping TypeName="CourseProjectModel.photosOfHotels">
+        <MappingFragment StoreEntitySet="photosOfHotels">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="idOfHotel" ColumnName="idOfHotel" />
+          <ScalarProperty Name="photo" ColumnName="photo" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -69,11 +79,11 @@
     <EntitySetMapping Name="TypeOfRoom">
       <EntityTypeMapping TypeName="CourseProjectModel.TypeOfRoom">
         <MappingFragment StoreEntitySet="TypeOfRoom">
-          <ScalarProperty Name="roomDescription" ColumnName="roomDescription" />
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="roomName" ColumnName="roomName" />
           <ScalarProperty Name="pricePerDay" ColumnName="pricePerDay" />
           <ScalarProperty Name="idOfRooms" ColumnName="idOfRooms" />
+          <ScalarProperty Name="roomDescription" ColumnName="roomDescription" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -95,15 +105,6 @@
         <MappingFragment StoreEntitySet="Сountry">
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="nameOfCountry" ColumnName="nameOfCountry" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="photosOfHotels1Set">
-      <EntityTypeMapping TypeName="CourseProjectModel.photosOfHotels1">
-        <MappingFragment StoreEntitySet="photosOfHotels">
-          <ScalarProperty Name="photo" ColumnName="photo" />
-          <ScalarProperty Name="idOfHotel" ColumnName="idOfHotel" />
-          <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
