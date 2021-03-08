@@ -29,7 +29,7 @@ namespace WPF_Project
         /// </summary>
         private void Button_Reg_Click(object sender, RoutedEventArgs e)
         {
-            string loginOfUser = textBoxLogin.Text.Trim(); //loginOfUser - логин, который вводит пользователь Trim - удаляет пробелы слева и справа
+            string loginOfUser = textBoxLogin.Text.Trim().ToLower(); //loginOfUser - логин, который вводит пользователь Trim - удаляет пробелы слева и справа
             string passwordOfUser = passwordBox.Password.Trim(); //passwordOfUser - пароль, который вводит пользователь  
             string passwordOfUserRepeat = passwordRepeatBox.Password.Trim(); //passwordOfUserRepeat - повторный пароль, который вводит пользователь
             string emailOfUser = textBoxEmail.Text.Trim().ToLower(); //emailOfUser - email, который вводит пользователь ToLower - перевод в нижний регист символы

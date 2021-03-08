@@ -12,7 +12,7 @@ namespace WPF_Project
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
-
+    
     public partial class HotelsEntitiesFramework : DbContext
     {
         private static HotelsEntitiesFramework _context;
@@ -30,7 +30,6 @@ namespace WPF_Project
         {
             throw new UnintentionalCodeFirstException();
         }
-    
         public virtual DbSet<City> City { get; set; }
         public virtual DbSet<Hotel> Hotel { get; set; }
         public virtual DbSet<ListOfRooms> ListOfRooms { get; set; }

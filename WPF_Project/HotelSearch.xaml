@@ -77,180 +77,56 @@
                     <ComboBox Foreground="#371f60" FontWeight = "Bold" HorizontalAlignment="Left" Margin="185,83.5,0,0" SelectedIndex="-1"
                   VerticalAlignment="Top"  Width="180" Height="35"
                         IsTextSearchEnabled="False" IsEditable="True" Grid.ColumnSpan="2" />
-                    <Button  x:Name="buttonCalender" Foreground = "White" FontSize="13" BorderBrush = "{x:Null}"
-                Background="#371f60" Height="35" Width="180" Click="buttonCalender_Click" Grid.Column="2" Margin="0,85,5,446.667">
-                        <Button.Template>
-                            <ControlTemplate TargetType="Button">
-                                <Border
-                BorderBrush = "{TemplateBinding BorderBrush}"
-                BorderThickness = "{TemplateBinding BorderThickness}"
-                Height = "{TemplateBinding Height}"
-                Width = "{TemplateBinding Width}">
-                                    <Border.Background>
-                                        <SolidColorBrush x:Name = "BorderColor" Color = "#371f60" />
-                                    </Border.Background>
-                                    <ContentControl Margin = "{TemplateBinding Padding}"
-                    HorizontalAlignment = "{TemplateBinding HorizontalContentAlignment}"
-                    VerticalAlignment = "{TemplateBinding VerticalContentAlignment}"
-                    Content = "{TemplateBinding Content}" />
-                                    <VisualStateManager.VisualStateGroups>
-                                        <VisualStateGroup Name = "CommonStates">
-                                            <VisualState Name = "MouseOver">
-                                                <Storyboard>
-                                                    <ColorAnimation Storyboard.TargetName = "BorderColor"
-                                    Storyboard.TargetProperty = "Color" To = "#ff5e5b"/>
-                                                </Storyboard>
-                                            </VisualState>
-                                            <VisualState Name = "Normal">
-                                                <Storyboard>
-                                                    <ColorAnimation Storyboard.TargetName ="BorderColor"
-                                    Storyboard.TargetProperty = "Color" To = "#371f60" />
-                                                </Storyboard>
-                                            </VisualState>
-                                        </VisualStateGroup>
-                                    </VisualStateManager.VisualStateGroups>
-                                </Border>
-                            </ControlTemplate>
-                        </Button.Template>
-                    </Button>
+                    <Button  x:Name="buttonCalender" Foreground = "White" FontSize="13" BorderBrush = "{x:Null}" Background="#371f60" Height="35" Width="180" 
+                             Click="buttonCalender_Click" Grid.Column="2" Margin="0,85,5,446.667" Template="{StaticResource MyButton}"/>
                     <Border x:Name="borderCalender" Visibility="Hidden" Width="300" Height="400" Margin="64.667,120,6,45.333" Grid.Column="1" Grid.ColumnSpan="2">
-                        <Calendar x:Name="Calendar" SelectedDatesChanged="Calendar_SelectedDatesChanged" Width="300" Height="400" BorderBrush = "Black" Background="White"/>
+                        <Calendar SelectionMode="SingleRange"  DisplayDateStart="2021/03/08" x:Name="Calendar"     SelectedDatesChanged="Calendar_SelectedDatesChanged" Width="300" Height="400" BorderBrush = "Black" Background="White"/>
                     </Border>
                     <Button x:Name="countOfAdultChildreanRoomButton" Grid.Column="3" Foreground = "White" FontSize="13" BorderBrush = "{x:Null}" 
-                            Margin="0,85,5.333,446.667" Background="#371f60" Height="35" Width="180" Click="countOfAdultChildreanRoomButton_Click">
-                        <Button.Template>
-                            <ControlTemplate TargetType="Button">
-                                <Border
-                BorderBrush = "{TemplateBinding BorderBrush}"
-                BorderThickness = "{TemplateBinding BorderThickness}"
-                Height = "{TemplateBinding Height}"
-                Width = "{TemplateBinding Width}">
-                                    <Border.Background>
-                                        <SolidColorBrush x:Name = "BorderColor" Color = "#371f60" />
-                                    </Border.Background>
-                                    <ContentControl Margin = "{TemplateBinding Padding}"
-                    HorizontalAlignment = "{TemplateBinding HorizontalContentAlignment}"
-                    VerticalAlignment = "{TemplateBinding VerticalContentAlignment}"
-                    Content = "{TemplateBinding Content}" />
-                                    <VisualStateManager.VisualStateGroups>
-                                        <VisualStateGroup Name = "CommonStates">
-                                            <VisualState Name = "MouseOver">
-                                                <Storyboard>
-                                                    <ColorAnimation Storyboard.TargetName = "BorderColor"
-                                    Storyboard.TargetProperty = "Color" To = "#ff5e5b"/>
-                                                </Storyboard>
-                                            </VisualState>
-                                            <VisualState Name = "Normal">
-                                                <Storyboard>
-                                                    <ColorAnimation Storyboard.TargetName ="BorderColor"
-                                    Storyboard.TargetProperty = "Color" To = "#371f60" />
-                                                </Storyboard>
-                                            </VisualState>
-                                        </VisualStateGroup>
-                                    </VisualStateManager.VisualStateGroups>
-                                </Border>
-                            </ControlTemplate>
-                        </Button.Template>
-                    </Button>
+                            Margin="0,85,5.333,446.667" Background="#371f60" Height="35" Width="180" Click="countOfAdultChildreanRoomButton_Click" Template="{StaticResource MyButton}"/>
+                    
                     <Border x:Name="borderCountOfAdultChildreanRoomButton" Grid.ColumnSpan="2" Grid.Column="2" Margin="70,120,8,217" Visibility="Collapsed">
                         <Grid>
                             <TextBlock Text="Adults" Foreground = "#371f60" Width="70" Height="20" FontSize = "15" FontWeight = "Bold" Margin="0,25,222.667,185"/>
+                            
                             <Button Margin="139,10,103.667,170" FontSize = "13" BorderBrush = "{x:Null}" Content="-" Background = "#371f60"
-                                    Click="Button_Adults_Minus_Click" Width="50" Height="50"/>
+                                    Click="Button_Adults_Minus_Click" Width="50" Height="50" Template="{StaticResource MyButton}"/>
+                            
                             <TextBlock x:Name="textAdults"  FontSize = "13" FontWeight = "Bold" TextAlignment="Center"
                                        Text="{x:Null}" Foreground = "#371f60" Height="30" Width="30" Margin="203,24,59.667,176"/>
+                            
                             <Button  BorderBrush = "{x:Null}" Content="+" FontSize = "13" Background = "#371f60"
-                                    Click="Button_Adults_Plus_Click" Width="50" Height="50" Margin="246,10,-3.333,170"/>
+                                    Click="Button_Adults_Plus_Click" Width="50" Height="50" Margin="246,10,-3.333,170" Template="{StaticResource MyButton}"/>
+                            
                             <TextBlock Text="Children" Foreground = "#371f60" Height="20" Width="70" FontSize = "15" FontWeight = "Bold" Margin="0,88,222.667,122"/>
+                            
                             <Button Margin="139,74,103.667,106" FontSize = "13" BorderBrush = "{x:Null}" Content="-" Background = "#371f60"
-                                    Click="Button_Children_Minus_Click" Width="50" Height="50"/>
+                                    Click="Button_Children_Minus_Click" Width="50" Height="50" Template="{StaticResource MyButton}"/>
+                            
                             <TextBlock x:Name="textChildren"  FontSize = "13" FontWeight = "Bold" TextAlignment="Center"
                                        Text="{x:Null}" Foreground = "#371f60" Height="30" Width="30" Margin="203,88,59.667,112"/>
-                            <Button  BorderBrush = "{x:Null}" Content="+" FontSize = "13" Background = "#371f60"
-                                    Click="Button_Children_Plus_Click" Width="50" Height="50" Margin="246,74,-3.333,106"/>
+                            
+                            <Button  BorderBrush = "{x:Null}" Content="+" FontSize = "13" Background = "#371f60" Click="Button_Children_Plus_Click" 
+                                     Width="50" Height="50" Margin="246,74,-3.333,106" Template="{StaticResource MyButton}"/>
+                            
                             <TextBlock Text="Romms" Foreground = "#371f60" Height="20" Width="70" FontSize = "15" FontWeight = "Bold" Margin="0,152,222.667,58"/>
+                            
                             <Button Margin="139,138,103.667,42" FontSize = "13" BorderBrush = "{x:Null}" Content="-" Background = "#371f60"
-                                    Click="Button_Rooms_Minus_Click" Width="50" Height="50"/>
+                                    Click="Button_Rooms_Minus_Click" Width="50" Height="50" Template="{StaticResource MyButton}"/>
+                            
                             <TextBlock x:Name="textRooms"  FontSize = "13" FontWeight = "Bold" TextAlignment="Center"
                                        Text="{x:Null}" Foreground = "#371f60" Height="30" Width="30" Margin="203,152,59.667,48"/>
+                            
                             <Button  BorderBrush = "{x:Null}" Content="+" FontSize = "13" Background = "#371f60"
-                                    Click="Button_Rooms_Plus_Click" Width="50" Height="50" Margin="246,138,-3.333,42"/>
+                                    Click="Button_Rooms_Plus_Click" Width="50" Height="50" Margin="246,138,-3.333,42" Template="{StaticResource MyButton}"/>
                         </Grid>
                     </Border>
-                    <Button Margin="54.667,85,0,446.667" Height="35" FontSize ="13" Content="Search" Foreground = "White" 
-                            Background = "#371f60" Grid.Column="4"  BorderBrush = "{x:Null}" Click="Search_Click">
-                        <Button.Template>
-                            <ControlTemplate TargetType="Button">
-                                <Border
-                BorderBrush = "{TemplateBinding BorderBrush}"
-                BorderThickness = "{TemplateBinding BorderThickness}"
-                Height = "{TemplateBinding Height}"
-                Width = "{TemplateBinding Width}">
-                                    <Border.Background>
-                                        <SolidColorBrush x:Name = "BorderColor" Color = "#371f60" />
-                                    </Border.Background>
-                                    <ContentControl Margin = "{TemplateBinding Padding}"
-                    HorizontalAlignment = "{TemplateBinding HorizontalContentAlignment}"
-                    VerticalAlignment = "{TemplateBinding VerticalContentAlignment}"
-                    Content = "{TemplateBinding Content}" />
-                                    <VisualStateManager.VisualStateGroups>
-                                        <VisualStateGroup Name = "CommonStates">
-                                            <VisualState Name = "MouseOver">
-                                                <Storyboard>
-                                                    <ColorAnimation Storyboard.TargetName = "BorderColor"
-                                    Storyboard.TargetProperty = "Color" To = "#ff5e5b"/>
-                                                </Storyboard>
-                                            </VisualState>
-                                            <VisualState Name = "Normal">
-                                                <Storyboard>
-                                                    <ColorAnimation Storyboard.TargetName ="BorderColor"
-                                    Storyboard.TargetProperty = "Color" To = "#371f60" />
-                                                </Storyboard>
-                                            </VisualState>
-                                        </VisualStateGroup>
-                                    </VisualStateManager.VisualStateGroups>
-                                </Border>
-                            </ControlTemplate>
-                        </Button.Template>
-                    </Button>
-                    <Button x:Name = "personalAccountButton" Content = "Personal account" FontWeight = "Bold" 
-                            Foreground = "White" Background = "#371f60" Margin = "54.667,0,0,0" 
-                            FontSize = "11" VerticalAlignment = "Top" Grid.Column = "4" BorderBrush = "{x:Null}" Height = "35" Width="130" 
-                            Click="personalAccountButton_Click">
-                        <Button.Template>
-                            <ControlTemplate TargetType="Button">
-                                <Border
-                BorderBrush = "{TemplateBinding BorderBrush}"
-                BorderThickness = "{TemplateBinding BorderThickness}"
-                Height = "{TemplateBinding Height}"
-                Width = "{TemplateBinding Width}">
-                                    <Border.Background>
-                                        <SolidColorBrush x:Name = "BorderColor" Color = "#371f60" />
-                                    </Border.Background>
-                                    <ContentControl Margin = "{TemplateBinding Padding}"
-                    HorizontalAlignment = "{TemplateBinding HorizontalContentAlignment}"
-                    VerticalAlignment = "{TemplateBinding VerticalContentAlignment}"
-                    Content = "{TemplateBinding Content}" />
-                                    <VisualStateManager.VisualStateGroups>
-                                        <VisualStateGroup Name = "CommonStates">
-                                            <VisualState Name = "MouseOver">
-                                                <Storyboard>
-                                                    <ColorAnimation Storyboard.TargetName = "BorderColor"
-                                    Storyboard.TargetProperty = "Color" To = "#ff5e5b"/>
-                                                </Storyboard>
-                                            </VisualState>
-                                            <VisualState Name = "Normal">
-                                                <Storyboard>
-                                                    <ColorAnimation Storyboard.TargetName ="BorderColor"
-                                    Storyboard.TargetProperty = "Color" To = "#371f60" />
-                                                </Storyboard>
-                                            </VisualState>
-                                        </VisualStateGroup>
-                                    </VisualStateManager.VisualStateGroups>
-                                </Border>
-                            </ControlTemplate>
-                        </Button.Template>
-                    </Button>
+                    <Button Margin="54.667,85,0,446.667" Height="35" FontSize ="15" Content="Search" Foreground = "White" 
+                            Background = "#371f60" Grid.Column="4"  BorderBrush = "{x:Null}" Click="Search_Click" Template="{StaticResource MyButton}"/>
+
+                    <Button x:Name = "personalAccountButton" Content = "Personal account" FontWeight = "Bold" Foreground = "White" Background = "#371f60"
+                            Margin = "55,0,0,0" FontSize = "12" VerticalAlignment = "Top" Grid.Column = "4" BorderBrush = "{x:Null}" Height = "35" Width="130" 
+                            Click="personalAccountButton_Click" Template="{StaticResource MyButton}"/>
                 </Grid>
             </StackPanel>
         </Border>

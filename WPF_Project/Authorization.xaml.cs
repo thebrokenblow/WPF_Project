@@ -25,7 +25,7 @@ namespace WPF_Project
         /// </summary>
         private void Button_Auth_Click(object sender, RoutedEventArgs e)
         {
-            string login = textBoxLogin.Text.Trim(); //Trim - удаляет пробелы слева и справа
+            string login = textBoxLogin.Text.Trim().ToLower(); //Trim - удаляет пробелы слева и справа
             string password = passwordBox.Password.Trim();
 
             if (login.Length <= 5)
@@ -49,10 +49,10 @@ namespace WPF_Project
                     passwordBox.Background = Brushes.Transparent;
                     passwordBox.ToolTip = null;
                     Users authUser = null; //Объект для работы с базой данных
-                                          //using - Зактрытое окружение для подключения к базе данных
-                                          //ApplicationContext conte = new ApplicationContext() - 
-                                          //Создание оьъектра и выделение под него память
-                                          //db - пременная для обращенияе к базе данных (db - DataBase) 
+                                           //using - Зактрытое окружение для подключения к базе данных
+                                           //ApplicationContext conte = new ApplicationContext() - 
+                                           //Создание оьъектра и выделение под него память
+                                           //db - пременная для обращенияе к базе данных (db - DataBase) 
                     using (ApplicationContext context = new ApplicationContext())
                     {
                         //check => check.Login == login && check.Password == password - создание переменной check, 

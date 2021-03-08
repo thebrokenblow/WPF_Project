@@ -50,8 +50,8 @@
                     <Storyboard TargetProperty = "Width" TargetName = "enterButton">
                         <DoubleAnimation From = "0" To = "590"
                                          AutoReverse = "True"
-                                         RepeatBehavior = "0:0:1.5"
-                                         Duration = "0:0:1.5">
+                                         RepeatBehavior = "0:0:1"
+                                         Duration = "0:0:1">
                         </DoubleAnimation>
                     </Storyboard>
                 </BeginStoryboard>
@@ -65,105 +65,32 @@
         </EventTrigger>
     </Page.Triggers>
     <Grid Background = "#371f60">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="142*"/>
-            <ColumnDefinition Width="851*"/>
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="13*"/>
-            <RowDefinition Height="558*"/>
-        </Grid.RowDefinitions>
-        <Grid x:Name="GridBackground" Background = "#371f60" Margin="0,0,0,0" Opacity="0" Grid.RowSpan="2" Grid.ColumnSpan="2"/>
-        <Border MinHeight = "300" Margin="0,60,0,60 " Background = "White" VerticalAlignment = "Center" Padding = "30" 
-                MaxWidth = "650" CornerRadius = "20" Height = "300" Grid.Row="1" Grid.ColumnSpan="2">
+        <Grid x:Name="GridBackground" Background = "#371f60" Margin="0,0,0,0" Opacity="0" Grid.RowSpan="2"/>
+        <Border MinHeight = "300" Margin="0,143.667,0,143" Background = "White" VerticalAlignment = "Center" Padding = "30" 
+                MaxWidth = "650" CornerRadius = "20" Height = "300" Grid.Row="1">
             <Border.Effect>
                 <DropShadowEffect BlurRadius = "30" Color = "LightGray" ShadowDepth = "0"/>
             </Border.Effect>
             <StackPanel>
                 <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width = "123*"/>
-                        <ColumnDefinition Width = "367*"/>
-                    </Grid.ColumnDefinitions>
-                    <TextBlock FontSize = "25" FontWeight = "Bold" Foreground = "#371f60" Margin = "0,0,0,0" Grid.ColumnSpan = "2"
+                    <TextBlock FontSize = "25" FontWeight = "Bold" Foreground = "#371f60" Margin = "0,0,0,57.667"
                                Text = "The Authorization"/>
+                    
                     <Button x:Name = "regButton" Content = "Register" FontSize = "15" Foreground = "White" FontWeight = "Bold" 
-                            Margin = "292,1,0,0" VerticalAlignment = "Top" Grid.Column = "1" BorderBrush = "{x:Null}" 
-                            Height = "35" Click = "Button_Transition_Reg_Click" IsCancel="True">
-                        <Button.Template>
-                            <ControlTemplate TargetType = "Button">
-                                <Border
-                BorderBrush = "{TemplateBinding BorderBrush}"
-                BorderThickness = "{TemplateBinding BorderThickness}"
-                Height = "{TemplateBinding Height}"
-                Width = "{TemplateBinding Width}">
-                                    <Border.Background>
-                                        <SolidColorBrush x:Name = "BorderColor" Color = "#371f60" />
-                                    </Border.Background>
-                                    <ContentControl Margin = "{TemplateBinding Padding}"
-                    HorizontalAlignment = "{TemplateBinding HorizontalContentAlignment}"
-                    VerticalAlignment = "{TemplateBinding VerticalContentAlignment}"
-                    Content = "{TemplateBinding Content}" />
-                                    <VisualStateManager.VisualStateGroups>
-                                        <VisualStateGroup Name = "CommonStates">
-                                            <VisualState Name = "MouseOver">
-                                                <Storyboard>
-                                                    <ColorAnimation Storyboard.TargetName = "BorderColor"
-                                    Storyboard.TargetProperty = "Color" To = "#ff5e5b" />
-                                                </Storyboard>
-                                            </VisualState>
-                                            <VisualState Name = "Normal">
-                                                <Storyboard>
-                                                    <ColorAnimation Storyboard.TargetName = "BorderColor"
-                                    Storyboard.TargetProperty = "Color" To = "#371f60"/>
-                                                </Storyboard>
-                                            </VisualState>
-                                        </VisualStateGroup>
-                                    </VisualStateManager.VisualStateGroups>
-                                </Border>
-                            </ControlTemplate>
-                        </Button.Template>
+                            Margin = "430,0,0,0" VerticalAlignment = "Top" BorderBrush = "{x:Null}" 
+                            Height = "35" Width ="160" Click = "Button_Transition_Reg_Click" IsCancel="True" Template="{StaticResource MyButton}">
                     </Button>
+                    
                     <TextBox x:Name = "textBoxLogin" Foreground = "#371f60" materialDesign:HintAssist.Hint = "Enter login" FontWeight = "Bold"
                              Style = "{StaticResource MaterialDesignFloatingHintTextBox}" Margin = "0,61,0,-11.667" Grid.ColumnSpan = "2" />
+                    
                     <PasswordBox x:Name = "passwordBox" Foreground = "#371f60" materialDesign:HintAssist.Hint = "Enter password" FontWeight ="Bold"
                              Style = "{StaticResource MaterialDesignFloatingHintPasswordBox}" Margin = "0,105,0,-56.667" Grid.ColumnSpan = "2" />
+                    
                     <TextBlock x:Name="errorBox" Text = "{x:Null}" Foreground = "#ff5e5b" FontSize = "15" FontWeight = "Bold" Margin="4,162,171,-90.333" Grid.ColumnSpan="2" />
-                    <Button x:Name = "enterButton" Background = "#371f60" Foreground = "White" FontWeight = "Bold" Content = "Enter" FontSize = "15" 
-                            Height = "35" Margin = "0,194,0,-136.333" Grid.ColumnSpan = "2" IsDefault="True" Click = "Button_Auth_Click" BorderBrush = "{x:Null}">
-                        <Button.Template>
-                            <ControlTemplate TargetType = "Button">
-                                <Border
-                BorderBrush = "{TemplateBinding BorderBrush}"
-                BorderThickness = "{TemplateBinding BorderThickness}"
-                Height = "{TemplateBinding Height}"
-                Width = "{TemplateBinding Width}">
-                                    <Border.Background>
-                                        <SolidColorBrush x:Name = "BorderColor" Color = "#371f60" />
-                                    </Border.Background>
-                                    <ContentControl Margin = "{TemplateBinding Padding}"
-                    HorizontalAlignment = "{TemplateBinding HorizontalContentAlignment}"
-                    VerticalAlignment = "{TemplateBinding VerticalContentAlignment}"
-                    Content = "{TemplateBinding Content}" />
-                                    <VisualStateManager.VisualStateGroups>
-                                        <VisualStateGroup Name = "CommonStates">
-                                            <VisualState Name = "MouseOver">
-                                                <Storyboard>
-                                                    <ColorAnimation Storyboard.TargetName = "BorderColor"
-                                    Storyboard.TargetProperty = "Color" To = "#ff5e5b" />
-                                                </Storyboard>
-                                            </VisualState>
-                                            <VisualState Name = "Normal">
-                                                <Storyboard>
-                                                    <ColorAnimation Storyboard.TargetName = "BorderColor"
-                                    Storyboard.TargetProperty = "Color" To = "#371f60" />
-                                                </Storyboard>
-                                            </VisualState>
-                                        </VisualStateGroup>
-                                    </VisualStateManager.VisualStateGroups>
-                                </Border>
-                            </ControlTemplate>
-                        </Button.Template>
+
+                    <Button x:Name = "enterButton" Background = "#371f60" Foreground = "White" FontWeight = "Bold" Content = "Enter" FontSize = "15" Template="{StaticResource MyButton}"  
+                            Height = "35" Width="590" Margin = "0,194,0,-136.333" Grid.ColumnSpan = "2" IsDefault="True" Click = "Button_Auth_Click" BorderBrush = "{x:Null}">
                     </Button>
                 </Grid>
             </StackPanel>
@@ -172,7 +99,7 @@
                 Background="{x:Null}" BorderBrush="{x:Null}" Width="50" Height="50" Padding="0" Grid.RowSpan="2">
             <materialDesign:PackIcon Kind="Menu" Foreground="White" Height="25" Width="25"/>
         </Button>
-        <Grid x:Name="GridMenu" Width="246" HorizontalAlignment="Left" Margin="-250,0,0,-0.333" Background="White" 
+        <Grid x:Name="GridMenu" Width="246" HorizontalAlignment="Left" Margin="-250,0,0,0" Background="White" 
               RenderTransformOrigin="0.5,0.5" Grid.RowSpan="2">
             <Grid.RenderTransform>
                 <TransformGroup>

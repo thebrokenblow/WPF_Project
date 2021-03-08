@@ -65,77 +65,11 @@
                 </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
-        <Button Background="#371f60" Height="30" Width="200" FontSize="15" Content="Добавить" Grid.Row="1" 
-                HorizontalAlignment="Left" Name="BtnAdd"  Click="BtnAdd_Click" BorderBrush = "{x:Null}">
-            <Button.Template>
-                <ControlTemplate TargetType = "Button">
-                    <Border
-                BorderBrush = "{TemplateBinding BorderBrush}"
-                BorderThickness = "{TemplateBinding BorderThickness}"
-                Height = "{TemplateBinding Height}"
-                Width = "{TemplateBinding Width}">
-                        <Border.Background>
-                            <SolidColorBrush x:Name = "BorderColor" Color = "#371f60" />
-                        </Border.Background>
-                        <ContentControl Margin = "{TemplateBinding Padding}"
-                    HorizontalAlignment = "{TemplateBinding HorizontalContentAlignment}"
-                    VerticalAlignment = "{TemplateBinding VerticalContentAlignment}"
-                    Content = "{TemplateBinding Content}" />
-                        <VisualStateManager.VisualStateGroups>
-                            <VisualStateGroup Name = "CommonStates">
-                                <VisualState Name = "MouseOver">
-                                    <Storyboard>
-                                        <ColorAnimation Storyboard.TargetName = "BorderColor"
-                                    Storyboard.TargetProperty = "Color" To = "#ff5e5b" />
-                                    </Storyboard>
-                                </VisualState>
-                                <VisualState Name = "Normal">
-                                    <Storyboard>
-                                        <ColorAnimation Storyboard.TargetName = "BorderColor"
-                                    Storyboard.TargetProperty = "Color" To = "#371f60"/>
-                                    </Storyboard>
-                                </VisualState>
-                            </VisualStateGroup>
-                        </VisualStateManager.VisualStateGroups>
-                    </Border>
-                </ControlTemplate>
-            </Button.Template>
-        </Button>
-        <Button Background="#371f60" Height="30" Width="200" FontSize="15" Content="Удалить" Grid.Row="1" 
-                HorizontalAlignment="Right" Name="BtnDelete" Click="BtnDelete_Click" BorderBrush = "{x:Null}">
-            <Button.Template>
-                <ControlTemplate TargetType = "Button">
-                    <Border
-                BorderBrush = "{TemplateBinding BorderBrush}"
-                BorderThickness = "{TemplateBinding BorderThickness}"
-                Height = "{TemplateBinding Height}"
-                Width = "{TemplateBinding Width}">
-                        <Border.Background>
-                            <SolidColorBrush x:Name = "BorderColor" Color = "#371f60" />
-                        </Border.Background>
-                        <ContentControl Margin = "{TemplateBinding Padding}"
-                    HorizontalAlignment = "{TemplateBinding HorizontalContentAlignment}"
-                    VerticalAlignment = "{TemplateBinding VerticalContentAlignment}"
-                    Content = "{TemplateBinding Content}" />
-                        <VisualStateManager.VisualStateGroups>
-                            <VisualStateGroup Name = "CommonStates">
-                                <VisualState Name = "MouseOver">
-                                    <Storyboard>
-                                        <ColorAnimation Storyboard.TargetName = "BorderColor"
-                                    Storyboard.TargetProperty = "Color" To = "#ff5e5b" />
-                                    </Storyboard>
-                                </VisualState>
-                                <VisualState Name = "Normal">
-                                    <Storyboard>
-                                        <ColorAnimation Storyboard.TargetName = "BorderColor"
-                                    Storyboard.TargetProperty = "Color" To = "#371f60"/>
-                                    </Storyboard>
-                                </VisualState>
-                            </VisualStateGroup>
-                        </VisualStateManager.VisualStateGroups>
-                    </Border>
-                </ControlTemplate>
-            </Button.Template>
-        </Button>
+        
+        <Button Background="#371f60" Height="30" Width="200" FontSize="15" Content="Add" Grid.Row="1" HorizontalAlignment="Left" Name="BtnAdd" 
+                Click="BtnAdd_Click" BorderBrush = "{x:Null}" Template="{StaticResource MyButton}"/>
+
+        <Button Background="#371f60" Height="30" Width="200" FontSize="15" Content="Delete" Grid.Row="1" HorizontalAlignment="Right" Name="BtnDelete" 
+                Click="BtnDelete_Click" BorderBrush = "{x:Null}" Template="{StaticResource MyButton}"/>
     </Grid>
 </Page>
