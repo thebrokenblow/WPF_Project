@@ -28,9 +28,9 @@ namespace WPF_Project
             string login = textBoxLogin.Text.Trim().ToLower(); //Trim - удаляет пробелы слева и справа
             string password = passwordBox.Password.Trim();
 
-            if (login.Length <= 5)
+            if (login.Length <= 5 || login.Length >= 25)
             {
-                textBoxLogin.ToolTip = "The login is too short, enter more than 5 characters.";   //ToolTip - подсказка  
+                textBoxLogin.ToolTip = "The login is too short, enter more than 5 characters or more 25 characters.";   //ToolTip - подсказка  
                 var backgroundColor = new BrushConverter();
                 textBoxLogin.Background = (Brush)backgroundColor.ConvertFrom("#ff5e5b");
             }
@@ -38,9 +38,9 @@ namespace WPF_Project
             {
                 textBoxLogin.Background = Brushes.Transparent;
                 textBoxLogin.ToolTip = null;
-                if (password.Length <= 5)
+                if (password.Length <= 5 || login.Length >= 60)
                 {
-                    passwordBox.ToolTip = "The password is too short, enter more than 5 characters.";
+                    passwordBox.ToolTip = "The password is too short, enter more than 5 characters or or more 60 characters.";
                     var backgroundColor = new BrushConverter();
                     passwordBox.Background = (Brush)backgroundColor.ConvertFrom("#ff5e5b");
                 }

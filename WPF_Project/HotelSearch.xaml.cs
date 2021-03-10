@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
@@ -6,6 +7,19 @@ using System.Windows.Data;
 
 namespace WPF_Project
 {
+    public class informationAboutHotel 
+    {
+        public static string Country;
+        public static string City;
+        //public static var dataBegin;
+        //public static var dataEnd;
+        public static int countOfAdults;
+        public static int countOfChildren;
+        public static int countOfRooms;
+        public informationAboutHotel()
+        {   
+        }
+    }
     /// <summary>
     /// Логика взаимодействия для HotelSearch.xaml
     /// </summary>
@@ -115,6 +129,7 @@ namespace WPF_Project
             var tb = (TextBox)e.OriginalSource;
             tb.Select(tb.SelectionStart + tb.SelectionLength, 0);
             CollectionView cv = (CollectionView)CollectionViewSource.GetDefaultView(CbNaimTovCountry.ItemsSource);
+            if (cv != null)
             cv.Filter = s => ((string)s).IndexOf(CbNaimTovCountry.Text, StringComparison.CurrentCultureIgnoreCase) >= 0;
         }
         private void CbNaimTovCountry_Loaded(object sender, RoutedEventArgs e)
@@ -203,12 +218,13 @@ namespace WPF_Project
         private void CbNaimTovCountry_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             string text = (e.AddedItems[0] as ComboBoxItem).Content as String;
-            // text = ("select") //Запрос получения id по строке 
+           // text = from City in City 
+           //        where City.id = Hotel.id
+           //        select City;
         }
         private void Search_Click(object sender, RoutedEventArgs e)
         {
-
-
+            informationAboutHotel informationAboutHotel = new informationAboutHotel();
         }
     }
 }

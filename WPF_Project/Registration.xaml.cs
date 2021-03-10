@@ -34,9 +34,9 @@ namespace WPF_Project
             string passwordOfUserRepeat = passwordRepeatBox.Password.Trim(); //passwordOfUserRepeat - повторный пароль, который вводит пользователь
             string emailOfUser = textBoxEmail.Text.Trim().ToLower(); //emailOfUser - email, который вводит пользователь ToLower - перевод в нижний регист символы
 
-            if (loginOfUser.Length <= 5) //Проверка на длину логина пользователя
+            if (loginOfUser.Length <= 5 || loginOfUser.Length >= 25) //Проверка на длину логина пользователя
             {
-                textBoxLogin.ToolTip = "The login is too short, enter more than 5 characters."; //ToolTip - подсказка при наведении на поле    
+                textBoxLogin.ToolTip = "The login is too short, enter more than 5 characters or more 25 characters."; //ToolTip - подсказка при наведении на поле    
                 var backgroundColor = new BrushConverter(); //создание объекта на основе BrushConverter и выделением под него память 
                 textBoxLogin.Background = (Brush)backgroundColor.ConvertFrom("#ff5e5b"); //изменение задего фона при неправельных введённых данных
             }
@@ -44,9 +44,9 @@ namespace WPF_Project
             {
                 textBoxLogin.Background = Brushes.Transparent; //Transparent - очищение заднего фона текстового блока
                 textBoxLogin.ToolTip = null; //очищаем подсказку
-                if (passwordOfUser.Length <= 5)
+                if (passwordOfUser.Length <= 5 || passwordOfUser.Length >= 60)
                 {
-                    passwordBox.ToolTip = "The password is too short, enter more than 5 characters.";
+                    passwordBox.ToolTip = "The password is too short, enter more than 5 characters or more 60 characters.";
                     var backgroundColor = new BrushConverter(); //создание объекта на основе BrushConverter и выделением под него память 
                     passwordBox.Background = (Brush)backgroundColor.ConvertFrom("#ff5e5b"); //изменение задего фона при неправельных введённых данных
                 }
@@ -64,7 +64,7 @@ namespace WPF_Project
                     {
                         passwordRepeatBox.Background = Brushes.Transparent; //Transparent - очищение заднего фона текстового блока
                         passwordRepeatBox.ToolTip = null; //очищаем подсказку
-                        if (emailOfUser.Length <= 5 || !emailOfUser.Contains("@") || !emailOfUser.Contains("."))
+                        if (emailOfUser.Length <= 5 || !emailOfUser.Contains("@") || !emailOfUser.Contains(".") || passwordOfUser.Length >= 100)
                         {
                             textBoxEmail.ToolTip = "Incorrectly entered email.";
                             var backgroundColor = new BrushConverter(); //создание объекта на основе BrushConverter и выделением под него память 
