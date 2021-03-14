@@ -28,14 +28,14 @@ namespace WPF_Project
         {
             var hotelsForRemoving = DGridHotels.SelectedItems.Cast<Hotel>().ToList();
 
-            if (MessageBox.Show($"Вы точно хотите удалить следующие {hotelsForRemoving.Count()} элементов?", "Внимание",
+            if (MessageBox.Show($"Are you sure you want to delete the following {hotelsForRemoving.Count()} items?", "Attention",
                 MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
             {
                 try
                 {
                     HotelsEntitiesFramework.GetContext().Hotel.RemoveRange(hotelsForRemoving);
                     HotelsEntitiesFramework.GetContext().SaveChanges();
-                    MessageBox.Show("Данные удалены");
+                    MessageBox.Show("Data deleted");
 
                     DGridHotels.ItemsSource = HotelsEntitiesFramework.GetContext().Hotel.ToList(); //Обращаемся к списку отелей, через контекст
                 }
@@ -47,7 +47,8 @@ namespace WPF_Project
         }
         private void BtnEdit_Click(object sender, RoutedEventArgs e) 
         {
-            //Menager.MainFrame.Navigate(new AddEditPage((sender as Button).DataContext as Hotel));
+            Uri AddEditPage = new Uri("AddEditPage.xaml", UriKind.Relative);
+            this.NavigationService.Navigate(AddEditPage); //Переход на страницу Добавляения записи об отеле
         }
         private void BtnAdd_Click(object sender, RoutedEventArgs e)
         {

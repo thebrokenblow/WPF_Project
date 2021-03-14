@@ -9,63 +9,29 @@
       Title="HotelsPage" IsVisibleChanged="Page_IsVisibleChanged" ShowsNavigationUI="False">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="377*"/>
+            <RowDefinition Height="375*"/>
             <RowDefinition Height="50*"/>
         </Grid.RowDefinitions>
         <DataGrid x:Name="DGridHotels" AutoGenerateColumns="False" IsReadOnly="True" Grid.RowSpan="2">
             <DataGrid.Columns >
-                <DataGridTextColumn Header="Страна" Binding="{Binding Сountry.nameOfCountry}" Width="*"/>
-                <DataGridTextColumn Header="Город" Binding="{Binding City.nameOfCity}" Width="*"/>
-                <DataGridTextColumn Header="Название отеля" Binding="{Binding nameOfHotel}" Width="*"/>
-                <DataGridTextColumn Header="Количесво звёзд" Binding="{Binding countOfStars}" Width="*"/>
-                <DataGridTextColumn Header="Адресс отеля" Binding="{Binding address}" Width="*"/>
-                <DataGridTextColumn Header="Номер телефона" Binding="{Binding phoneNumber}" Width="*"/>
-                <DataGridTextColumn Header="Описание отеля" Binding="{Binding hotelDescription}" Width="*"/>
+                <DataGridTextColumn Header="Country" Binding="{Binding Сountry.nameOfCountry}" Width="*"/>
+                <DataGridTextColumn Header="City" Binding="{Binding City.nameOfCity}" Width="*"/>
+                <DataGridTextColumn Header="Name Of Hotel" Binding="{Binding nameOfHotel}" Width="*"/>
+                <DataGridTextColumn Header="Number Of Stars" Binding="{Binding countOfStars}" Width="*"/>
+                <DataGridTextColumn Header="Address Of Hotel" Binding="{Binding address}" Width="*"/>
+                <DataGridTextColumn Header="Number Of Phone" Binding="{Binding phoneNumber}" Width="*"/>
+                <DataGridTextColumn Header="Description Of Hotel" Binding="{Binding hotelDescription}" Width="*"/>
                 <DataGridTemplateColumn Width="auto">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Button Content="Редактировать" Name="BtnEdit" Click="BtnEdit_Click" 
-                                    Background="#371f60" Height="30" Width="200" BorderBrush = "{x:Null}" FontSize="15">
-                                <Button.Template>
-                                    <ControlTemplate TargetType = "Button">
-                                        <Border
-                BorderBrush = "{TemplateBinding BorderBrush}"
-                BorderThickness = "{TemplateBinding BorderThickness}"
-                Height = "{TemplateBinding Height}"
-                Width = "{TemplateBinding Width}">
-                                            <Border.Background>
-                                                <SolidColorBrush x:Name = "BorderColor" Color = "#371f60" />
-                                            </Border.Background>
-                                            <ContentControl Margin = "{TemplateBinding Padding}"
-                    HorizontalAlignment = "{TemplateBinding HorizontalContentAlignment}"
-                    VerticalAlignment = "{TemplateBinding VerticalContentAlignment}"
-                    Content = "{TemplateBinding Content}" />
-                                            <VisualStateManager.VisualStateGroups>
-                                                <VisualStateGroup Name = "CommonStates">
-                                                    <VisualState Name = "MouseOver">
-                                                        <Storyboard>
-                                                            <ColorAnimation Storyboard.TargetName = "BorderColor"
-                                    Storyboard.TargetProperty = "Color" To = "#ff5e5b" />
-                                                        </Storyboard>
-                                                    </VisualState>
-                                                    <VisualState Name = "Normal">
-                                                        <Storyboard>
-                                                            <ColorAnimation Storyboard.TargetName = "BorderColor"
-                                    Storyboard.TargetProperty = "Color" To = "#371f60"/>
-                                                        </Storyboard>
-                                                    </VisualState>
-                                                </VisualStateGroup>
-                                            </VisualStateManager.VisualStateGroups>
-                                        </Border>
-                                    </ControlTemplate>
-                                </Button.Template>
-                            </Button>
+                            <Button Content="Edit" Name="BtnEdit" Click="BtnEdit_Click" Background="#371f60" Height="30" Width="200" 
+                                    BorderBrush = "{x:Null}" FontSize="15" Template="{StaticResource MyButton}"/>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
-        
+
         <Button Background="#371f60" Height="30" Width="200" FontSize="15" Content="Add" Grid.Row="1" HorizontalAlignment="Left" Name="BtnAdd" 
                 Click="BtnAdd_Click" BorderBrush = "{x:Null}" Template="{StaticResource MyButton}"/>
 

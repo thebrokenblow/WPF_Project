@@ -65,7 +65,7 @@
         </EventTrigger>
     </Page.Triggers>
     <Grid Background = "#371f60">
-        <Grid x:Name="GridBackground" Background = "#371f60" Margin="0,0,0 0" Opacity="0" Grid.RowSpan="2" Grid.ColumnSpan="2"/>
+        <Grid x:Name="GridBackground" Background = "#371f60" Margin="0,0,0 0" Opacity="0"/>
         <Border Margin="15" MinWidth = "600" MaxWidth = "800" MinHeight = "450" MaxHeight = "700" Background="White" VerticalAlignment="Center" 
                 Padding="30"   
                  CornerRadius = "20" Grid.Row = "1" Grid.ColumnSpan="2">

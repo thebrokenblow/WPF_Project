@@ -1,51 +1,50 @@
 ﻿<Page x:Class="WPF_Project.HotelList"
-      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:WPF_Project"
-      mc:Ignorable="d" 
-      d:DesignHeight="600" d:DesignWidth="1080"
-      Title="HotelList" ShowsNavigationUI="False">
-    <Grid Background="#371f60">
-        <ListView Grid.Row="1" Name="LViewHotels" ScrollViewer.HorizontalScrollBarVisibility="Disabled" HorizontalAlignment="Center">
+      xmlns = "http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x = "http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc = "http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d = "http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local = "clr-namespace:WPF_Project"
+      mc:Ignorable = "d" 
+      d:DesignHeight = "600" d:DesignWidth = "1080"
+      Title = "HotelList" ShowsNavigationUI = "False">
+    <Grid Background = "#371f60">
+        <ListView Grid.Row = "1" Name = "LViewHotels" ScrollViewer.HorizontalScrollBarVisibility = "Disabled" HorizontalAlignment = "Center">
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
-                    <WrapPanel Orientation="Horizontal" HorizontalAlignment="Center"/>
+                    <WrapPanel Orientation = "Horizontal" HorizontalAlignment="Center"/>
                 </ItemsPanelTemplate>
             </ListView.ItemsPanel>
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <Grid Width="1280">
+                    <Grid Width = "1280">
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="70*"/>
-                            <RowDefinition Height="80*"/>
+                            <RowDefinition Height = "70*"/>
+                            <RowDefinition Height = "80*"/>
                         </Grid.RowDefinitions>
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="10*"/>
-                            <ColumnDefinition Width="20*"/>
+                            <ColumnDefinition Width = "10*"/>
+                            <ColumnDefinition Width = "20*"/>
                         </Grid.ColumnDefinitions>
-
-                        <Image Width="320" Height="auto" Stretch="UniformToFill" HorizontalAlignment="Left">
+                        <Image Width = "320" Height = "auto" Stretch = "UniformToFill" HorizontalAlignment = "Left">
                             <Image.Source>
-                                <Binding Path ="ImagePreview"/>
+                                <Binding Path = "ImagePreview"/>
                             </Image.Source>
                         </Image>
 
-                        <TextBlock Text="{Binding nameOfHotel}" Foreground="White" FontSize="20" Height="40" Width="720" VerticalAlignment="Center" 
-                                   TextAlignment="Center" HorizontalAlignment="Center" TextWrapping="Wrap" Margin="0,16,0,224" Grid.Row="0" Grid.Column="1" />
+                        <TextBlock Text = "{Binding nameOfHotel}" Foreground = "White" FontSize = "20" Height = "40" Width = "720" VerticalAlignment = "Center" 
+                                   TextAlignment = "Center" HorizontalAlignment = "Center" TextWrapping = "Wrap" Margin = "0, 16, 0, 224" Grid.Row = "0" Grid.Column = "1" />
 
-                        <TextBlock Text="{Binding countOfStars}" Foreground="White" FontSize="20" Height="40" Width="720" VerticalAlignment="Center" 
-                                   TextAlignment="Center" HorizontalAlignment="Center" TextWrapping="Wrap" Margin="0,56,0,184" Grid.Row="0" Grid.Column="1"/>
+                        <TextBlock Text = "{Binding countOfStars}" Foreground = "White" FontSize = "20" Height = "40" Width = "720" VerticalAlignment = "Center" 
+                                   TextAlignment = "Center" HorizontalAlignment = "Center" TextWrapping = "Wrap" Margin = "0, 56, 0, 184" Grid.Row = "0" Grid.Column = "1"/>
 
-                        <TextBlock Text="{Binding phoneNumber}" Foreground="White" FontSize="20" Height="40" Width="720" VerticalAlignment="Center" 
-                                   TextAlignment="Center" HorizontalAlignment="Center" TextWrapping="Wrap" Margin="0,96,0,144" Grid.Row="0" Grid.Column="1"/>
+                        <TextBlock Text = "{Binding phoneNumber}" Foreground = "White" FontSize = "20" Height = "40" Width = "720" VerticalAlignment = "Center" 
+                                   TextAlignment = "Center" HorizontalAlignment = "Center" TextWrapping = "Wrap" Margin = "0, 96, 0, 144" Grid.Row = "0" Grid.Column = "1"/>
 
-                        <TextBlock Text="{Binding address}" Foreground="White" FontSize="20" Height="40" Width="720" VerticalAlignment="Center" 
-                                   TextAlignment="Center" HorizontalAlignment="Center" TextWrapping="Wrap" Margin="0,136,0,104" Grid.Row="0" Grid.Column="1"/>
+                        <TextBlock Text = "{Binding address}" Foreground = "White" FontSize = "20" Height = "40" Width = "720" VerticalAlignment = "Center" TextAlignment = "Center" 
+                                   HorizontalAlignment = "Center" TextWrapping = "Wrap" Margin="0, 136, 0, 104" Grid.Row = "0" Grid.Column = "1"/>
 
-                        <Button Content="Enter" Width="120" Height="30" BorderBrush = "{x:Null}" Foreground="#371f60" Background="White" FontSize="15" Grid.Column="1" 
-                                Margin="520, 250, 0, 0" Template="{StaticResource MyButton}"/>
+                        <Button Content = "Enter" Width = "120" Height = "30" BorderBrush = "{x:Null}" Foreground = "#371f60" Background = "White" FontSize = "15" Grid.Column = "1" 
+                                Margin="520, 250, 0, 0"/>
                     </Grid>
                 </DataTemplate>
             </ListView.ItemTemplate>

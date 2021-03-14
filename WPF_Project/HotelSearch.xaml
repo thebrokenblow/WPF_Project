@@ -70,12 +70,12 @@
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
-                    <ComboBox Name="CbNaimTovCountry" Foreground="#371f60" FontWeight = "Bold" HorizontalAlignment="Left" Margin="0,85,0,0" FontSize="12"
+                    <ComboBox Name="CbNaimTovCountry" Foreground="#371f60" FontWeight = "Bold" HorizontalAlignment="Left" Margin="0,85,0,0" FontSize="13"
                   VerticalAlignment="Top" Width="180" Height="34" Loaded="CbNaimTovCountry_Loaded" materialDesign:HintAssist.Hint = "Enter Country"  
                   TextBoxBase.TextChanged="CbNaimTovCountry_TextChanged" IsTextSearchEnabled="False" IsEditable="True" />
 
                     <ComboBox Foreground="#371f60" FontWeight = "Bold" HorizontalAlignment="Left" Margin="0,85,0,0" 
-                  VerticalAlignment="Top"  Width="180" Height="34" materialDesign:HintAssist.Hint = "Enter City" FontSize="12"
+                  VerticalAlignment="Top"  Width="180" Height="34" materialDesign:HintAssist.Hint = "Enter City" FontSize="13"
                         IsTextSearchEnabled="False" IsEditable="True" Grid.Column="1" />
 
                     <Button  x:Name="buttonCalender" Foreground = "White" FontSize="12" BorderBrush = "{x:Null}" Background="#371f60" Height="35" Width="180" 
@@ -124,7 +124,7 @@
                                     Click="Button_Rooms_Plus_Click" Width="50" Height="50" Margin="246,138,-3.333,42" Template="{StaticResource MyButton}"/>
                         </Grid>
                     </Border>
-                    <Button Margin="54.667,85,0,446.667" Height="35" FontSize ="12" Content="Search" Foreground = "White" 
+                    <Button Margin="54.667,85,0,446.667" Height="35" FontSize ="13" Content="Search" Foreground = "White" 
                             Background = "#371f60" Grid.Column="4"  BorderBrush = "{x:Null}" Click="Search_Click" Template="{StaticResource MyButton}"/>
 
                     <Button x:Name = "personalAccountButton" Content = "Personal account" FontWeight = "Bold" Foreground = "White" Background = "#371f60"
@@ -139,14 +139,6 @@
         </Button>
         <Grid x:Name="GridMenu" Width="246" HorizontalAlignment="Left" Margin="-250,0,0,0" Background="White" 
               RenderTransformOrigin="0.5,0.5" Grid.RowSpan="2">
-            <Grid.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </Grid.RenderTransform>
             <StackPanel>
                 <Image Height="327" Source="Resources/hotel3.jpg" Stretch="Fill"/>
                 <ListView Foreground="#371f60" FontFamily="Champagne &amp; Limousines" FontSize="18">

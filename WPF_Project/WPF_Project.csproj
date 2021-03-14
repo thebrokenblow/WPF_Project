@@ -128,7 +128,6 @@
     <Compile Include="ListOfRooms.cs">
       <DependentUpon>CourseProjectEntitiesFramework.tt</DependentUpon>
     </Compile>
-    <Compile Include="Menager.cs" />
     <Compile Include="PersonalAccount.xaml.cs">
       <DependentUpon>PersonalAccount.xaml</DependentUpon>
     </Compile>
