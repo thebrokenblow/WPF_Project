@@ -21,7 +21,7 @@ namespace WPF_Project
             this.TypeOfRoom = new HashSet<TypeOfRoom>();
         }
     
-        public int id { get; set; }
+        public int idListOfRooms { get; set; }
         public int idOfHotel { get; set; }
         public int idOfPhotosRooms { get; set; }
     

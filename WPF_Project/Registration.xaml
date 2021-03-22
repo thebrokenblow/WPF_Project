@@ -116,14 +116,6 @@
         </Button>
         <Grid x:Name="GridMenu" Width="246" HorizontalAlignment="Left" Margin="-250,0,0,-0.333" Background="White" 
               RenderTransformOrigin="0.5,0.5" Grid.RowSpan="2">
-            <Grid.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </Grid.RenderTransform>
             <StackPanel>
                 <Image Height="327" Source="Resources/hotel1.jpg" Stretch="Fill"/>
                 <ListView Foreground="#371f60" FontFamily="Champagne &amp; Limousines" FontSize="18">

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -33,11 +34,11 @@ namespace WPF_Project
             {
                 try
                 {
-                    HotelsEntitiesFramework.GetContext().Hotel.RemoveRange(hotelsForRemoving);
-                    HotelsEntitiesFramework.GetContext().SaveChanges();
+                    CourseProjectEntitiesDataBase.GetContext().Hotel.RemoveRange(hotelsForRemoving);
+                    CourseProjectEntitiesDataBase.GetContext().SaveChanges();
                     MessageBox.Show("Data deleted");
 
-                    DGridHotels.ItemsSource = HotelsEntitiesFramework.GetContext().Hotel.ToList(); //Обращаемся к списку отелей, через контекст
+                    DGridHotels.ItemsSource = CourseProjectEntitiesDataBase.GetContext().Hotel.ToList(); //Обращаемся к списку отелей, через контекст
                 }
                 catch (Exception ex)
                 {
@@ -59,8 +60,8 @@ namespace WPF_Project
         {
             if (Visibility == Visibility.Visible)
             {
-                HotelsEntitiesFramework.GetContext().ChangeTracker.Entries().ToList().ForEach(p => p.Reload());
-                DGridHotels.ItemsSource = HotelsEntitiesFramework.GetContext().Hotel.ToList();
+                CourseProjectEntitiesDataBase.GetContext().ChangeTracker.Entries().ToList().ForEach(p => p.Reload());
+                DGridHotels.ItemsSource = CourseProjectEntitiesDataBase.GetContext().Hotel.ToList();
             }
         }
     }

@@ -23,7 +23,7 @@ namespace WPF_Project
         public HotelList()
         {
             InitializeComponent();
-            var currentHotels = HotelsEntitiesFramework.GetContext().Hotel.ToList();
+            var currentHotels = CourseProjectEntitiesDataBase.GetContext().Hotel.ToList();
             LViewHotels.ItemsSource = currentHotels;
         }
     }

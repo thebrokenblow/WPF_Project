@@ -12,18 +12,13 @@ namespace WPF_Project
     using System;
     using System.Collections.Generic;
     
-    public partial class Reservation
+    public partial class ListOfChanges
     {
-        public int idOfReservation { get; set; }
-        public int idOfRooms { get; set; }
-        public int numberOfRoomsBooked { get; set; }
-        public int numberOfAdults { get; set; }
-        public int numberOfChildren { get; set; }
-        public System.DateTime startDate { get; set; }
-        public System.DateTime endDate { get; set; }
-        public int idOfUsers { get; set; }
+        public int idListOfChanges { get; set; }
+        public int idOfAdministrator { get; set; }
+        public string typeOfChange { get; set; }
     
-        public virtual ListOfRooms ListOfRooms { get; set; }
-        public virtual Users Users { get; set; }
+        public virtual Administrator Administrator { get; set; }
+        public virtual Hotel Hotel { get; set; }
     }
 }

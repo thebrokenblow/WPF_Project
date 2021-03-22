@@ -63,6 +63,10 @@ namespace WPF_Project
                     }
                     if (authUser != null)
                     {
+                        using (ApplicationContext context = new ApplicationContext())
+                        {
+                            Info.userinfo = context.Users.Where(x => x.login == login && x.password == password).Select(x => x).FirstOrDefault();
+                        }
                         Uri HotelSearch = new Uri("HotelSearch.xaml", UriKind.Relative);
                         this.NavigationService.Navigate(HotelSearch); //Переход на страницу поиска отелей
                     }

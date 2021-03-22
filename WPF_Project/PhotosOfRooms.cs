@@ -20,7 +20,7 @@ namespace WPF_Project
             this.ListOfRooms = new HashSet<ListOfRooms>();
         }
     
-        public int id { get; set; }
+        public int idPhotosOfRooms { get; set; }
         public int idOfRooms { get; set; }
         public byte[] photo { get; set; }
     

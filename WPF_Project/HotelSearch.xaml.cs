@@ -11,8 +11,8 @@ namespace WPF_Project
     {
         public static string Country;
         public static string City;
-        //public static var dataBegin;
-        //public static var dataEnd;
+        public static DateTime dataBegin;
+        public static DateTime dataEnd;
         public static int countOfAdults;
         public static int countOfChildren;
         public static int countOfRooms;
@@ -129,17 +129,11 @@ namespace WPF_Project
             var tb = (TextBox)e.OriginalSource;
             tb.Select(tb.SelectionStart + tb.SelectionLength, 0);
             CollectionView cv = (CollectionView)CollectionViewSource.GetDefaultView(CbNaimTovCountry.ItemsSource);
-            if (cv != null)
-            cv.Filter = s => ((string)s).IndexOf(CbNaimTovCountry.Text, StringComparison.CurrentCultureIgnoreCase) >= 0;
+            //cv.Filter = s => ((WPF_Project.Сountry)s).IndexOf(CbNaimTovCountry.Text, StringComparison.CurrentCultureIgnoreCase) >= 0;
         }
         private void CbNaimTovCountry_Loaded(object sender, RoutedEventArgs e)
         {
-            using (ApplicationContext context = new ApplicationContext())
-            {
-                var tovararr = (from Сountry in context.Country select Сountry.nameOfCountry).ToList();
-                CbNaimTovCountry.Items.Clear();
-                CbNaimTovCountry.ItemsSource = tovararr;
-            }
+                CbNaimTovCountry.ItemsSource = CourseProjectEntitiesDataBase.GetContext().Сountry.ToList(); 
         }
         void OnComboBoxTextChangedCity(object sender, RoutedEventArgs e)
         {
@@ -154,7 +148,7 @@ namespace WPF_Project
         /// </summary>
         private void CbNaimTovCity_Loaded(object sender, RoutedEventArgs e)
         {
-            using (var context = new HotelsEntitiesFramework())
+            using (var context = new CourseProjectEntitiesDataBase())
             {
                 //     var tovararr = (from City in context.City where City.idCountry== select City.nameOfCity ).ToList();
                 //     CbNaimTovCountry.Items.Clear();
@@ -193,7 +187,7 @@ namespace WPF_Project
         private void Calendar_SelectedDatesChanged(object sender, SelectionChangedEventArgs e)
         {
             DateTime? selectionDate = Calendar.SelectedDate;
-            buttonCalender.Content = selectionDate.Value.Date.ToShortDateString();
+            buttonCalender.Content = selectionDate.Value.Date.ToString("M");
         }
         /// <summary>
         /// Метод по обработки события нажатия на количесва Взрослых, Детей, Комнат

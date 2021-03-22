@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("courseprojectentitiesframework.context.tt")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("courseprojectentitiesframework.tt")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("database.context.tt")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("database.tt")]
 
 

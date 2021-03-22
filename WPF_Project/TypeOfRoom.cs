@@ -14,7 +14,7 @@ namespace WPF_Project
     
     public partial class TypeOfRoom
     {
-        public int id { get; set; }
+        public int idTypeOfRoom { get; set; }
         public string roomName { get; set; }
         public decimal pricePerDay { get; set; }
         public int idOfRooms { get; set; }

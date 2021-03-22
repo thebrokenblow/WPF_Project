@@ -1,62 +1,89 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="CourseProjectModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Administrator">
+    <Key>
+      <PropertyRef Name="idOfAdministrator" />
+    </Key>
+    <Property Name="idOfAdministrator" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="login" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="name" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="surname" Type="String" MaxLength="35" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="ListOfChanges" Relationship="Self.FK_ListOfChanges_Administrator" FromRole="Administrator" ToRole="ListOfChanges" />
+  </EntityType>
   <EntityType Name="City">
     <Key>
-      <PropertyRef Name="id" />
+      <PropertyRef Name="idOfCity" />
     </Key>
-    <Property Name="id" Type="Int32" Nullable="false" />
-    <Property Name="nameOfCity" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="idOfCity" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="idCountry" Type="Int32" Nullable="false" />
+    <Property Name="nameOfCity" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
     <NavigationProperty Name="Сountry" Relationship="Self.FK_City_Сountry" FromRole="City" ToRole="Сountry" />
     <NavigationProperty Name="Hotel" Relationship="Self.FK_Hotel_City" FromRole="City" ToRole="Hotel" />
   </EntityType>
   <EntityType Name="Hotel">
     <Key>
-      <PropertyRef Name="id" />
+      <PropertyRef Name="idOfHotel" />
     </Key>
-    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="idOfHotel" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="nameOfHotel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="idOfCity" Type="Int32" Nullable="false" />
     <Property Name="address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="phoneNumber" Type="String" MaxLength="16" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="phoneNumber" Type="String" MaxLength="11" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="hotelDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="countOfStars" Type="Int32" Nullable="false" />
+    <Property Name="ImagePreview" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="idListOfChanges" Type="Int32" />
     <NavigationProperty Name="City" Relationship="Self.FK_Hotel_City" FromRole="Hotel" ToRole="City" />
+    <NavigationProperty Name="ListOfChanges" Relationship="Self.FK_ListOfChanges_Hotel" FromRole="Hotel" ToRole="ListOfChanges" />
     <NavigationProperty Name="ListOfRooms" Relationship="Self.FK_ListOfRooms_Hotel" FromRole="Hotel" ToRole="ListOfRooms" />
-    <NavigationProperty Name="PhotosOfHotels" Relationship="Self.FK_photosOfHotels_Hotel" FromRole="Hotel" ToRole="PhotosOfHotels" />
+    <NavigationProperty Name="photosOfHotels" Relationship="Self.FK_photosOfHotels_Hotel" FromRole="Hotel" ToRole="photosOfHotels" />
+  </EntityType>
+  <EntityType Name="ListOfChanges">
+    <Key>
+      <PropertyRef Name="idListOfChanges" />
+    </Key>
+    <Property Name="idListOfChanges" Type="Int32" Nullable="false" />
+    <Property Name="idOfAdministrator" Type="Int32" Nullable="false" />
+    <Property Name="typeOfChange" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Administrator" Relationship="Self.FK_ListOfChanges_Administrator" FromRole="ListOfChanges" ToRole="Administrator" />
+    <NavigationProperty Name="Hotel" Relationship="Self.FK_ListOfChanges_Hotel" FromRole="ListOfChanges" ToRole="Hotel" />
   </EntityType>
   <EntityType Name="ListOfRooms">
     <Key>
-      <PropertyRef Name="id" />
+      <PropertyRef Name="idListOfRooms" />
     </Key>
-    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="idListOfRooms" Type="Int32" Nullable="false" />
     <Property Name="idOfHotel" Type="Int32" Nullable="false" />
+    <Property Name="idOfPhotosRooms" Type="Int32" Nullable="false" />
     <NavigationProperty Name="Hotel" Relationship="Self.FK_ListOfRooms_Hotel" FromRole="ListOfRooms" ToRole="Hotel" />
-    <NavigationProperty Name="PhotosOfRooms" Relationship="Self.FK_ListOfRooms_PhotosOfRooms" FromRole="ListOfRooms" ToRole="PhotosOfRooms" />
-    <NavigationProperty Name="TypeOfRoom" Relationship="Self.FK_ListOfRooms_TypeOfRoom" FromRole="ListOfRooms" ToRole="TypeOfRoom" />
+    <NavigationProperty Name="PhotosOfRooms" Relationship="Self.FK_ListOfRooms_PhotosOfRooms1" FromRole="ListOfRooms" ToRole="PhotosOfRooms" />
     <NavigationProperty Name="Reservation" Relationship="Self.FK_Reservation_ListOfRooms" FromRole="ListOfRooms" ToRole="Reservation" />
+    <NavigationProperty Name="TypeOfRoom" Relationship="Self.FK_TypeOfRoom_ListOfRooms1" FromRole="ListOfRooms" ToRole="TypeOfRoom" />
   </EntityType>
-  <EntityType Name="PhotosOfHotels">
+  <EntityType Name="photosOfHotels">
     <Key>
-      <PropertyRef Name="photoNumber" />
+      <PropertyRef Name="idPhotoOfHotels" />
     </Key>
-    <Property Name="photoNumber" Type="Int32" Nullable="false" />
+    <Property Name="idPhotoOfHotels" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="idOfHotel" Type="Int32" Nullable="false" />
     <Property Name="photo" Type="Binary" MaxLength="Max" FixedLength="false" />
-    <NavigationProperty Name="Hotel" Relationship="Self.FK_photosOfHotels_Hotel" FromRole="PhotosOfHotels" ToRole="Hotel" />
+    <NavigationProperty Name="Hotel" Relationship="Self.FK_photosOfHotels_Hotel" FromRole="photosOfHotels" ToRole="Hotel" />
   </EntityType>
   <EntityType Name="PhotosOfRooms">
     <Key>
-      <PropertyRef Name="id" />
+      <PropertyRef Name="idPhotosOfRooms" />
     </Key>
-    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="idPhotosOfRooms" Type="Int32" Nullable="false" />
     <Property Name="idOfRooms" Type="Int32" Nullable="false" />
     <Property Name="photo" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
-    <NavigationProperty Name="ListOfRooms" Relationship="Self.FK_ListOfRooms_PhotosOfRooms" FromRole="PhotosOfRooms" ToRole="ListOfRooms" />
+    <NavigationProperty Name="ListOfRooms" Relationship="Self.FK_ListOfRooms_PhotosOfRooms1" FromRole="PhotosOfRooms" ToRole="ListOfRooms" />
   </EntityType>
   <EntityType Name="Reservation">
     <Key>
-      <PropertyRef Name="id" />
+      <PropertyRef Name="idOfReservation" />
     </Key>
-    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="idOfReservation" Type="Int32" Nullable="false" />
     <Property Name="idOfRooms" Type="Int32" Nullable="false" />
     <Property Name="numberOfRoomsBooked" Type="Int32" Nullable="false" />
     <Property Name="numberOfAdults" Type="Int32" Nullable="false" />
@@ -79,44 +106,55 @@
   </EntityType>
   <EntityType Name="TypeOfRoom">
     <Key>
-      <PropertyRef Name="id" />
+      <PropertyRef Name="idTypeOfRoom" />
     </Key>
-    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="idTypeOfRoom" Type="Int32" Nullable="false" />
     <Property Name="roomName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="pricePerDay" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
     <Property Name="idOfRooms" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="ListOfRooms" Relationship="Self.FK_ListOfRooms_TypeOfRoom" FromRole="TypeOfRoom" ToRole="ListOfRooms" />
+    <Property Name="roomDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="ListOfRooms" Relationship="Self.FK_TypeOfRoom_ListOfRooms1" FromRole="TypeOfRoom" ToRole="ListOfRooms" />
   </EntityType>
   <EntityType Name="Users">
     <Key>
-      <PropertyRef Name="id" />
+      <PropertyRef Name="idOfUsers" />
     </Key>
-    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="login" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="password" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="email" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="idOfUsers" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="login" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="password" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="email" Type="String" MaxLength="100" FixedLength="true" Unicode="false" Nullable="false" />
     <Property Name="name" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
     <Property Name="surname" Type="String" MaxLength="35" FixedLength="false" Unicode="true" />
+    <Property Name="patronymic" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
     <Property Name="phoneNumber" Type="String" MaxLength="16" FixedLength="true" Unicode="false" />
     <NavigationProperty Name="Reservation" Relationship="Self.FK_Reservation_Users" FromRole="Users" ToRole="Reservation" />
   </EntityType>
   <EntityType Name="Сountry">
     <Key>
-      <PropertyRef Name="id" />
+      <PropertyRef Name="idOfCountry" />
     </Key>
-    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="idOfCountry" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="nameOfCountry" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="fullNameOfCountry" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-    <Property Name="letterCode2" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
-    <Property Name="letterCode3" Type="String" MaxLength="3" FixedLength="true" Unicode="false" />
     <NavigationProperty Name="City" Relationship="Self.FK_City_Сountry" FromRole="Сountry" ToRole="City" />
   </EntityType>
+  <Association Name="FK_ListOfChanges_Administrator">
+    <End Role="Administrator" Type="Self.Administrator" Multiplicity="1" />
+    <End Role="ListOfChanges" Type="Self.ListOfChanges" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Administrator">
+        <PropertyRef Name="idOfAdministrator" />
+      </Principal>
+      <Dependent Role="ListOfChanges">
+        <PropertyRef Name="idOfAdministrator" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_City_Сountry">
     <End Role="Сountry" Type="Self.Сountry" Multiplicity="1" />
     <End Role="City" Type="Self.City" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Сountry">
-        <PropertyRef Name="id" />
+        <PropertyRef Name="idOfCountry" />
       </Principal>
       <Dependent Role="City">
         <PropertyRef Name="idCountry" />
@@ -128,10 +166,22 @@
     <End Role="Hotel" Type="Self.Hotel" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="City">
-        <PropertyRef Name="id" />
+        <PropertyRef Name="idOfCity" />
       </Principal>
       <Dependent Role="Hotel">
         <PropertyRef Name="idOfCity" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ListOfChanges_Hotel">
+    <End Role="Hotel" Type="Self.Hotel" Multiplicity="1" />
+    <End Role="ListOfChanges" Type="Self.ListOfChanges" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Hotel">
+        <PropertyRef Name="idOfHotel" />
+      </Principal>
+      <Dependent Role="ListOfChanges">
+        <PropertyRef Name="idOfAdministrator" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -140,7 +190,7 @@
     <End Role="ListOfRooms" Type="Self.ListOfRooms" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Hotel">
-        <PropertyRef Name="id" />
+        <PropertyRef Name="idOfHotel" />
       </Principal>
       <Dependent Role="ListOfRooms">
         <PropertyRef Name="idOfHotel" />
@@ -149,37 +199,25 @@
   </Association>
   <Association Name="FK_photosOfHotels_Hotel">
     <End Role="Hotel" Type="Self.Hotel" Multiplicity="1" />
-    <End Role="PhotosOfHotels" Type="Self.PhotosOfHotels" Multiplicity="*" />
+    <End Role="photosOfHotels" Type="Self.photosOfHotels" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Hotel">
-        <PropertyRef Name="id" />
+        <PropertyRef Name="idOfHotel" />
       </Principal>
-      <Dependent Role="PhotosOfHotels">
+      <Dependent Role="photosOfHotels">
         <PropertyRef Name="idOfHotel" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_ListOfRooms_PhotosOfRooms">
+  <Association Name="FK_ListOfRooms_PhotosOfRooms1">
     <End Role="PhotosOfRooms" Type="Self.PhotosOfRooms" Multiplicity="1" />
-    <End Role="ListOfRooms" Type="Self.ListOfRooms" Multiplicity="0..1" />
+    <End Role="ListOfRooms" Type="Self.ListOfRooms" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="PhotosOfRooms">
-        <PropertyRef Name="id" />
+        <PropertyRef Name="idPhotosOfRooms" />
       </Principal>
       <Dependent Role="ListOfRooms">
-        <PropertyRef Name="id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_ListOfRooms_TypeOfRoom">
-    <End Role="TypeOfRoom" Type="Self.TypeOfRoom" Multiplicity="1" />
-    <End Role="ListOfRooms" Type="Self.ListOfRooms" Multiplicity="0..1" />
-    <ReferentialConstraint>
-      <Principal Role="TypeOfRoom">
-        <PropertyRef Name="id" />
-      </Principal>
-      <Dependent Role="ListOfRooms">
-        <PropertyRef Name="id" />
+        <PropertyRef Name="idOfPhotosRooms" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -188,9 +226,21 @@
     <End Role="Reservation" Type="Self.Reservation" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="ListOfRooms">
-        <PropertyRef Name="id" />
+        <PropertyRef Name="idListOfRooms" />
       </Principal>
       <Dependent Role="Reservation">
+        <PropertyRef Name="idOfRooms" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TypeOfRoom_ListOfRooms1">
+    <End Role="ListOfRooms" Type="Self.ListOfRooms" Multiplicity="1" />
+    <End Role="TypeOfRoom" Type="Self.TypeOfRoom" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ListOfRooms">
+        <PropertyRef Name="idListOfRooms" />
+      </Principal>
+      <Dependent Role="TypeOfRoom">
         <PropertyRef Name="idOfRooms" />
       </Dependent>
     </ReferentialConstraint>
@@ -200,24 +250,30 @@
     <End Role="Reservation" Type="Self.Reservation" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Users">
-        <PropertyRef Name="id" />
+        <PropertyRef Name="idOfUsers" />
       </Principal>
       <Dependent Role="Reservation">
         <PropertyRef Name="idOfUsers" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="CourseProjectEntities" annotation:LazyLoadingEnabled="true">
+  <EntityContainer Name="CourseProjectEntitiesDataBase" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Administrator" EntityType="Self.Administrator" />
     <EntitySet Name="City" EntityType="Self.City" />
     <EntitySet Name="Hotel" EntityType="Self.Hotel" />
+    <EntitySet Name="ListOfChanges" EntityType="Self.ListOfChanges" />
     <EntitySet Name="ListOfRooms" EntityType="Self.ListOfRooms" />
-    <EntitySet Name="PhotosOfHotels" EntityType="Self.PhotosOfHotels" />
+    <EntitySet Name="photosOfHotels" EntityType="Self.photosOfHotels" />
     <EntitySet Name="PhotosOfRooms" EntityType="Self.PhotosOfRooms" />
     <EntitySet Name="Reservation" EntityType="Self.Reservation" />
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
     <EntitySet Name="TypeOfRoom" EntityType="Self.TypeOfRoom" />
     <EntitySet Name="Users" EntityType="Self.Users" />
     <EntitySet Name="Сountry" EntityType="Self.Сountry" />
+    <AssociationSet Name="FK_ListOfChanges_Administrator" Association="Self.FK_ListOfChanges_Administrator">
+      <End Role="Administrator" EntitySet="Administrator" />
+      <End Role="ListOfChanges" EntitySet="ListOfChanges" />
+    </AssociationSet>
     <AssociationSet Name="FK_City_Сountry" Association="Self.FK_City_Сountry">
       <End Role="Сountry" EntitySet="Сountry" />
       <End Role="City" EntitySet="City" />
@@ -226,25 +282,29 @@
       <End Role="City" EntitySet="City" />
       <End Role="Hotel" EntitySet="Hotel" />
     </AssociationSet>
+    <AssociationSet Name="FK_ListOfChanges_Hotel" Association="Self.FK_ListOfChanges_Hotel">
+      <End Role="Hotel" EntitySet="Hotel" />
+      <End Role="ListOfChanges" EntitySet="ListOfChanges" />
+    </AssociationSet>
     <AssociationSet Name="FK_ListOfRooms_Hotel" Association="Self.FK_ListOfRooms_Hotel">
       <End Role="Hotel" EntitySet="Hotel" />
       <End Role="ListOfRooms" EntitySet="ListOfRooms" />
     </AssociationSet>
     <AssociationSet Name="FK_photosOfHotels_Hotel" Association="Self.FK_photosOfHotels_Hotel">
       <End Role="Hotel" EntitySet="Hotel" />
-      <End Role="PhotosOfHotels" EntitySet="PhotosOfHotels" />
+      <End Role="photosOfHotels" EntitySet="photosOfHotels" />
     </AssociationSet>
-    <AssociationSet Name="FK_ListOfRooms_PhotosOfRooms" Association="Self.FK_ListOfRooms_PhotosOfRooms">
+    <AssociationSet Name="FK_ListOfRooms_PhotosOfRooms1" Association="Self.FK_ListOfRooms_PhotosOfRooms1">
       <End Role="PhotosOfRooms" EntitySet="PhotosOfRooms" />
-      <End Role="ListOfRooms" EntitySet="ListOfRooms" />
-    </AssociationSet>
-    <AssociationSet Name="FK_ListOfRooms_TypeOfRoom" Association="Self.FK_ListOfRooms_TypeOfRoom">
-      <End Role="TypeOfRoom" EntitySet="TypeOfRoom" />
       <End Role="ListOfRooms" EntitySet="ListOfRooms" />
     </AssociationSet>
     <AssociationSet Name="FK_Reservation_ListOfRooms" Association="Self.FK_Reservation_ListOfRooms">
       <End Role="ListOfRooms" EntitySet="ListOfRooms" />
       <End Role="Reservation" EntitySet="Reservation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TypeOfRoom_ListOfRooms1" Association="Self.FK_TypeOfRoom_ListOfRooms1">
+      <End Role="ListOfRooms" EntitySet="ListOfRooms" />
+      <End Role="TypeOfRoom" EntitySet="TypeOfRoom" />
     </AssociationSet>
     <AssociationSet Name="FK_Reservation_Users" Association="Self.FK_Reservation_Users">
       <End Role="Users" EntitySet="Users" />

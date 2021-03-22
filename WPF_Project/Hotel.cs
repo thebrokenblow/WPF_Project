@@ -17,11 +17,12 @@ namespace WPF_Project
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Hotel()
         {
+            this.ListOfChanges = new HashSet<ListOfChanges>();
             this.ListOfRooms = new HashSet<ListOfRooms>();
             this.photosOfHotels = new HashSet<photosOfHotels>();
         }
     
-        public int id { get; set; }
+        public int idOfHotel { get; set; }
         public string nameOfHotel { get; set; }
         public int idOfCity { get; set; }
         public string address { get; set; }
@@ -29,7 +30,11 @@ namespace WPF_Project
         public string hotelDescription { get; set; }
         public int countOfStars { get; set; }
         public byte[] ImagePreview { get; set; }
+        public Nullable<int> idListOfChanges { get; set; }
     
+        public virtual City City { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ListOfChanges> ListOfChanges { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ListOfRooms> ListOfRooms { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

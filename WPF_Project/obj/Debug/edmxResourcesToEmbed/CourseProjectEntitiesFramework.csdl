@@ -8,6 +8,7 @@
     <Property Name="idCountry" Type="Int32" Nullable="false" />
     <Property Name="nameOfCity" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
     <NavigationProperty Name="Сountry" Relationship="Self.FK_City_Сountry" FromRole="City" ToRole="Сountry" />
+    <NavigationProperty Name="Hotel" Relationship="CourseProjectModel.FK_Hotel_City" FromRole="City" ToRole="Hotel" />
   </EntityType>
   <EntityType Name="Hotel">
     <Key>
@@ -17,12 +18,14 @@
     <Property Name="nameOfHotel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="idOfCity" Type="Int32" Nullable="false" />
     <Property Name="address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="phoneNumber" Type="String" MaxLength="16" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="phoneNumber" Type="String" MaxLength="11" FixedLength="true" Unicode="false" Nullable="false" />
     <Property Name="hotelDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="countOfStars" Type="Int32" Nullable="false" />
     <NavigationProperty Name="ListOfRooms" Relationship="Self.FK_ListOfRooms_Hotel" FromRole="Hotel" ToRole="ListOfRooms" />
     <NavigationProperty Name="photosOfHotels" Relationship="Self.FK_photosOfHotels_Hotel" FromRole="Hotel" ToRole="photosOfHotels" />
     <Property Name="ImagePreview" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="idListOfChanges" Type="Int32" />
+    <NavigationProperty Name="City" Relationship="CourseProjectModel.FK_Hotel_City" FromRole="Hotel" ToRole="City" />
   </EntityType>
   <EntityType Name="ListOfRooms">
     <Key>
@@ -234,5 +237,32 @@
       <End Role="Users" EntitySet="Users" />
       <End Role="Reservation" EntitySet="Reservation" />
     </AssociationSet>
+    <EntitySet Name="Administrator" EntityType="CourseProjectModel.Administrator" />
+    <AssociationSet Name="FK_Hotel_City" Association="CourseProjectModel.FK_Hotel_City">
+      <End Role="City" EntitySet="City" />
+      <End Role="Hotel" EntitySet="Hotel" />
+    </AssociationSet>
   </EntityContainer>
+  <EntityType Name="Administrator">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="login" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="name" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="surname" Type="String" MaxLength="35" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <Association Name="FK_Hotel_City">
+    <End Type="CourseProjectModel.City" Role="City" Multiplicity="1" />
+    <End Type="CourseProjectModel.Hotel" Role="Hotel" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="City">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Hotel">
+        <PropertyRef Name="idOfCity" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

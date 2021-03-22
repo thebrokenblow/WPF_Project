@@ -7,7 +7,7 @@
       xmlns:materialDesign = "http://materialdesigninxaml.net/winfx/xaml/themes"
       mc:Ignorable="d" 
       d:DesignHeight="600" d:DesignWidth="1000" ShowsNavigationUI="False"
-      Title="PersonalAccount">
+      Title="PersonalAccount" >
     <Page.Resources>
         <Storyboard x:Key="CloseMenu">
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" 
@@ -74,60 +74,50 @@
         </EventTrigger>
     </Page.Triggers>
     <Grid Background = "#371f60">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="142*"/>
-            <ColumnDefinition Width="851*"/>
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="13*"/>
-            <RowDefinition Height="558*"/>
-        </Grid.RowDefinitions>
-        <Grid x:Name="GridBackground" Background = "#371f60" Margin="0,0,0.334,-0.333" Opacity="0" Grid.RowSpan="2" Grid.ColumnSpan="2"/>
-        <Border Height="400" Width ="700" MinHeight = "450" MaxHeight="600" MaxWidth = "700" MinWidth ="400" Margin = "0,45,0,59" 
+        <Grid Background = "#371f60" Margin="0 0 0 0"/>
+        <Border Height="400" Width ="700" MinHeight = "450" MaxHeight="600" MaxWidth = "700" MinWidth ="400" Margin = "0,45,0,60" 
                 Background = "White" VerticalAlignment = "Center" Padding = "30" CornerRadius = "20" Grid.Row="1" Grid.ColumnSpan="2">
             <Border.Effect>
                 <DropShadowEffect BlurRadius = "30" Color = "LightGray" ShadowDepth = "0"/>
             </Border.Effect>
             <StackPanel>
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width = "123*"/>
-                        <ColumnDefinition Width = "367*"/>
-                    </Grid.ColumnDefinitions>
-                    <Button x:Name = "exitButton" Content = "Exit" FontWeight = "Bold" Foreground = "White" Background = "#371f60"  Margin = "329.333,18,0,0" 
-                            Click="Exit_Button_Click" IsCancel="True" FontSize = "15" VerticalAlignment = "Top" Grid.Column = "1" BorderBrush = "{x:Null}" 
-                            Height = "35" Template="{StaticResource MyButton}"/>
+                <Grid x:Name="personalSettiongs" >
+          
+                    <Button x:Name = "exitButton" Content = "Exit" FontWeight = "Bold" Foreground = "White" Background = "#371f60"  Margin = "490, 15, 0, 0" 
+                            Click = "Exit_Button_Click" IsCancel = "True" FontSize = "15" VerticalAlignment = "Top" BorderBrush = "{x:Null}" 
+                            Height = "35" Width = "150" Template = "{StaticResource MyButton}"/>
 
-                    <TextBlock Text = "Personal account" Foreground = "#371f60" FontSize = "25" FontWeight = "Bold" Grid.ColumnSpan = "2" Margin="2,0,426,47"/>
+                    <TextBlock Text = "Personal account" Foreground = "#371f60" FontSize = "25" FontWeight = "Bold" Margin="2,0,426,47"/>
 
-                    <TextBox FontWeight = "Bold" Foreground = "#371f60" FontSize = "15" materialDesign:HintAssist.Hint = "Surname"
-                             Style = "{StaticResource MaterialDesignFloatingHintTextBox}" Margin = "179.333,77,0,-27" Grid.Column="1" />
-                        
-                    <TextBox FontWeight = "Bold" Foreground = "#371f60" FontSize = "15" materialDesign:HintAssist.Hint = "Name" 
-                                 Style = "{StaticResource MaterialDesignFloatingHintTextBox}" Margin = "179.333,125,0,-76" Grid.Column="1" />
-                        
-                    <TextBox FontWeight = "Bold" Foreground = "#371f60" FontSize = "15"  materialDesign:HintAssist.Hint = "Patronymic" 
-                                 Style = "{StaticResource MaterialDesignFloatingHintTextBox}" Margin = "179.333,173,0,-122" Grid.Column="1"/>
-                        
-                    <TextBox FontWeight = "Bold" Foreground = "#371f60" FontSize = "15" 
+                    <TextBox Width="300" x:Name="surnameText" Text = "{Binding surname}" FontWeight = "Bold" Foreground = "#371f60" FontSize = "15" materialDesign:HintAssist.Hint = "Surname"
+                             Style = "{StaticResource MaterialDesignFloatingHintTextBox}" Margin = "340,76,0,-26" Height="48" VerticalAlignment="Top" />
+
+                    <TextBox Width="300" x:Name="nameText" Text = "{Binding name}" FontWeight = "Bold" Foreground = "#371f60" FontSize = "15" materialDesign:HintAssist.Hint = "Name" 
+                             Style = "{StaticResource MaterialDesignFloatingHintTextBox}" Margin = "340,124,0,-75" />
+
+                    <TextBox Width="300" x:Name="patronymicText" Text = "{Binding patronymic}" FontWeight = "Bold" Foreground = "#371f60" FontSize = "15"  materialDesign:HintAssist.Hint = "Patronymic" 
+                                 Style = "{StaticResource MaterialDesignFloatingHintTextBox}" Margin = "341,173,-1,-122"/>
+
+                    <TextBox Width="300" Text = "{Binding email}" DataContext="" x:Name="emailText" FontWeight = "Bold" Foreground = "#371f60" FontSize = "15" 
                              materialDesign:HintAssist.Hint = "Enter email" Style = "{StaticResource MaterialDesignFloatingHintTextBox}" 
-                             Margin = "179.333,220,0,-169" Grid.Column="1"/>
-                        
-                    <TextBox FontWeight = "Bold" x:Name = "textBoxEmail_Copy" Foreground = "#371f60" FontSize = "15" 
+                             Margin = "340,220,0,-169"/>
+
+                    <TextBox Width="300" x:Name="phoneNumberText" Text = "{Binding phoneNumber}" FontWeight = "Bold" Foreground = "#371f60" FontSize = "15" 
                         materialDesign:HintAssist.Hint = "Phone number" Style = "{StaticResource MaterialDesignFloatingHintTextBox}" 
-                        Margin = "179.333,266,-1,-215" Grid.Column="1"/>
-                        
+                        Margin = "341,268,-1,-217"/>
+
                     <Ellipse Grid.ColumnSpan="2" Margin="-10,56,440,-162" HorizontalAlignment="Right" Width="210">
                         <Ellipse.Fill>
                             <ImageBrush ImageSource="Resources/mainPhoto.jpg" Stretch="UniformToFill"/>
                         </Ellipse.Fill>
                     </Ellipse>
-                    <Button x:Name = "saveChangesButton" IsDefault="True" Background = "#371f60" Foreground = "White" FontWeight = "Bold" Content = "Save changes" 
-                            FontSize ="15" Margin="0,348,0,-285" Grid.ColumnSpan = "2" BorderBrush = "{x:Null}" Height = "Auto" Template="{StaticResource MyButton}"/>
-                        
-                    <Button x:Name = "uploadPhoto" Background = "#371f60" Foreground = "White" FontWeight = "Bold" Content = "Upload a photo" 
-                            FontSize ="15" Margin="0,280,450,-217" Grid.ColumnSpan = "2" BorderBrush = "{x:Null}" Height = "Auto" Template="{StaticResource MyButton}"/>
                     
+                    <Button x:Name = "saveChangesButton" IsDefault="True" Background = "#371f60" Foreground = "White" FontWeight = "Bold" Content = "Save changes" 
+                            FontSize ="15" Margin="0,348,0,-285" BorderBrush = "{x:Null}" Height = "Auto" Template="{StaticResource MyButton}" Click="saveChangesButton_Click"/>
+
+                    <Button x:Name = "uploadPhoto" Background = "#371f60" Foreground = "White" FontWeight = "Bold" Content = "Upload a photo" 
+                            FontSize ="15" Margin="0,280,450,-217" BorderBrush = "{x:Null}" Height = "Auto" Template="{StaticResource MyButton}"/>
+
                 </Grid>
             </StackPanel>
         </Border>
@@ -137,14 +127,6 @@
         </Button>
         <Grid x:Name="GridMenu" Width="246" HorizontalAlignment="Left" Margin="-250,0,0,-0.333" Background="White" 
               RenderTransformOrigin="0.5,0.5" Grid.RowSpan="2">
-            <Grid.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </Grid.RenderTransform>
             <StackPanel>
                 <Image Height="327" Source="Resources/hotel4.jpg" Stretch="Fill"/>
                 <ListView Foreground="#371f60" FontFamily="Champagne &amp; Limousines" FontSize="18">

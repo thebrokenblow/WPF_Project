@@ -13,25 +13,28 @@ namespace WPF_Project
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class HotelsEntitiesFramework : DbContext
+    public partial class CourseProjectEntitiesDataBase : DbContext
     {
-        private static HotelsEntitiesFramework _context;
-        public HotelsEntitiesFramework()
-            : base("name=HotelsEntitiesFramework")
+        private static CourseProjectEntitiesDataBase context; //Приватное статичное поле, которое будет контекстом
+        public CourseProjectEntitiesDataBase()
+            : base("name=CourseProjectEntitiesDataBase")
         {
         }
-        public static HotelsEntitiesFramework GetContext()
+        public static CourseProjectEntitiesDataBase GetContext() //Метод получения экземпляра этого контекста
         {
-            if (_context == null)
-                _context = new HotelsEntitiesFramework();
-            return _context;
+            if (context == null) //Есди экземпляра контекста нет
+                context = new CourseProjectEntitiesDataBase(); //То создаём новый
+            return context; //Возвращаем экземпляр
         }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             throw new UnintentionalCodeFirstException();
         }
+    
+        public virtual DbSet<Administrator> Administrator { get; set; }
         public virtual DbSet<City> City { get; set; }
         public virtual DbSet<Hotel> Hotel { get; set; }
+        public virtual DbSet<ListOfChanges> ListOfChanges { get; set; }
         public virtual DbSet<ListOfRooms> ListOfRooms { get; set; }
         public virtual DbSet<photosOfHotels> photosOfHotels { get; set; }
         public virtual DbSet<PhotosOfRooms> PhotosOfRooms { get; set; }

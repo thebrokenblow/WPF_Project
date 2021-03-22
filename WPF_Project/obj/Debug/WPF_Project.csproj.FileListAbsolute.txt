@@ -32,7 +32,6 @@ C:\Users\User\Desktop\WPF\WPF_Project\WPF_Project\bin\Debug\EntityFramework.SqlS
 C:\Users\User\Desktop\WPF\WPF_Project\WPF_Project\bin\Debug\MaterialDesignColors.pdb
 C:\Users\User\Desktop\WPF\WPF_Project\WPF_Project\bin\Debug\MaterialDesignThemes.Wpf.pdb
 C:\Users\User\Desktop\WPF\WPF_Project\WPF_Project\bin\Debug\MaterialDesignThemes.Wpf.xml
-C:\Users\User\Desktop\WPF\WPF_Project\WPF_Project\obj\Debug\WPF_Project.csprojAssemblyReference.cache
 C:\Users\User\Desktop\WPF\WPF_Project\WPF_Project\obj\Debug\App.g.cs
 C:\Users\User\Desktop\WPF\WPF_Project\WPF_Project\obj\Debug\WPF_Project_MarkupCompile.cache
 C:\Users\User\Desktop\WPF\WPF_Project\WPF_Project\obj\Debug\WPF_Project_MarkupCompile.lref
@@ -59,3 +58,4 @@ C:\Users\User\Desktop\WPF\WPF_Project\WPF_Project\obj\Debug\AddEditPage.g.cs
 C:\Users\User\Desktop\WPF\WPF_Project\WPF_Project\obj\Debug\AddEditPage.baml
 C:\Users\User\Desktop\WPF\WPF_Project\WPF_Project\obj\Debug\HotelsList.g.cs
 C:\Users\User\Desktop\WPF\WPF_Project\WPF_Project\obj\Debug\HotelsList.baml
+C:\Users\User\Desktop\WPF\WPF_Project\WPF_Project\obj\Debug\WPF_Project.csprojAssemblyReference.cache

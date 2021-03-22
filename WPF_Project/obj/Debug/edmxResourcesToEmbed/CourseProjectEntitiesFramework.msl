@@ -13,6 +13,7 @@
     <EntitySetMapping Name="Hotel">
       <EntityTypeMapping TypeName="CourseProjectModel.Hotel">
         <MappingFragment StoreEntitySet="Hotel">
+          <ScalarProperty Name="idListOfChanges" ColumnName="idListOfChanges" />
           <ScalarProperty Name="ImagePreview" ColumnName="ImagePreview" />
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="nameOfHotel" ColumnName="nameOfHotel" />
@@ -105,6 +106,17 @@
         <MappingFragment StoreEntitySet="Сountry">
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="nameOfCountry" ColumnName="nameOfCountry" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Administrator">
+      <EntityTypeMapping TypeName="CourseProjectModel.Administrator">
+        <MappingFragment StoreEntitySet="Administrator">
+          <ScalarProperty Name="surname" ColumnName="surname" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="login" ColumnName="login" />
+          <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

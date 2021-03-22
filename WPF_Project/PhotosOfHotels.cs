@@ -14,7 +14,7 @@ namespace WPF_Project
     
     public partial class photosOfHotels
     {
-        public int id { get; set; }
+        public int idPhotoOfHotels { get; set; }
         public int idOfHotel { get; set; }
         public byte[] photo { get; set; }
     

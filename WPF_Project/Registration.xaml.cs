@@ -1,20 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace WPF_Project
 {
+    public static class Info
+    {
+        public static Users userinfo = null;
+    }
     public partial class Registration : Page
     {
         /// <summary>
@@ -96,6 +91,9 @@ namespace WPF_Project
                                     };
                                     context.Users.Add(user); //Добавляем наши данные в базу данных
                                     context.SaveChanges(); //Сохраняем наши данные в базу данных
+
+                                    Info.userinfo = context.Users.Where(x => x.login == loginOfUser).Select(x => x).FirstOrDefault();
+                                    
                                     Uri HotelSearch = new Uri("HotelSearch.xaml", UriKind.Relative);
                                     this.NavigationService.Navigate(HotelSearch); //Переход на страницу Авторизации пользователя
                                 }
