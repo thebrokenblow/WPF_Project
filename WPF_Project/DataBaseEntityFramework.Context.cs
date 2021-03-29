@@ -13,18 +13,18 @@ namespace WPF_Project
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class CourseProjectEntitiesDataBase : DbContext
+    public partial class CourseProjectEntitiesFrameworkDataBase : DbContext
     {
-        private static CourseProjectEntitiesDataBase context; //Приватное статичное поле, которое будет контекстом
-        public CourseProjectEntitiesDataBase()
-            : base("name=CourseProjectEntitiesDataBase")
+        private static CourseProjectEntitiesFrameworkDataBase context;
+        public CourseProjectEntitiesFrameworkDataBase()
+            : base("name=CourseProjectEntitiesFrameworkDataBase")
         {
         }
-        public static CourseProjectEntitiesDataBase GetContext() //Метод получения экземпляра этого контекста
+        public static CourseProjectEntitiesFrameworkDataBase GetContext()
         {
-            if (context == null) //Есди экземпляра контекста нет
-                context = new CourseProjectEntitiesDataBase(); //То создаём новый
-            return context; //Возвращаем экземпляр
+            if (context == null)
+                context = new CourseProjectEntitiesFrameworkDataBase();
+            return context;
         }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

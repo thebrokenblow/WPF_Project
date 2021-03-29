@@ -25,8 +25,8 @@ namespace WPF_Project
         {
             InitializeComponent();
             DataContext = currentHotel;
-            ComboCountry.ItemsSource = CourseProjectEntitiesDataBase.GetContext().Сountry.ToList();
-            ComboCity.ItemsSource = CourseProjectEntitiesDataBase.GetContext().City.ToList();
+            ComboCountry.ItemsSource = CourseProjectEntitiesFrameworkDataBase.GetContext().Сountry.ToList();
+            ComboCity.ItemsSource = CourseProjectEntitiesFrameworkDataBase.GetContext().City.ToList();
         }
         /// <summary>
         /// Логика взаимодействия обработки события нажатия на кнопку сохранения изменений
@@ -83,10 +83,10 @@ namespace WPF_Project
                             {
                                 textBoxHotelDescription.Background = Brushes.Transparent;
                                 textBoxHotelDescription.ToolTip = null;
-                                CourseProjectEntitiesDataBase.GetContext().Hotel.Add(currentHotel);
+                                CourseProjectEntitiesFrameworkDataBase.GetContext().Hotel.Add(currentHotel);
                                 try
                                 {
-                                    CourseProjectEntitiesDataBase.GetContext().SaveChanges();
+                                    CourseProjectEntitiesFrameworkDataBase.GetContext().SaveChanges();
                                     MessageBox.Show("Informations Saved");
                                     Uri AddEditPage = new Uri("HotelsPage.xaml", UriKind.Relative);
                                     this.NavigationService.Navigate(AddEditPage); //Переход на страницу списка информации об отелях

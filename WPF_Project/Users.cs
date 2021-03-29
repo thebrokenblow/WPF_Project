@@ -20,7 +20,7 @@ namespace WPF_Project
             this.Reservation = new HashSet<Reservation>();
         }
     
-        public int idOfUsers { get; set; }
+        public int id { get; set; }
         public string login { get; set; }
         public string password { get; set; }
         public string email { get; set; }

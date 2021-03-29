@@ -14,11 +14,12 @@ namespace WPF_Project
     
     public partial class TypeOfRoom
     {
-        public int idTypeOfRoom { get; set; }
+        public int id { get; set; }
         public string roomName { get; set; }
         public decimal pricePerDay { get; set; }
         public int idOfRooms { get; set; }
         public string roomDescription { get; set; }
+        public byte[] ImagePreview { get; set; }
     
         public virtual ListOfRooms ListOfRooms { get; set; }
     }

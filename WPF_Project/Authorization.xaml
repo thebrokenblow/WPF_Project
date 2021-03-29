@@ -75,18 +75,18 @@
                 <Grid>
                     <TextBlock FontSize = "25" FontWeight = "Bold" Foreground = "#371f60" Margin = "0,0,0,57.667"
                                Text = "The Authorization"/>
-                    
+
                     <Button x:Name = "regButton" Content = "Register" FontSize = "15" Foreground = "White" FontWeight = "Bold" 
                             Margin = "430,0,0,0" VerticalAlignment = "Top" BorderBrush = "{x:Null}" 
                             Height = "35" Width ="160" Click = "Button_Transition_Reg_Click" IsCancel="True" Template="{StaticResource MyButton}">
                     </Button>
-                    
+
                     <TextBox x:Name = "textBoxLogin" Foreground = "#371f60" materialDesign:HintAssist.Hint = "Enter login" FontWeight = "Bold"
                              Style = "{StaticResource MaterialDesignFloatingHintTextBox}" Margin = "0,61,0,-11.667" Grid.ColumnSpan = "2" />
-                    
+
                     <PasswordBox x:Name = "passwordBox" Foreground = "#371f60" materialDesign:HintAssist.Hint = "Enter password" FontWeight ="Bold"
                              Style = "{StaticResource MaterialDesignFloatingHintPasswordBox}" Margin = "0,105,0,-56.667" Grid.ColumnSpan = "2" />
-                    
+
                     <TextBlock x:Name="errorBox" Text = "{x:Null}" Foreground = "#ff5e5b" FontSize = "15" FontWeight = "Bold" Margin="4,162,171,-90.333" Grid.ColumnSpan="2" />
 
                     <Button x:Name = "enterButton" Background = "#371f60" Foreground = "White" FontWeight = "Bold" Content = "Enter" FontSize = "15" Template="{StaticResource MyButton}"  

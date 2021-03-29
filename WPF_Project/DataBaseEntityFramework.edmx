@@ -7,9 +7,9 @@
       <Schema Namespace="Хранилище CourseProjectModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Administrator">
           <Key>
-            <PropertyRef Name="idOfAdministrator" />
+            <PropertyRef Name="id" />
           </Key>
-          <Property Name="idOfAdministrator" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="login" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="password" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="name" Type="nvarchar" MaxLength="30" />
@@ -17,17 +17,17 @@
         </EntityType>
         <EntityType Name="City">
           <Key>
-            <PropertyRef Name="idOfCity" />
+            <PropertyRef Name="id" />
           </Key>
-          <Property Name="idOfCity" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="idCountry" Type="int" Nullable="false" />
           <Property Name="nameOfCity" Type="nvarchar" MaxLength="60" Nullable="false" />
         </EntityType>
         <EntityType Name="Hotel">
           <Key>
-            <PropertyRef Name="idOfHotel" />
+            <PropertyRef Name="id" />
           </Key>
-          <Property Name="idOfHotel" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="nameOfHotel" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="idOfCity" Type="int" Nullable="false" />
           <Property Name="address" Type="nvarchar" MaxLength="50" Nullable="false" />
@@ -39,41 +39,41 @@
         </EntityType>
         <EntityType Name="ListOfChanges">
           <Key>
-            <PropertyRef Name="idListOfChanges" />
+            <PropertyRef Name="id" />
           </Key>
-          <Property Name="idListOfChanges" Type="int" Nullable="false" />
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="idOfAdministrator" Type="int" Nullable="false" />
           <Property Name="typeOfChange" Type="nvarchar" MaxLength="10" Nullable="false" />
         </EntityType>
         <EntityType Name="ListOfRooms">
           <Key>
-            <PropertyRef Name="idListOfRooms" />
+            <PropertyRef Name="id" />
           </Key>
-          <Property Name="idListOfRooms" Type="int" Nullable="false" />
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="idOfHotel" Type="int" Nullable="false" />
-          <Property Name="idOfPhotosRooms" Type="int" Nullable="false" />
+          <Property Name="idOfPhotosRooms" Type="int" />
         </EntityType>
         <EntityType Name="photosOfHotels">
           <Key>
-            <PropertyRef Name="idPhotoOfHotels" />
+            <PropertyRef Name="id" />
           </Key>
-          <Property Name="idPhotoOfHotels" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="idOfHotel" Type="int" Nullable="false" />
           <Property Name="photo" Type="image" />
         </EntityType>
         <EntityType Name="PhotosOfRooms">
           <Key>
-            <PropertyRef Name="idPhotosOfRooms" />
+            <PropertyRef Name="id" />
           </Key>
-          <Property Name="idPhotosOfRooms" Type="int" Nullable="false" />
+          <Property Name="id" Type="int" Nullable="false" />
           <Property Name="idOfRooms" Type="int" Nullable="false" />
           <Property Name="photo" Type="image" Nullable="false" />
         </EntityType>
         <EntityType Name="Reservation">
           <Key>
-            <PropertyRef Name="idOfReservation" />
+            <PropertyRef Name="id" />
           </Key>
-          <Property Name="idOfReservation" Type="int" Nullable="false" />
+          <Property Name="id" Type="int" Nullable="false" />
           <Property Name="idOfRooms" Type="int" Nullable="false" />
           <Property Name="numberOfRoomsBooked" Type="int" Nullable="false" />
           <Property Name="numberOfAdults" Type="int" Nullable="false" />
@@ -94,19 +94,20 @@
         </EntityType>
         <EntityType Name="TypeOfRoom">
           <Key>
-            <PropertyRef Name="idTypeOfRoom" />
+            <PropertyRef Name="id" />
           </Key>
-          <Property Name="idTypeOfRoom" Type="int" Nullable="false" />
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="roomName" Type="nvarchar" MaxLength="20" Nullable="false" />
           <Property Name="pricePerDay" Type="money" Nullable="false" />
           <Property Name="idOfRooms" Type="int" Nullable="false" />
           <Property Name="roomDescription" Type="nvarchar(max)" />
+          <Property Name="ImagePreview" Type="varbinary(max)" />
         </EntityType>
         <EntityType Name="Users">
           <Key>
-            <PropertyRef Name="idOfUsers" />
+            <PropertyRef Name="id" />
           </Key>
-          <Property Name="idOfUsers" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="login" Type="nvarchar" MaxLength="25" Nullable="false" />
           <Property Name="password" Type="nvarchar" MaxLength="60" Nullable="false" />
           <Property Name="email" Type="char" MaxLength="100" Nullable="false" />
@@ -117,9 +118,9 @@
         </EntityType>
         <EntityType Name="Сountry">
           <Key>
-            <PropertyRef Name="idOfCountry" />
+            <PropertyRef Name="id" />
           </Key>
-          <Property Name="idOfCountry" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="nameOfCountry" Type="nvarchar" MaxLength="60" Nullable="false" />
         </EntityType>
         <Association Name="FK_City_Сountry">
@@ -127,7 +128,7 @@
           <End Role="City" Type="Self.City" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Сountry">
-              <PropertyRef Name="idOfCountry" />
+              <PropertyRef Name="id" />
             </Principal>
             <Dependent Role="City">
               <PropertyRef Name="idCountry" />
@@ -139,7 +140,7 @@
           <End Role="Hotel" Type="Self.Hotel" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="City">
-              <PropertyRef Name="idOfCity" />
+              <PropertyRef Name="id" />
             </Principal>
             <Dependent Role="Hotel">
               <PropertyRef Name="idOfCity" />
@@ -151,7 +152,7 @@
           <End Role="ListOfChanges" Type="Self.ListOfChanges" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Administrator">
-              <PropertyRef Name="idOfAdministrator" />
+              <PropertyRef Name="id" />
             </Principal>
             <Dependent Role="ListOfChanges">
               <PropertyRef Name="idOfAdministrator" />
@@ -163,7 +164,7 @@
           <End Role="ListOfChanges" Type="Self.ListOfChanges" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Hotel">
-              <PropertyRef Name="idOfHotel" />
+              <PropertyRef Name="id" />
             </Principal>
             <Dependent Role="ListOfChanges">
               <PropertyRef Name="idOfAdministrator" />
@@ -175,7 +176,7 @@
           <End Role="ListOfRooms" Type="Self.ListOfRooms" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Hotel">
-              <PropertyRef Name="idOfHotel" />
+              <PropertyRef Name="id" />
             </Principal>
             <Dependent Role="ListOfRooms">
               <PropertyRef Name="idOfHotel" />
@@ -183,11 +184,11 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_ListOfRooms_PhotosOfRooms1">
-          <End Role="PhotosOfRooms" Type="Self.PhotosOfRooms" Multiplicity="1" />
+          <End Role="PhotosOfRooms" Type="Self.PhotosOfRooms" Multiplicity="0..1" />
           <End Role="ListOfRooms" Type="Self.ListOfRooms" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="PhotosOfRooms">
-              <PropertyRef Name="idPhotosOfRooms" />
+              <PropertyRef Name="id" />
             </Principal>
             <Dependent Role="ListOfRooms">
               <PropertyRef Name="idOfPhotosRooms" />
@@ -199,7 +200,7 @@
           <End Role="photosOfHotels" Type="Self.photosOfHotels" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Hotel">
-              <PropertyRef Name="idOfHotel" />
+              <PropertyRef Name="id" />
             </Principal>
             <Dependent Role="photosOfHotels">
               <PropertyRef Name="idOfHotel" />
@@ -211,7 +212,7 @@
           <End Role="Reservation" Type="Self.Reservation" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="ListOfRooms">
-              <PropertyRef Name="idListOfRooms" />
+              <PropertyRef Name="id" />
             </Principal>
             <Dependent Role="Reservation">
               <PropertyRef Name="idOfRooms" />
@@ -223,7 +224,7 @@
           <End Role="Reservation" Type="Self.Reservation" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Users">
-              <PropertyRef Name="idOfUsers" />
+              <PropertyRef Name="id" />
             </Principal>
             <Dependent Role="Reservation">
               <PropertyRef Name="idOfUsers" />
@@ -235,7 +236,7 @@
           <End Role="TypeOfRoom" Type="Self.TypeOfRoom" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="ListOfRooms">
-              <PropertyRef Name="idListOfRooms" />
+              <PropertyRef Name="id" />
             </Principal>
             <Dependent Role="TypeOfRoom">
               <PropertyRef Name="idOfRooms" />
@@ -303,9 +304,9 @@
       <Schema Namespace="CourseProjectModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="Administrator">
           <Key>
-            <PropertyRef Name="idOfAdministrator" />
+            <PropertyRef Name="id" />
           </Key>
-          <Property Name="idOfAdministrator" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="login" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="name" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
@@ -314,9 +315,9 @@
         </EntityType>
         <EntityType Name="City">
           <Key>
-            <PropertyRef Name="idOfCity" />
+            <PropertyRef Name="id" />
           </Key>
-          <Property Name="idOfCity" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="idCountry" Type="Int32" Nullable="false" />
           <Property Name="nameOfCity" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="Сountry" Relationship="Self.FK_City_Сountry" FromRole="City" ToRole="Сountry" />
@@ -324,9 +325,9 @@
         </EntityType>
         <EntityType Name="Hotel">
           <Key>
-            <PropertyRef Name="idOfHotel" />
+            <PropertyRef Name="id" />
           </Key>
-          <Property Name="idOfHotel" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="nameOfHotel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="idOfCity" Type="Int32" Nullable="false" />
           <Property Name="address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
@@ -342,9 +343,9 @@
         </EntityType>
         <EntityType Name="ListOfChanges">
           <Key>
-            <PropertyRef Name="idListOfChanges" />
+            <PropertyRef Name="id" />
           </Key>
-          <Property Name="idListOfChanges" Type="Int32" Nullable="false" />
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="idOfAdministrator" Type="Int32" Nullable="false" />
           <Property Name="typeOfChange" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="Administrator" Relationship="Self.FK_ListOfChanges_Administrator" FromRole="ListOfChanges" ToRole="Administrator" />
@@ -352,11 +353,11 @@
         </EntityType>
         <EntityType Name="ListOfRooms">
           <Key>
-            <PropertyRef Name="idListOfRooms" />
+            <PropertyRef Name="id" />
           </Key>
-          <Property Name="idListOfRooms" Type="Int32" Nullable="false" />
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="idOfHotel" Type="Int32" Nullable="false" />
-          <Property Name="idOfPhotosRooms" Type="Int32" Nullable="false" />
+          <Property Name="idOfPhotosRooms" Type="Int32" />
           <NavigationProperty Name="Hotel" Relationship="Self.FK_ListOfRooms_Hotel" FromRole="ListOfRooms" ToRole="Hotel" />
           <NavigationProperty Name="PhotosOfRooms" Relationship="Self.FK_ListOfRooms_PhotosOfRooms1" FromRole="ListOfRooms" ToRole="PhotosOfRooms" />
           <NavigationProperty Name="Reservation" Relationship="Self.FK_Reservation_ListOfRooms" FromRole="ListOfRooms" ToRole="Reservation" />
@@ -364,27 +365,27 @@
         </EntityType>
         <EntityType Name="photosOfHotels">
           <Key>
-            <PropertyRef Name="idPhotoOfHotels" />
+            <PropertyRef Name="id" />
           </Key>
-          <Property Name="idPhotoOfHotels" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="idOfHotel" Type="Int32" Nullable="false" />
           <Property Name="photo" Type="Binary" MaxLength="Max" FixedLength="false" />
           <NavigationProperty Name="Hotel" Relationship="Self.FK_photosOfHotels_Hotel" FromRole="photosOfHotels" ToRole="Hotel" />
         </EntityType>
         <EntityType Name="PhotosOfRooms">
           <Key>
-            <PropertyRef Name="idPhotosOfRooms" />
+            <PropertyRef Name="id" />
           </Key>
-          <Property Name="idPhotosOfRooms" Type="Int32" Nullable="false" />
+          <Property Name="id" Type="Int32" Nullable="false" />
           <Property Name="idOfRooms" Type="Int32" Nullable="false" />
           <Property Name="photo" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
           <NavigationProperty Name="ListOfRooms" Relationship="Self.FK_ListOfRooms_PhotosOfRooms1" FromRole="PhotosOfRooms" ToRole="ListOfRooms" />
         </EntityType>
         <EntityType Name="Reservation">
           <Key>
-            <PropertyRef Name="idOfReservation" />
+            <PropertyRef Name="id" />
           </Key>
-          <Property Name="idOfReservation" Type="Int32" Nullable="false" />
+          <Property Name="id" Type="Int32" Nullable="false" />
           <Property Name="idOfRooms" Type="Int32" Nullable="false" />
           <Property Name="numberOfRoomsBooked" Type="Int32" Nullable="false" />
           <Property Name="numberOfAdults" Type="Int32" Nullable="false" />
@@ -407,20 +408,21 @@
         </EntityType>
         <EntityType Name="TypeOfRoom">
           <Key>
-            <PropertyRef Name="idTypeOfRoom" />
+            <PropertyRef Name="id" />
           </Key>
-          <Property Name="idTypeOfRoom" Type="Int32" Nullable="false" />
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="roomName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="pricePerDay" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
           <Property Name="idOfRooms" Type="Int32" Nullable="false" />
           <Property Name="roomDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ImagePreview" Type="Binary" MaxLength="Max" FixedLength="false" />
           <NavigationProperty Name="ListOfRooms" Relationship="Self.FK_TypeOfRoom_ListOfRooms1" FromRole="TypeOfRoom" ToRole="ListOfRooms" />
         </EntityType>
         <EntityType Name="Users">
           <Key>
-            <PropertyRef Name="idOfUsers" />
+            <PropertyRef Name="id" />
           </Key>
-          <Property Name="idOfUsers" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="login" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="password" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="email" Type="String" MaxLength="100" FixedLength="true" Unicode="false" Nullable="false" />
@@ -432,9 +434,9 @@
         </EntityType>
         <EntityType Name="Сountry">
           <Key>
-            <PropertyRef Name="idOfCountry" />
+            <PropertyRef Name="id" />
           </Key>
-          <Property Name="idOfCountry" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="nameOfCountry" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="City" Relationship="Self.FK_City_Сountry" FromRole="Сountry" ToRole="City" />
         </EntityType>
@@ -443,7 +445,7 @@
           <End Role="ListOfChanges" Type="Self.ListOfChanges" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Administrator">
-              <PropertyRef Name="idOfAdministrator" />
+              <PropertyRef Name="id" />
             </Principal>
             <Dependent Role="ListOfChanges">
               <PropertyRef Name="idOfAdministrator" />
@@ -455,7 +457,7 @@
           <End Role="City" Type="Self.City" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Сountry">
-              <PropertyRef Name="idOfCountry" />
+              <PropertyRef Name="id" />
             </Principal>
             <Dependent Role="City">
               <PropertyRef Name="idCountry" />
@@ -467,7 +469,7 @@
           <End Role="Hotel" Type="Self.Hotel" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="City">
-              <PropertyRef Name="idOfCity" />
+              <PropertyRef Name="id" />
             </Principal>
             <Dependent Role="Hotel">
               <PropertyRef Name="idOfCity" />
@@ -479,7 +481,7 @@
           <End Role="ListOfChanges" Type="Self.ListOfChanges" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Hotel">
-              <PropertyRef Name="idOfHotel" />
+              <PropertyRef Name="id" />
             </Principal>
             <Dependent Role="ListOfChanges">
               <PropertyRef Name="idOfAdministrator" />
@@ -491,7 +493,7 @@
           <End Role="ListOfRooms" Type="Self.ListOfRooms" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Hotel">
-              <PropertyRef Name="idOfHotel" />
+              <PropertyRef Name="id" />
             </Principal>
             <Dependent Role="ListOfRooms">
               <PropertyRef Name="idOfHotel" />
@@ -503,7 +505,7 @@
           <End Role="photosOfHotels" Type="Self.photosOfHotels" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Hotel">
-              <PropertyRef Name="idOfHotel" />
+              <PropertyRef Name="id" />
             </Principal>
             <Dependent Role="photosOfHotels">
               <PropertyRef Name="idOfHotel" />
@@ -511,11 +513,11 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_ListOfRooms_PhotosOfRooms1">
-          <End Role="PhotosOfRooms" Type="Self.PhotosOfRooms" Multiplicity="1" />
+          <End Role="PhotosOfRooms" Type="Self.PhotosOfRooms" Multiplicity="0..1" />
           <End Role="ListOfRooms" Type="Self.ListOfRooms" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="PhotosOfRooms">
-              <PropertyRef Name="idPhotosOfRooms" />
+              <PropertyRef Name="id" />
             </Principal>
             <Dependent Role="ListOfRooms">
               <PropertyRef Name="idOfPhotosRooms" />
@@ -527,7 +529,7 @@
           <End Role="Reservation" Type="Self.Reservation" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="ListOfRooms">
-              <PropertyRef Name="idListOfRooms" />
+              <PropertyRef Name="id" />
             </Principal>
             <Dependent Role="Reservation">
               <PropertyRef Name="idOfRooms" />
@@ -539,7 +541,7 @@
           <End Role="TypeOfRoom" Type="Self.TypeOfRoom" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="ListOfRooms">
-              <PropertyRef Name="idListOfRooms" />
+              <PropertyRef Name="id" />
             </Principal>
             <Dependent Role="TypeOfRoom">
               <PropertyRef Name="idOfRooms" />
@@ -551,14 +553,14 @@
           <End Role="Reservation" Type="Self.Reservation" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Users">
-              <PropertyRef Name="idOfUsers" />
+              <PropertyRef Name="id" />
             </Principal>
             <Dependent Role="Reservation">
               <PropertyRef Name="idOfUsers" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="CourseProjectEntitiesDataBase" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="CourseProjectEntitiesFrameworkDataBase" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Administrator" EntityType="Self.Administrator" />
           <EntitySet Name="City" EntityType="Self.City" />
           <EntitySet Name="Hotel" EntityType="Self.Hotel" />
@@ -617,11 +619,11 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Хранилище CourseProjectModelContainer" CdmEntityContainer="CourseProjectEntitiesDataBase">
+        <EntityContainerMapping StorageEntityContainer="Хранилище CourseProjectModelContainer" CdmEntityContainer="CourseProjectEntitiesFrameworkDataBase">
           <EntitySetMapping Name="Administrator">
             <EntityTypeMapping TypeName="CourseProjectModel.Administrator">
               <MappingFragment StoreEntitySet="Administrator">
-                <ScalarProperty Name="idOfAdministrator" ColumnName="idOfAdministrator" />
+                <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="login" ColumnName="login" />
                 <ScalarProperty Name="password" ColumnName="password" />
                 <ScalarProperty Name="name" ColumnName="name" />
@@ -632,7 +634,7 @@
           <EntitySetMapping Name="City">
             <EntityTypeMapping TypeName="CourseProjectModel.City">
               <MappingFragment StoreEntitySet="City">
-                <ScalarProperty Name="idOfCity" ColumnName="idOfCity" />
+                <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="idCountry" ColumnName="idCountry" />
                 <ScalarProperty Name="nameOfCity" ColumnName="nameOfCity" />
               </MappingFragment>
@@ -641,7 +643,7 @@
           <EntitySetMapping Name="Hotel">
             <EntityTypeMapping TypeName="CourseProjectModel.Hotel">
               <MappingFragment StoreEntitySet="Hotel">
-                <ScalarProperty Name="idOfHotel" ColumnName="idOfHotel" />
+                <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="nameOfHotel" ColumnName="nameOfHotel" />
                 <ScalarProperty Name="idOfCity" ColumnName="idOfCity" />
                 <ScalarProperty Name="address" ColumnName="address" />
@@ -656,7 +658,7 @@
           <EntitySetMapping Name="ListOfChanges">
             <EntityTypeMapping TypeName="CourseProjectModel.ListOfChanges">
               <MappingFragment StoreEntitySet="ListOfChanges">
-                <ScalarProperty Name="idListOfChanges" ColumnName="idListOfChanges" />
+                <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="idOfAdministrator" ColumnName="idOfAdministrator" />
                 <ScalarProperty Name="typeOfChange" ColumnName="typeOfChange" />
               </MappingFragment>
@@ -665,7 +667,7 @@
           <EntitySetMapping Name="ListOfRooms">
             <EntityTypeMapping TypeName="CourseProjectModel.ListOfRooms">
               <MappingFragment StoreEntitySet="ListOfRooms">
-                <ScalarProperty Name="idListOfRooms" ColumnName="idListOfRooms" />
+                <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="idOfHotel" ColumnName="idOfHotel" />
                 <ScalarProperty Name="idOfPhotosRooms" ColumnName="idOfPhotosRooms" />
               </MappingFragment>
@@ -674,7 +676,7 @@
           <EntitySetMapping Name="photosOfHotels">
             <EntityTypeMapping TypeName="CourseProjectModel.photosOfHotels">
               <MappingFragment StoreEntitySet="photosOfHotels">
-                <ScalarProperty Name="idPhotoOfHotels" ColumnName="idPhotoOfHotels" />
+                <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="idOfHotel" ColumnName="idOfHotel" />
                 <ScalarProperty Name="photo" ColumnName="photo" />
               </MappingFragment>
@@ -683,7 +685,7 @@
           <EntitySetMapping Name="PhotosOfRooms">
             <EntityTypeMapping TypeName="CourseProjectModel.PhotosOfRooms">
               <MappingFragment StoreEntitySet="PhotosOfRooms">
-                <ScalarProperty Name="idPhotosOfRooms" ColumnName="idPhotosOfRooms" />
+                <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="idOfRooms" ColumnName="idOfRooms" />
                 <ScalarProperty Name="photo" ColumnName="photo" />
               </MappingFragment>
@@ -692,7 +694,7 @@
           <EntitySetMapping Name="Reservation">
             <EntityTypeMapping TypeName="CourseProjectModel.Reservation">
               <MappingFragment StoreEntitySet="Reservation">
-                <ScalarProperty Name="idOfReservation" ColumnName="idOfReservation" />
+                <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="idOfRooms" ColumnName="idOfRooms" />
                 <ScalarProperty Name="numberOfRoomsBooked" ColumnName="numberOfRoomsBooked" />
                 <ScalarProperty Name="numberOfAdults" ColumnName="numberOfAdults" />
@@ -717,18 +719,19 @@
           <EntitySetMapping Name="TypeOfRoom">
             <EntityTypeMapping TypeName="CourseProjectModel.TypeOfRoom">
               <MappingFragment StoreEntitySet="TypeOfRoom">
-                <ScalarProperty Name="idTypeOfRoom" ColumnName="idTypeOfRoom" />
+                <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="roomName" ColumnName="roomName" />
                 <ScalarProperty Name="pricePerDay" ColumnName="pricePerDay" />
                 <ScalarProperty Name="idOfRooms" ColumnName="idOfRooms" />
                 <ScalarProperty Name="roomDescription" ColumnName="roomDescription" />
+                <ScalarProperty Name="ImagePreview" ColumnName="ImagePreview" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Users">
             <EntityTypeMapping TypeName="CourseProjectModel.Users">
               <MappingFragment StoreEntitySet="Users">
-                <ScalarProperty Name="idOfUsers" ColumnName="idOfUsers" />
+                <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="login" ColumnName="login" />
                 <ScalarProperty Name="password" ColumnName="password" />
                 <ScalarProperty Name="email" ColumnName="email" />
@@ -742,7 +745,7 @@
           <EntitySetMapping Name="Сountry">
             <EntityTypeMapping TypeName="CourseProjectModel.Сountry">
               <MappingFragment StoreEntitySet="Сountry">
-                <ScalarProperty Name="idOfCountry" ColumnName="idOfCountry" />
+                <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="nameOfCountry" ColumnName="nameOfCountry" />
               </MappingFragment>
             </EntityTypeMapping>

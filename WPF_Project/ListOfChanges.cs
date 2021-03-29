@@ -14,7 +14,7 @@ namespace WPF_Project
     
     public partial class ListOfChanges
     {
-        public int idListOfChanges { get; set; }
+        public int id { get; set; }
         public int idOfAdministrator { get; set; }
         public string typeOfChange { get; set; }
     

@@ -15,6 +15,10 @@ using System.Windows.Shapes;
 
 namespace WPF_Project
 {
+    public static class InfoAboutHotel
+    {
+        public static Hotel hotelInfo = null;
+    }
     /// <summary>
     /// Логика взаимодействия для HotelList.xaml
     /// </summary>
@@ -23,8 +27,16 @@ namespace WPF_Project
         public HotelList()
         {
             InitializeComponent();
-            var currentHotels = CourseProjectEntitiesDataBase.GetContext().Hotel.ToList();
+            var currentHotels = CourseProjectEntitiesFrameworkDataBase.GetContext().Hotel.ToList();
             LViewHotels.ItemsSource = currentHotels;
+        }
+
+        private void Button_Search_Room_Click(object sender, RoutedEventArgs e)
+        {
+            using (var db = new ApplicationContext())
+            {
+                var idOfHotel = db.Hotel.Where(x => x.id == InfoAboutHotel.hotelInfo.id).Select(x => x.id).FirstOrDefault().ToString();
+            }
         }
     }
 }

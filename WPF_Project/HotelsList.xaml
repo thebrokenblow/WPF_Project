@@ -32,7 +32,7 @@
                             </Image.Source>
                         </Image>
 
-                        <TextBlock Text = "{Binding nameOfHotel}" Foreground = "White" FontSize = "20" Height = "40" Width = "720" VerticalAlignment = "Center" 
+                        <TextBlock Text = "{Binding nameOfHotel}" x:Name="popa" Foreground = "White" FontSize = "20" Height = "40" Width = "720" VerticalAlignment = "Center" 
                                    TextAlignment = "Center" HorizontalAlignment = "Center" TextWrapping = "Wrap" Margin = "0, 16, 0, 224" Grid.Row = "0" Grid.Column = "1" />
 
                         <TextBlock Text = "{Binding StringFormat = {}Stars {0}, Path = countOfStars}" Foreground = "White" FontSize = "20" Height = "40" Width = "720" VerticalAlignment = "Center" 
@@ -44,7 +44,7 @@
                         <TextBlock Text = "{Binding StringFormat = {}Address {0}, Path = address}" Foreground = "White" FontSize = "20" Height = "40" Width = "720" VerticalAlignment = "Center" TextAlignment = "Center" 
                                    HorizontalAlignment = "Center" TextWrapping = "Wrap" Margin="0, 136, 0, 104" Grid.Row = "0" Grid.Column = "1"/>
 
-                        <Button Content = "Enter" Width = "120" Height = "30" BorderBrush = "{x:Null}" Foreground = "#371f60" Background = "White" FontSize = "15" Grid.Column = "1" 
+                        <Button   Content = "Enter" Click="Button_Search_Room_Click" Width = "120" Height = "30" BorderBrush = "{x:Null}" Foreground = "#371f60" Background = "White" FontSize = "15" Grid.Column = "1" 
                                 Margin="520, 250, 0, 0"/>
                         
                     </Grid>

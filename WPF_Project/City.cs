@@ -20,7 +20,7 @@ namespace WPF_Project
             this.Hotel = new HashSet<Hotel>();
         }
     
-        public int idOfCity { get; set; }
+        public int id { get; set; }
         public int idCountry { get; set; }
         public string nameOfCity { get; set; }
     

@@ -14,7 +14,7 @@ namespace WPF_Project
     
     public partial class Reservation
     {
-        public int idOfReservation { get; set; }
+        public int id { get; set; }
         public int idOfRooms { get; set; }
         public int numberOfRoomsBooked { get; set; }
         public int numberOfAdults { get; set; }

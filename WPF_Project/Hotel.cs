@@ -22,7 +22,7 @@ namespace WPF_Project
             this.photosOfHotels = new HashSet<photosOfHotels>();
         }
     
-        public int idOfHotel { get; set; }
+        public int id { get; set; }
         public string nameOfHotel { get; set; }
         public int idOfCity { get; set; }
         public string address { get; set; }

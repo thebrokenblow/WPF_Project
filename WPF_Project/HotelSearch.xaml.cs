@@ -133,7 +133,7 @@ namespace WPF_Project
         }
         private void CbNaimTovCountry_Loaded(object sender, RoutedEventArgs e)
         {
-                CbNaimTovCountry.ItemsSource = CourseProjectEntitiesDataBase.GetContext().Сountry.ToList(); 
+                CbNaimTovCountry.ItemsSource = CourseProjectEntitiesFrameworkDataBase.GetContext().Сountry.ToList(); 
         }
         void OnComboBoxTextChangedCity(object sender, RoutedEventArgs e)
         {
@@ -148,7 +148,7 @@ namespace WPF_Project
         /// </summary>
         private void CbNaimTovCity_Loaded(object sender, RoutedEventArgs e)
         {
-            using (var context = new CourseProjectEntitiesDataBase())
+            using (var context = new CourseProjectEntitiesFrameworkDataBase())
             {
                 //     var tovararr = (from City in context.City where City.idCountry== select City.nameOfCity ).ToList();
                 //     CbNaimTovCountry.Items.Clear();

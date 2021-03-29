@@ -91,9 +91,7 @@ namespace WPF_Project
                                     };
                                     context.Users.Add(user); //Добавляем наши данные в базу данных
                                     context.SaveChanges(); //Сохраняем наши данные в базу данных
-
                                     Info.userinfo = context.Users.Where(x => x.login == loginOfUser).Select(x => x).FirstOrDefault();
-                                    
                                     Uri HotelSearch = new Uri("HotelSearch.xaml", UriKind.Relative);
                                     this.NavigationService.Navigate(HotelSearch); //Переход на страницу Авторизации пользователя
                                 }

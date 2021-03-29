@@ -106,7 +106,7 @@
                         materialDesign:HintAssist.Hint = "Phone number" Style = "{StaticResource MaterialDesignFloatingHintTextBox}" 
                         Margin = "341,268,-1,-217"/>
 
-                    <Ellipse Grid.ColumnSpan="2" Margin="-10,56,440,-162" HorizontalAlignment="Right" Width="210">
+                    <Ellipse Margin="-10,56,440,-162" HorizontalAlignment="Right" Width="210">
                         <Ellipse.Fill>
                             <ImageBrush ImageSource="Resources/mainPhoto.jpg" Stretch="UniformToFill"/>
                         </Ellipse.Fill>
@@ -116,7 +116,7 @@
                             FontSize ="15" Margin="0,348,0,-285" BorderBrush = "{x:Null}" Height = "Auto" Template="{StaticResource MyButton}" Click="saveChangesButton_Click"/>
 
                     <Button x:Name = "uploadPhoto" Background = "#371f60" Foreground = "White" FontWeight = "Bold" Content = "Upload a photo" 
-                            FontSize ="15" Margin="0,280,450,-217" BorderBrush = "{x:Null}" Height = "Auto" Template="{StaticResource MyButton}"/>
+                            FontSize ="15" Margin="0,280,450,-217" BorderBrush = "{x:Null}" Height = "Auto" Template="{StaticResource MyButton}" Click="uploadPhoto_Click"/>
 
                 </Grid>
             </StackPanel>
