@@ -42,7 +42,7 @@
                             <TextBlock Text = "{Binding roomDescription}" Foreground = "White" FontSize = "20" Height = "40" Width = "720" VerticalAlignment = "Center" 
                                    TextAlignment = "Center" HorizontalAlignment = "Center" TextWrapping = "Wrap" Margin = "0, 96, 0, 144" Grid.Row = "0" Grid.Column = "1"/>
 
-                            <Button Content = "Enter" Width = "120" Height = "30" BorderBrush = "{x:Null}" Foreground = "#371f60" Background = "White" FontSize = "15" Grid.Column = "1" 
+                            <Button Tag = "{Binding}" Click="Button_Enter" Content = "Enter" Width = "120" Height = "30" BorderBrush = "{x:Null}" Foreground = "#371f60" Background = "White" FontSize = "15" Grid.Column = "1" 
                                 Margin="520, 250, 0, 0"/>
 
                         </Grid>

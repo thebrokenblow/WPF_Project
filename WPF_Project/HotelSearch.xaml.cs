@@ -3,7 +3,6 @@ using System.Data;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
 
 namespace WPF_Project
 {
@@ -16,52 +15,56 @@ namespace WPF_Project
         public static int countOfAdults;
         public static int countOfChildren;
         public static int countOfRooms;
-        public informationAboutHotel()
-        {   
+        public informationAboutHotel(string nameOfCountry, string nameOfCity, DateTime firstDate, DateTime lastDate, 
+            int countAdults, int countChildren, int countRooms)
+        {
+            Country = nameOfCountry;
+            City = nameOfCity;
+            dataBegin = firstDate;
+            dataEnd = lastDate;
+            countOfAdults = countAdults;
+            countOfChildren = countChildren;
+            countOfRooms = countRooms;
         }
     }
-    /// <summary>
-    /// Логика взаимодействия для HotelSearch.xaml
-    /// </summary>
+
     public partial class HotelSearch : Page
     {
-        int countAdults = 1; //Количесво взрослых
-        int countChildren = 0; //Количесво детей 
-        int countRooms = 1; //Количесво комнат
-
-        /// <summary>
-        /// Метод для вывода информации на кнопку
-        /// </summary>
+        int countAdults = 1; 
+        int countChildren = 0;  
+        int countRooms = 1;
+        
         public void countOfAdultChildreanRoomBText(int countAdults, int countChildren, int countRooms)
         {
             countOfAdultChildreanRoomButton.Content = (countAdults).ToString() + "  adult  ·  " + (countChildren).ToString() + "  children  ·  " +
             (countRooms).ToString() + "  room";
         }
+
         public HotelSearch()
         {
             InitializeComponent();
-            textAdults.Text = (countAdults).ToString(); //Вывод информаци на кнопку об количесве Взрослых
-            textChildren.Text = (countChildren).ToString(); //Вывод информаци на кнопку об количесве Детей
-            textRooms.Text = (countRooms).ToString(); //Вывод информаци на кнопку об количесве Комнат
-            countOfAdultChildreanRoomBText(countAdults, countChildren, countRooms); //Вызов метода вывода информации на кнопку
-            buttonCalender.Content = "Check-in  -  Check-out"; //Изначальный текст кнопки Календаря
+            
+            CbNaimTovCountry.ItemsSource = CourseProjectEntitiesFrameworkDataBase.GetContext().Сountry.ToList();
+            CbNaimTovCity.ItemsSource = CourseProjectEntitiesFrameworkDataBase.GetContext().City.ToList();
+            DateTime date = DateTime.Now;
+            Calendar.DisplayDateStart = date;
+            textAdults.Text = (countAdults).ToString();
+            textChildren.Text = (countChildren).ToString(); 
+            textRooms.Text = (countRooms).ToString(); 
+            countOfAdultChildreanRoomBText(countAdults, countChildren, countRooms); 
+            buttonCalender.Content = "Check-in  -  Check-out"; 
         }
-        /// <summary>
-        /// Метод по обработки события нажатия кнопки уменьшения количества Взрослых 
-        /// </summary>
+
         private void Button_Adults_Minus_Click(object sender, RoutedEventArgs e)
         {
             if (countAdults > 1)
             {
                 countAdults--;
-                textAdults.Text = (countAdults).ToString(); //Вывод информации на кнопку
-                countOfAdultChildreanRoomBText(countAdults, countChildren, countRooms); //Вызов метода вывода информации на кнопку
+                textAdults.Text = (countAdults).ToString(); 
+                countOfAdultChildreanRoomBText(countAdults, countChildren, countRooms); 
             }
-
         }
-        /// <summary>
-        /// Метод по обработки события нажатия кнопки увеличения количества Взрослых 
-        /// </summary>
+
         private void Button_Adults_Plus_Click(object sender, RoutedEventArgs e)
         {
             if (countAdults < 15)
@@ -71,9 +74,7 @@ namespace WPF_Project
                 countOfAdultChildreanRoomBText(countAdults, countChildren, countRooms);
             }
         }
-        /// <summary>
-        /// Метод по обработки события нажатия кнопки уменьшения количества Детей
-        /// </summary>
+
         private void Button_Children_Minus_Click(object sender, RoutedEventArgs e)
         {
             if (countChildren > 0)
@@ -83,9 +84,7 @@ namespace WPF_Project
                 countOfAdultChildreanRoomBText(countAdults, countChildren, countRooms);
             }
         }
-        /// <summary>
-        /// Метод по обработки события нажатия кнопки увеличения количества Детей
-        /// </summary>
+
         private void Button_Children_Plus_Click(object sender, RoutedEventArgs e)
         {
             if (countChildren < 15)
@@ -95,9 +94,7 @@ namespace WPF_Project
                 countOfAdultChildreanRoomBText(countAdults, countChildren, countRooms);
             }
         }
-        /// <summary>
-        /// Метод по обработки события нажатия кнопки уменьшения количества Комнат
-        /// </summary>
+
         private void Button_Rooms_Minus_Click(object sender, RoutedEventArgs e)
         {
             if (countRooms > 1)
@@ -107,9 +104,7 @@ namespace WPF_Project
                 countOfAdultChildreanRoomBText(countAdults, countChildren, countRooms);
             }
         }
-        /// <summary>
-        /// Метод по обработки события нажатия кнопки увеличения количества Комнат
-        /// </summary>
+
         private void Button_Rooms_Plus_Click(object sender, RoutedEventArgs e)
         {
             if (countRooms < 15)
@@ -118,56 +113,15 @@ namespace WPF_Project
                 textRooms.Text = (countRooms).ToString();
                 countOfAdultChildreanRoomBText(countAdults, countChildren, countRooms);
             }
+        }
 
-        }
-        /// <summary>
-        /// Метод по обработки события поиска страны в ComboBox 
-        /// </summary>
-        void CbNaimTovCountry_TextChanged(object sender, RoutedEventArgs e)
+        private void CbNaimTovCountry_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            CbNaimTovCountry.IsDropDownOpen = true;
-            var tb = (TextBox)e.OriginalSource;
-            tb.Select(tb.SelectionStart + tb.SelectionLength, 0);
-            CollectionView cv = (CollectionView)CollectionViewSource.GetDefaultView(CbNaimTovCountry.ItemsSource);
-            //cv.Filter = s => ((WPF_Project.Сountry)s).IndexOf(CbNaimTovCountry.Text, StringComparison.CurrentCultureIgnoreCase) >= 0;
+            CbNaimTovCity.ItemsSource = CourseProjectEntitiesFrameworkDataBase.GetContext().City.ToList();
         }
-        private void CbNaimTovCountry_Loaded(object sender, RoutedEventArgs e)
-        {
-                CbNaimTovCountry.ItemsSource = CourseProjectEntitiesFrameworkDataBase.GetContext().Сountry.ToList(); 
-        }
-        void OnComboBoxTextChangedCity(object sender, RoutedEventArgs e)
-        {
-            //     CbNaimTovCity.IsDropDownOpen = true;
-            //     var tb = (TextBox)e.OriginalSource;
-            //     tb.Select(tb.SelectionStart + tb.SelectionLength, 0);
-            //     CollectionView cv = (CollectionView)CollectionViewSource.GetDefaultView(CbNaimTovCity.ItemsSource);
-            //     cv.Filter = s => ((string)s).IndexOf(CbNaimTovCity.Text, StringComparison.CurrentCultureIgnoreCase) >= 0;
-        }
-        /// <summary>
-        /// Метод по обработки события вывода списка стран
-        /// </summary>
-        private void CbNaimTovCity_Loaded(object sender, RoutedEventArgs e)
-        {
-            using (var context = new CourseProjectEntitiesFrameworkDataBase())
-            {
-                //     var tovararr = (from City in context.City where City.idCountry== select City.nameOfCity ).ToList();
-                //     CbNaimTovCountry.Items.Clear();
-                //     CbNaimTovCity.ItemsSource = tovararr;
-            }
-        }
-        /// <summary>
-        /// Метод по обработки события нажатия на кнопку для перехода в личный кабинет
-        /// </summary>
-        private void personalAccountButton_Click(object sender, RoutedEventArgs e)
-        {
-            Uri PersonalAccount = new Uri("PersonalAccount.xaml", UriKind.Relative);
-            this.NavigationService.Navigate(PersonalAccount); //Переход на страницу Авторизации пользователя
-        }
+
         private bool flagbuttonCalender = false;
         private bool flagcountOfAdultChildreanRommButton = false;
-        /// <summary>
-        /// Метод по обработки события нажатия на кнопку календаря
-        /// </summary>
         private void buttonCalender_Click(object sender, RoutedEventArgs e)
         {
             if (flagbuttonCalender == false)
@@ -181,17 +135,16 @@ namespace WPF_Project
                 flagbuttonCalender = false;
             }
         }
-        /// <summary>
-        /// Метод по обработки события нажатия на день в календаре
-        /// </summary>
+
+        DateTime firstDate;
+        DateTime lastDate;
         private void Calendar_SelectedDatesChanged(object sender, SelectionChangedEventArgs e)
         {
-            DateTime? selectionDate = Calendar.SelectedDate;
-            buttonCalender.Content = selectionDate.Value.Date.ToString("M");
+            firstDate = Calendar.SelectedDates.OrderBy(k => k).First();
+            lastDate = Calendar.SelectedDates.OrderBy(k => k).Last();
+            buttonCalender.Content = firstDate.ToString("M") + " - " + lastDate.ToString("M");
         }
-        /// <summary>
-        /// Метод по обработки события нажатия на количесва Взрослых, Детей, Комнат
-        /// </summary>
+
         private void countOfAdultChildreanRoomButton_Click(object sender, RoutedEventArgs e)
         {
             if (flagcountOfAdultChildreanRommButton == false)
@@ -205,20 +158,31 @@ namespace WPF_Project
                 flagcountOfAdultChildreanRommButton = false;
             }
         }
-        private void ListViewItem_Selected(object sender, RoutedEventArgs e)
-        {
-        }
 
-        private void CbNaimTovCountry_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        /*private void CbNaimTovCountry_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             string text = (e.AddedItems[0] as ComboBoxItem).Content as String;
-           // text = from City in City 
-           //        where City.id = Hotel.id
-           //        select City;
-        }
+            text = from City in City 
+                   where City.id = Hotel.id
+                   select City;
+        }*/
+
         private void Search_Click(object sender, RoutedEventArgs e)
         {
-            informationAboutHotel informationAboutHotel = new informationAboutHotel();
+            string nameOfCountry = CbNaimTovCountry.SelectedItem.ToString();
+            string nameOfCity = CbNaimTovCity.SelectedItem.ToString();
+            informationAboutHotel informationAboutHotel = new informationAboutHotel(nameOfCountry, nameOfCity, firstDate, lastDate, countAdults, countChildren, countRooms);
+            MessageBox.Show(informationAboutHotel.City + " " + informationAboutHotel.dataBegin);
+        }
+
+        private void personalAccountButton_Click(object sender, RoutedEventArgs e)
+        {
+            Uri PersonalAccount = new Uri("PersonalAccount.xaml", UriKind.Relative);
+            this.NavigationService.Navigate(PersonalAccount); //Переход на страницу Авторизации пользователя
+        }
+
+        private void ListViewItem_Selected(object sender, RoutedEventArgs e)
+        {
         }
     }
 }

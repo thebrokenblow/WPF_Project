@@ -112,6 +112,7 @@
     <EntitySetMapping Name="Users">
       <EntityTypeMapping TypeName="CourseProjectModel.Users">
         <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="image" ColumnName="image" />
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="login" ColumnName="login" />
           <ScalarProperty Name="password" ColumnName="password" />

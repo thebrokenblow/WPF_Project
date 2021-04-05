@@ -108,7 +108,7 @@
 
                     <Ellipse Margin="-10,56,440,-162" HorizontalAlignment="Right" Width="210">
                         <Ellipse.Fill>
-                            <ImageBrush ImageSource="Resources/mainPhoto.jpg" Stretch="UniformToFill"/>
+                            <ImageBrush ImageSource="Resources/no_image.jpg" Stretch="UniformToFill"/>
                         </Ellipse.Fill>
                     </Ellipse>
                     

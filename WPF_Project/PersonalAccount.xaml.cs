@@ -62,12 +62,16 @@ namespace WPF_Project
             fileDialog.Filter = "Image Files | *.BMP;*.JPG;*.PNG";
             fileDialog.InitialDirectory = @"C:\Users\User\Desktop\C#_Projects\Фото отелей";
             fileDialog.Title = "Пример использования OpenFileDialog ";
-            if (fileDialog.ShowDialog() == true)
+            if (fileDialog.ShowDialog() != true)
+                MessageBox.Show("Не выбран файл");
+            else 
             {
-                MessageBox.Show("Выбран файл " + fileDialog.FileName);
-                return;
+                using (ApplicationContext context = new ApplicationContext())
+                {
+                    //(from p in context.Users where p.id == Info.userinfo.id select p).ToList().ForEach(x => x.image = fileDialog.FileName);
+                    //context.SaveChanges();
+                }
             }
-            MessageBox.Show("Не выбран файл");
         }
     }
 }

@@ -28,6 +28,7 @@ namespace WPF_Project
         public string surname { get; set; }
         public string patronymic { get; set; }
         public string phoneNumber { get; set; }
+        public byte[] image { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Reservation> Reservation { get; set; }

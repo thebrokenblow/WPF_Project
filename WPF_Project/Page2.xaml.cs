@@ -16,20 +16,22 @@ using System.Windows.Shapes;
 namespace WPF_Project
 {
     /// <summary>
-    /// Логика взаимодействия для TypeOfRooms.xaml
+    /// Логика взаимодействия для Page.xaml
     /// </summary>
-    public partial class TypeOfRooms : Page
+    public partial class Page2 : Page
     {
-        public TypeOfRooms()
+        public Page2()
         {
             InitializeComponent();
-            var currentHotels = CourseProjectEntitiesFrameworkDataBase.GetContext().TypeOfRoom.ToList();
-            LViewTypeOfRooms.ItemsSource = currentHotels;
+            DateTime date = DateTime.Now;
+            Calendar.DisplayDateStart = date;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            var informationAboutTypeOfRoom = (TypeOfRoom)(((Button)sender).Tag);
+            var f = Calendar.SelectedDates.OrderBy(k => k).First();
+            var l = Calendar.SelectedDates.OrderBy(k => k).Last();
+            MessageBox.Show(f.ToString() + ':' + l.ToString());
         }
     }
 }

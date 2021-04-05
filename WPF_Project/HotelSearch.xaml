@@ -54,7 +54,7 @@
             <BeginStoryboard Storyboard="{StaticResource OpenMenu}"/>
         </EventTrigger>
     </Page.Triggers>
-    <Grid Background = "#371f60">
+    <Grid Background = "#371f60" >
         <Grid x:Name="GridBackground" Background = "#371f60" Opacity="0" Grid.RowSpan="2" Grid.ColumnSpan="2"/>
         <Border Height="507" MinHeight = "450" MaxHeight="600" MaxWidth = "1000" MinWidth ="400" Margin = "10,55,10,38" 
                 Background = "White" VerticalAlignment = "Center" Padding = "30" CornerRadius = "20">
@@ -62,7 +62,7 @@
                 <DropShadowEffect BlurRadius = "30" Color = "LightGray" ShadowDepth = "0"/>
             </Border.Effect>
             <StackPanel Margin="-6,0,0,-30">
-                <Grid>
+                <Grid >
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="*"/>
@@ -70,11 +70,11 @@
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
-                    <ComboBox Name="CbNaimTovCountry" Foreground="#371f60" FontWeight = "Bold" HorizontalAlignment="Left" Margin="0,85,0,0" FontSize="13"
-                  VerticalAlignment="Top" Width="180" Height="34" Loaded="CbNaimTovCountry_Loaded" materialDesign:HintAssist.Hint = "Enter Country"  
-                  TextBoxBase.TextChanged="CbNaimTovCountry_TextChanged" IsTextSearchEnabled="False" IsEditable="True" />
+                    <ComboBox  Name="CbNaimTovCountry" Foreground="#371f60" FontWeight = "Bold" HorizontalAlignment="Left" Margin="0,85,0,0" FontSize="13"
+                  VerticalAlignment="Top" Width="180" Height="34"  materialDesign:HintAssist.Hint = "Enter Country"  
+                  IsTextSearchEnabled="False" IsEditable="True" />
 
-                    <ComboBox Foreground="#371f60" FontWeight = "Bold" HorizontalAlignment="Left" Margin="0,85,0,0" 
+                    <ComboBox Name="CbNaimTovCity" Foreground="#371f60" FontWeight = "Bold" HorizontalAlignment="Left" Margin="0,85,0,0" 
                   VerticalAlignment="Top"  Width="180" Height="34" materialDesign:HintAssist.Hint = "Enter City" FontSize="13"
                         IsTextSearchEnabled="False" IsEditable="True" Grid.Column="1" />
 

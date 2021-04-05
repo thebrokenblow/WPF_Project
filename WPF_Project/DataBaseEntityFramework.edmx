@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Хранилище CourseProjectModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="Хранилище CourseProjectModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Administrator">
           <Key>
             <PropertyRef Name="id" />
@@ -115,6 +115,7 @@
           <Property Name="surname" Type="nvarchar" MaxLength="35" />
           <Property Name="patronymic" Type="nvarchar" MaxLength="40" />
           <Property Name="phoneNumber" Type="char" MaxLength="16" />
+          <Property Name="image" Type="varbinary(max)" />
         </EntityType>
         <EntityType Name="Сountry">
           <Key>
@@ -132,18 +133,6 @@
             </Principal>
             <Dependent Role="City">
               <PropertyRef Name="idCountry" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Hotel_City">
-          <End Role="City" Type="Self.City" Multiplicity="1" />
-          <End Role="Hotel" Type="Self.Hotel" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="City">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="Hotel">
-              <PropertyRef Name="idOfCity" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -260,10 +249,6 @@
             <End Role="Сountry" EntitySet="Сountry" />
             <End Role="City" EntitySet="City" />
           </AssociationSet>
-          <AssociationSet Name="FK_Hotel_City" Association="Self.FK_Hotel_City">
-            <End Role="City" EntitySet="City" />
-            <End Role="Hotel" EntitySet="Hotel" />
-          </AssociationSet>
           <AssociationSet Name="FK_ListOfChanges_Administrator" Association="Self.FK_ListOfChanges_Administrator">
             <End Role="Administrator" EntitySet="Administrator" />
             <End Role="ListOfChanges" EntitySet="ListOfChanges" />
@@ -297,8 +282,7 @@
             <End Role="TypeOfRoom" EntitySet="TypeOfRoom" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="CourseProjectModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -431,6 +415,7 @@
           <Property Name="patronymic" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
           <Property Name="phoneNumber" Type="String" MaxLength="16" FixedLength="true" Unicode="false" />
           <NavigationProperty Name="Reservation" Relationship="Self.FK_Reservation_Users" FromRole="Users" ToRole="Reservation" />
+          <Property Name="image" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
         <EntityType Name="Сountry">
           <Key>
@@ -731,6 +716,7 @@
           <EntitySetMapping Name="Users">
             <EntityTypeMapping TypeName="CourseProjectModel.Users">
               <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="image" ColumnName="image" />
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="login" ColumnName="login" />
                 <ScalarProperty Name="password" ColumnName="password" />

@@ -129,6 +129,7 @@
     <Property Name="patronymic" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
     <Property Name="phoneNumber" Type="String" MaxLength="16" FixedLength="true" Unicode="false" />
     <NavigationProperty Name="Reservation" Relationship="Self.FK_Reservation_Users" FromRole="Users" ToRole="Reservation" />
+    <Property Name="image" Type="Binary" MaxLength="Max" FixedLength="false" />
   </EntityType>
   <EntityType Name="Сountry">
     <Key>

@@ -16,5 +16,6 @@ namespace WPF_Project
         public DbSet<Сountry> Country { get; set; } //Представляет набор сущностей, хранящихся в базе данных (таблица Country)
         public DbSet<City> City { get; set; } //Представляет набор сущностей, хранящихся в базе данных (таблица City)
         public DbSet<Hotel> Hotel { get; set; } //Представляет набор сущностей, хранящихся в базе данных (таблица Hotel)
+        public DbSet<TypeOfRooms> TypeOfRooms { get; set; } //Представляет набор сущностей, хранящихся в базе данных (таблица Hotel)
     }
 }

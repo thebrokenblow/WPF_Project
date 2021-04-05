@@ -26,7 +26,7 @@
         </Grid.RowDefinitions>
         
         <TextBlock Foreground = "#371f60" FontSize = "14" FontWeight = "Bold" Text = "Name Of Country"  HorizontalAlignment = "Center" VerticalAlignment = "Center"/>
-        <ComboBox  x:Name="ComboCountry" Grid.Column = "1" DisplayMemberPath="nameOfCountry"/>
+        <ComboBox x:Name="ComboCountry" Grid.Column = "1" DisplayMemberPath="nameOfCountry"/>
 
         <TextBlock Foreground = "#371f60" FontSize = "14" FontWeight = "Bold" Text = "Name Of City"  HorizontalAlignment = "Center" VerticalAlignment = "Center" Grid.Row = "1"/>
         <ComboBox x:Name="ComboCity" Grid.Column = "1" Grid.Row="1" DisplayMemberPath="nameOfCity"/>

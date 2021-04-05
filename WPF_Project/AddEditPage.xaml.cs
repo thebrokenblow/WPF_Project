@@ -32,7 +32,7 @@ namespace WPF_Project
         /// Логика взаимодействия обработки события нажатия на кнопку сохранения изменений
         /// </summary>
         private void BtnSave_Click(object sender, RoutedEventArgs e)
-        {
+        { 
             if (string.IsNullOrWhiteSpace(currentHotel.nameOfHotel))
             {
                 textBoxNameOfHotel.ToolTip = "Enter The Name Of The Hotel"; //ToolTip - подсказка при наведении на поле   

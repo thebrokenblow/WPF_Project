@@ -73,7 +73,6 @@ C:\Users\User\Desktop\C#_Projects\WPF_Project\WPF_Project\bin\Debug\EntityFramew
 C:\Users\User\Desktop\C#_Projects\WPF_Project\WPF_Project\bin\Debug\MaterialDesignColors.pdb
 C:\Users\User\Desktop\C#_Projects\WPF_Project\WPF_Project\bin\Debug\MaterialDesignThemes.Wpf.pdb
 C:\Users\User\Desktop\C#_Projects\WPF_Project\WPF_Project\bin\Debug\MaterialDesignThemes.Wpf.xml
-C:\Users\User\Desktop\C#_Projects\WPF_Project\WPF_Project\obj\Debug\WPF_Project.csprojAssemblyReference.cache
 C:\Users\User\Desktop\C#_Projects\WPF_Project\WPF_Project\obj\Debug\HotelSearch.baml
 C:\Users\User\Desktop\C#_Projects\WPF_Project\WPF_Project\obj\Debug\AddEditPage.g.cs
 C:\Users\User\Desktop\C#_Projects\WPF_Project\WPF_Project\obj\Debug\Authorization.g.cs
@@ -102,3 +101,6 @@ C:\Users\User\Desktop\C#_Projects\WPF_Project\WPF_Project\obj\Debug\WPF_Project.
 C:\Users\User\Desktop\C#_Projects\WPF_Project\WPF_Project\obj\Debug\WPF_Project.csproj.CopyComplete
 C:\Users\User\Desktop\C#_Projects\WPF_Project\WPF_Project\obj\Debug\WPF_Project.exe
 C:\Users\User\Desktop\C#_Projects\WPF_Project\WPF_Project\obj\Debug\WPF_Project.pdb
+C:\Users\User\Desktop\C#_Projects\WPF_Project\WPF_Project\obj\Debug\Page2.g.cs
+C:\Users\User\Desktop\C#_Projects\WPF_Project\WPF_Project\obj\Debug\Page2.baml
+C:\Users\User\Desktop\C#_Projects\WPF_Project\WPF_Project\obj\Debug\WPF_Project.csprojAssemblyReference.cache

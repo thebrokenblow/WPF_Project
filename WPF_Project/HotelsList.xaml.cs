@@ -33,11 +33,11 @@ namespace WPF_Project
 
         private void Button_Search_Room_Click(object sender, RoutedEventArgs e)
         {
+            var informationAboutHotel = (Hotel)(((Button)sender).Tag);
             using (var db = new ApplicationContext())
             {
-                var idOfHotel = db.Hotel.Where(x => x.id == InfoAboutHotel.hotelInfo.id).Select(x => x.id).FirstOrDefault().ToString();
+             //   var p = db.TypeOfRooms.Where(x => x.id == InfoAboutHotel.hotelInfo.id).Select(x => x.id).FirstOrDefault().ToString();
             }
         }
     }
 }
-
