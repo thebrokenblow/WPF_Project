@@ -14,13 +14,21 @@ namespace WPF_Project
     
     public partial class TypeOfRoom
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public TypeOfRoom()
+        {
+            this.ListOfRooms = new HashSet<ListOfRooms>();
+        }
+    
         public int id { get; set; }
         public string roomName { get; set; }
         public decimal pricePerDay { get; set; }
-        public int idOfRooms { get; set; }
+        public int idOfHotel { get; set; }
         public string roomDescription { get; set; }
         public byte[] ImagePreview { get; set; }
     
-        public virtual ListOfRooms ListOfRooms { get; set; }
+        public virtual Hotel Hotel { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ListOfRooms> ListOfRooms { get; set; }
     }
 }

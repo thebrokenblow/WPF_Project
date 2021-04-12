@@ -12,19 +12,18 @@ namespace WPF_Project
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
-
     
-    public partial class CourseProjectEntitiesFrameworkDataBase : DbContext
+    public partial class CourseProjectEntitiesDataBase : DbContext
     {
-        public static CourseProjectEntitiesFrameworkDataBase context;
-        public CourseProjectEntitiesFrameworkDataBase()
-            : base("name=CourseProjectEntitiesFrameworkDataBase")
+        public static CourseProjectEntitiesDataBase context;
+        public CourseProjectEntitiesDataBase()
+            : base("name=CourseProjectEntitiesDataBase")
         {
         }
-        public static CourseProjectEntitiesFrameworkDataBase GetContext()
+        public static CourseProjectEntitiesDataBase GetContext()
         {
             if (context == null)
-                context = new CourseProjectEntitiesFrameworkDataBase();
+                context = new CourseProjectEntitiesDataBase();
             return context;
         }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -38,7 +37,6 @@ namespace WPF_Project
         public virtual DbSet<ListOfChanges> ListOfChanges { get; set; }
         public virtual DbSet<ListOfRooms> ListOfRooms { get; set; }
         public virtual DbSet<photosOfHotels> photosOfHotels { get; set; }
-        public virtual DbSet<PhotosOfRooms> PhotosOfRooms { get; set; }
         public virtual DbSet<Reservation> Reservation { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<TypeOfRoom> TypeOfRoom { get; set; }

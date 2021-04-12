@@ -27,17 +27,17 @@ namespace WPF_Project
         public HotelList()
         {
             InitializeComponent();
-            var currentHotels = CourseProjectEntitiesFrameworkDataBase.GetContext().Hotel.ToList();
-            LViewHotels.ItemsSource = currentHotels;
+            LViewHotels.ItemsSource = CourseProjectEntitiesDataBase.GetContext().Hotel.Where(x => x.nameOfHotel == "Hotel Leopold").Select(x => x).ToList();
         }
-
+        
         private void Button_Search_Room_Click(object sender, RoutedEventArgs e)
         {
             var informationAboutHotel = (Hotel)(((Button)sender).Tag);
-            using (var db = new ApplicationContext())
-            {
-             //   var p = db.TypeOfRooms.Where(x => x.id == InfoAboutHotel.hotelInfo.id).Select(x => x.id).FirstOrDefault().ToString();
-            }
+            //using (var db = new ApplicationContext())
+            //{
+              //  var test = db.Hotel.Select(x => x).ToList();
+                //   var p = db.TypeOfRooms.Where(x => x.id == InfoAboutHotel.hotelInfo.id).Select(x => x.id).FirstOrDefault().ToString();
+            //}
         }
     }
 }

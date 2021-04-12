@@ -131,6 +131,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_Hotel_City">
+    <End Role="City" Type="Self.City" Multiplicity="1" />
+    <End Role="Hotel" Type="Self.Hotel" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="City">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Hotel">
+        <PropertyRef Name="idOfCity" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_ListOfChanges_Administrator">
     <End Role="Administrator" Type="Self.Administrator" Multiplicity="1" />
     <End Role="ListOfChanges" Type="Self.ListOfChanges" Multiplicity="*" />
@@ -243,6 +255,10 @@
     <AssociationSet Name="FK_City_Сountry" Association="Self.FK_City_Сountry">
       <End Role="Сountry" EntitySet="Сountry" />
       <End Role="City" EntitySet="City" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Hotel_City" Association="Self.FK_Hotel_City">
+      <End Role="City" EntitySet="City" />
+      <End Role="Hotel" EntitySet="Hotel" />
     </AssociationSet>
     <AssociationSet Name="FK_ListOfChanges_Administrator" Association="Self.FK_ListOfChanges_Administrator">
       <End Role="Administrator" EntitySet="Administrator" />

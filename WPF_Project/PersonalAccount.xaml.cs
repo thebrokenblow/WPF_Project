@@ -52,7 +52,7 @@ namespace WPF_Project
             string surnameOfUser = surnameText.Text;
             using (ApplicationContext context = new ApplicationContext())
             {
-                (from p in context.Users where p.id == Info.userinfo.id select p).ToList().ForEach(x => x.surname = surnameOfUser);
+                (from p in context.Users where p.id == Info.userInfo.id select p).ToList().ForEach(x => x.surname = surnameOfUser);
                 context.SaveChanges();
             }
         }

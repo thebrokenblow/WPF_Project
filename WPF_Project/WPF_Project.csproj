@@ -92,32 +92,32 @@
       <DependentUpon>AddEditPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Administrator.cs">
-      <DependentUpon>DataBaseEntityFramework.tt</DependentUpon>
+      <DependentUpon>DataBase.tt</DependentUpon>
     </Compile>
     <Compile Include="ApplicationContext.cs" />
     <Compile Include="Authorization.xaml.cs">
       <DependentUpon>Authorization.xaml</DependentUpon>
     </Compile>
     <Compile Include="City.cs">
-      <DependentUpon>DataBaseEntityFramework.tt</DependentUpon>
+      <DependentUpon>DataBase.tt</DependentUpon>
     </Compile>
-    <Compile Include="DataBaseEntityFramework.Context.cs">
+    <Compile Include="DataBase.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>DataBaseEntityFramework.Context.tt</DependentUpon>
+      <DependentUpon>DataBase.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="DataBaseEntityFramework.cs">
+    <Compile Include="DataBase.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>DataBaseEntityFramework.tt</DependentUpon>
+      <DependentUpon>DataBase.tt</DependentUpon>
     </Compile>
-    <Compile Include="DataBaseEntityFramework.Designer.cs">
+    <Compile Include="DataBase.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>DataBaseEntityFramework.edmx</DependentUpon>
+      <DependentUpon>DataBase.edmx</DependentUpon>
     </Compile>
     <Compile Include="Hotel.cs">
-      <DependentUpon>DataBaseEntityFramework.tt</DependentUpon>
+      <DependentUpon>DataBase.tt</DependentUpon>
     </Compile>
     <Compile Include="HotelsList.xaml.cs">
       <DependentUpon>HotelsList.xaml</DependentUpon>
@@ -129,43 +129,37 @@
       <DependentUpon>HotelsPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="ListOfChanges.cs">
-      <DependentUpon>DataBaseEntityFramework.tt</DependentUpon>
+      <DependentUpon>DataBase.tt</DependentUpon>
     </Compile>
     <Compile Include="ListOfRooms.cs">
-      <DependentUpon>DataBaseEntityFramework.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Page2.xaml.cs">
-      <DependentUpon>Page2.xaml</DependentUpon>
+      <DependentUpon>DataBase.tt</DependentUpon>
     </Compile>
     <Compile Include="PersonalAccount.xaml.cs">
       <DependentUpon>PersonalAccount.xaml</DependentUpon>
     </Compile>
     <Compile Include="photosOfHotels.cs">
-      <DependentUpon>DataBaseEntityFramework.tt</DependentUpon>
-    </Compile>
-    <Compile Include="PhotosOfRooms.cs">
-      <DependentUpon>DataBaseEntityFramework.tt</DependentUpon>
+      <DependentUpon>DataBase.tt</DependentUpon>
     </Compile>
     <Compile Include="Registration.xaml.cs">
       <DependentUpon>Registration.xaml</DependentUpon>
     </Compile>
     <Compile Include="Reservation.cs">
-      <DependentUpon>DataBaseEntityFramework.tt</DependentUpon>
+      <DependentUpon>DataBase.tt</DependentUpon>
     </Compile>
     <Compile Include="sysdiagrams.cs">
-      <DependentUpon>DataBaseEntityFramework.tt</DependentUpon>
+      <DependentUpon>DataBase.tt</DependentUpon>
     </Compile>
     <Compile Include="TypeOfRoom.cs">
-      <DependentUpon>DataBaseEntityFramework.tt</DependentUpon>
+      <DependentUpon>DataBase.tt</DependentUpon>
     </Compile>
     <Compile Include="TypeOfRooms.xaml.cs">
       <DependentUpon>TypeOfRooms.xaml</DependentUpon>
     </Compile>
     <Compile Include="Users.cs">
-      <DependentUpon>DataBaseEntityFramework.tt</DependentUpon>
+      <DependentUpon>DataBase.tt</DependentUpon>
     </Compile>
     <Compile Include="Сountry.cs">
-      <DependentUpon>DataBaseEntityFramework.tt</DependentUpon>
+      <DependentUpon>DataBase.tt</DependentUpon>
     </Compile>
     <Page Include="AddEditPage.xaml">
       <SubType>Designer</SubType>
@@ -184,10 +178,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="HotelsPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Page2.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -226,12 +216,12 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EntityDeploy Include="DataBaseEntityFramework.edmx">
+    <EntityDeploy Include="DataBase.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>DataBaseEntityFramework.Designer.cs</LastGenOutput>
+      <LastGenOutput>DataBase.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="DataBaseEntityFramework.edmx.diagram">
-      <DependentUpon>DataBaseEntityFramework.edmx</DependentUpon>
+    <None Include="DataBase.edmx.diagram">
+      <DependentUpon>DataBase.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -272,15 +262,15 @@
     <Resource Include="Resources\no_image.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="DataBaseEntityFramework.Context.tt">
+    <Content Include="DataBase.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>DataBaseEntityFramework.edmx</DependentUpon>
-      <LastGenOutput>DataBaseEntityFramework.Context.cs</LastGenOutput>
+      <DependentUpon>DataBase.edmx</DependentUpon>
+      <LastGenOutput>DataBase.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="DataBaseEntityFramework.tt">
+    <Content Include="DataBase.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>DataBaseEntityFramework.edmx</DependentUpon>
-      <LastGenOutput>DataBaseEntityFramework.cs</LastGenOutput>
+      <DependentUpon>DataBase.edmx</DependentUpon>
+      <LastGenOutput>DataBase.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

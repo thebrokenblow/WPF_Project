@@ -70,13 +70,25 @@
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
-                    <ComboBox  Name="CbNaimTovCountry" Foreground="#371f60" FontWeight = "Bold" HorizontalAlignment="Left" Margin="0,85,0,0" FontSize="13"
-                  VerticalAlignment="Top" Width="180" Height="34"  materialDesign:HintAssist.Hint = "Enter Country"  
-                  IsTextSearchEnabled="False" IsEditable="True" />
+                    <ComboBox Name="CbNaimTovCountry" Foreground="#371f60" FontWeight = "Bold" HorizontalAlignment="Left" Margin="0,85,0,0" FontSize="13"
+                  VerticalAlignment="Top" Width="180" Height="34"  materialDesign:HintAssist.Hint = "Enter Country" IsTextSearchCaseSensitive="False" SelectionChanged="ComboBox_Selected"
+                  IsTextSearchEnabled="False" IsEditable="True" TextSearch.TextPath="nameOfCountry" ItemsSource="{Binding nameOfCountry}" > 
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding nameOfCountry}" />
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
 
                     <ComboBox Name="CbNaimTovCity" Foreground="#371f60" FontWeight = "Bold" HorizontalAlignment="Left" Margin="0,85,0,0" 
                   VerticalAlignment="Top"  Width="180" Height="34" materialDesign:HintAssist.Hint = "Enter City" FontSize="13"
-                        IsTextSearchEnabled="False" IsEditable="True" Grid.Column="1" />
+                        IsTextSearchEnabled="False" IsEditable="True" Grid.Column="1" TextSearch.TextPath="nameOfCity" ItemsSource="{Binding nameOfCity}">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding nameOfCity}" />
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
 
                     <Button  x:Name="buttonCalender" Foreground = "White" FontSize="12" BorderBrush = "{x:Null}" Background="#371f60" Height="35" Width="180" 
                              Click="buttonCalender_Click" Grid.Column="2" Margin="0,85,5,446.667" Template="{StaticResource MyButton}"/>

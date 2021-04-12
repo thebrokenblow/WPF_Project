@@ -6,6 +6,10 @@ using System.Windows.Controls;
 
 namespace WPF_Project
 {
+    public class informationAboutCountry
+    {
+        public static Сountry t = null;
+    }
     public class informationAboutHotel 
     {
         public static string Country;
@@ -43,9 +47,9 @@ namespace WPF_Project
         public HotelSearch()
         {
             InitializeComponent();
-            
-            CbNaimTovCountry.ItemsSource = CourseProjectEntitiesFrameworkDataBase.GetContext().Сountry.ToList();
-            CbNaimTovCity.ItemsSource = CourseProjectEntitiesFrameworkDataBase.GetContext().City.ToList();
+      
+            CbNaimTovCountry.ItemsSource = CourseProjectEntitiesDataBase.GetContext().Сountry.ToList();
+            //CbNaimTovCity.ItemsSource = CourseProjectEntitiesDataBase.GetContext().City.Where(x => x.);
             DateTime date = DateTime.Now;
             Calendar.DisplayDateStart = date;
             textAdults.Text = (countAdults).ToString();
@@ -113,13 +117,8 @@ namespace WPF_Project
                 textRooms.Text = (countRooms).ToString();
                 countOfAdultChildreanRoomBText(countAdults, countChildren, countRooms);
             }
-        }
-
-        private void CbNaimTovCountry_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            CbNaimTovCity.ItemsSource = CourseProjectEntitiesFrameworkDataBase.GetContext().City.ToList();
-        }
-
+        } 
+       
         private bool flagbuttonCalender = false;
         private bool flagcountOfAdultChildreanRommButton = false;
         private void buttonCalender_Click(object sender, RoutedEventArgs e)
@@ -169,10 +168,29 @@ namespace WPF_Project
 
         private void Search_Click(object sender, RoutedEventArgs e)
         {
-            string nameOfCountry = CbNaimTovCountry.SelectedItem.ToString();
-            string nameOfCity = CbNaimTovCity.SelectedItem.ToString();
-            informationAboutHotel informationAboutHotel = new informationAboutHotel(nameOfCountry, nameOfCity, firstDate, lastDate, countAdults, countChildren, countRooms);
-            MessageBox.Show(informationAboutHotel.City + " " + informationAboutHotel.dataBegin);
+            string nameOfCountry = CbNaimTovCountry.Text;
+            //string nameOfCity = CbNaimTovCity.Text;
+            using (ApplicationContext context = new ApplicationContext())
+            {
+                var p = context.Country.Where(x => x.nameOfCountry == nameOfCountry).Select(x => x).FirstOrDefault();
+                MessageBox.Show(p.id.ToString());
+                CbNaimTovCity.ItemsSource = (from x in context.City
+                                             select new { V = x.idCountry == p.id }).ToList();
+            }
+            //informationAboutHotel informationAboutHotel = new informationAboutHotel(nameOfCountry, nameOfCity, firstDate, lastDate, countAdults, countChildren, countRooms);
+        }
+       
+        private void ComboBox_Selected(object sender, RoutedEventArgs e)
+        {
+           // string nameOfCountry = CbNaimTovCountry.Text;
+           //// MessageBox.Show(nameOfCountry);
+           // using (ApplicationContext context = new ApplicationContext())
+           // {
+           //     var p = context.Country.Where(x => x.nameOfCountry == nameOfCountry).Select(x => x).FirstOrDefault();
+           //     MessageBox.Show(p.id.ToString());
+           //     CbNaimTovCity.ItemsSource = (from x in context.City
+           //                                  select new { V = x.idCountry == p.id }).ToList();
+           // }  
         }
 
         private void personalAccountButton_Click(object sender, RoutedEventArgs e)

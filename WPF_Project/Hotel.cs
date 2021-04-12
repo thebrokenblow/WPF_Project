@@ -18,8 +18,8 @@ namespace WPF_Project
         public Hotel()
         {
             this.ListOfChanges = new HashSet<ListOfChanges>();
-            this.ListOfRooms = new HashSet<ListOfRooms>();
             this.photosOfHotels = new HashSet<photosOfHotels>();
+            this.TypeOfRoom = new HashSet<TypeOfRoom>();
         }
     
         public int id { get; set; }
@@ -36,8 +36,8 @@ namespace WPF_Project
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ListOfChanges> ListOfChanges { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ListOfRooms> ListOfRooms { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<photosOfHotels> photosOfHotels { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<TypeOfRoom> TypeOfRoom { get; set; }
     }
 }

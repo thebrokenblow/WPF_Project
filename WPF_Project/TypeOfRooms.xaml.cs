@@ -23,11 +23,11 @@ namespace WPF_Project
         public TypeOfRooms()
         {
             InitializeComponent();
-            var currentHotels = CourseProjectEntitiesFrameworkDataBase.GetContext().TypeOfRoom.ToList();
+            var currentHotels = CourseProjectEntitiesDataBase.GetContext().TypeOfRoom.ToList();
             LViewTypeOfRooms.ItemsSource = currentHotels;
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Button_Enter(object sender, RoutedEventArgs e)
         {
             var informationAboutTypeOfRoom = (TypeOfRoom)(((Button)sender).Tag);
         }

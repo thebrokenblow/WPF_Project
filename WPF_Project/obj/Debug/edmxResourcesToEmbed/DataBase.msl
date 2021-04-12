@@ -4,7 +4,7 @@
     <EntitySetMapping Name="Administrator">
       <EntityTypeMapping TypeName="CourseProjectModel.Administrator">
         <MappingFragment StoreEntitySet="Administrator">
-          <ScalarProperty Name="idOfAdministrator" ColumnName="idOfAdministrator" />
+          <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="login" ColumnName="login" />
           <ScalarProperty Name="password" ColumnName="password" />
           <ScalarProperty Name="name" ColumnName="name" />
@@ -15,7 +15,7 @@
     <EntitySetMapping Name="City">
       <EntityTypeMapping TypeName="CourseProjectModel.City">
         <MappingFragment StoreEntitySet="City">
-          <ScalarProperty Name="idOfCity" ColumnName="idOfCity" />
+          <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="idCountry" ColumnName="idCountry" />
           <ScalarProperty Name="nameOfCity" ColumnName="nameOfCity" />
         </MappingFragment>
@@ -24,7 +24,7 @@
     <EntitySetMapping Name="Hotel">
       <EntityTypeMapping TypeName="CourseProjectModel.Hotel">
         <MappingFragment StoreEntitySet="Hotel">
-          <ScalarProperty Name="idOfHotel" ColumnName="idOfHotel" />
+          <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="nameOfHotel" ColumnName="nameOfHotel" />
           <ScalarProperty Name="idOfCity" ColumnName="idOfCity" />
           <ScalarProperty Name="address" ColumnName="address" />
@@ -39,7 +39,7 @@
     <EntitySetMapping Name="ListOfChanges">
       <EntityTypeMapping TypeName="CourseProjectModel.ListOfChanges">
         <MappingFragment StoreEntitySet="ListOfChanges">
-          <ScalarProperty Name="idListOfChanges" ColumnName="idListOfChanges" />
+          <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="idOfAdministrator" ColumnName="idOfAdministrator" />
           <ScalarProperty Name="typeOfChange" ColumnName="typeOfChange" />
         </MappingFragment>
@@ -48,26 +48,17 @@
     <EntitySetMapping Name="ListOfRooms">
       <EntityTypeMapping TypeName="CourseProjectModel.ListOfRooms">
         <MappingFragment StoreEntitySet="ListOfRooms">
-          <ScalarProperty Name="idListOfRooms" ColumnName="idListOfRooms" />
+          <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="idOfHotel" ColumnName="idOfHotel" />
-          <ScalarProperty Name="idOfPhotosRooms" ColumnName="idOfPhotosRooms" />
+          <ScalarProperty Name="idOfType" ColumnName="idOfType" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="photosOfHotels">
       <EntityTypeMapping TypeName="CourseProjectModel.photosOfHotels">
         <MappingFragment StoreEntitySet="photosOfHotels">
-          <ScalarProperty Name="idPhotoOfHotels" ColumnName="idPhotoOfHotels" />
+          <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="idOfHotel" ColumnName="idOfHotel" />
-          <ScalarProperty Name="photo" ColumnName="photo" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="PhotosOfRooms">
-      <EntityTypeMapping TypeName="CourseProjectModel.PhotosOfRooms">
-        <MappingFragment StoreEntitySet="PhotosOfRooms">
-          <ScalarProperty Name="idPhotosOfRooms" ColumnName="idPhotosOfRooms" />
-          <ScalarProperty Name="idOfRooms" ColumnName="idOfRooms" />
           <ScalarProperty Name="photo" ColumnName="photo" />
         </MappingFragment>
       </EntityTypeMapping>
@@ -75,7 +66,7 @@
     <EntitySetMapping Name="Reservation">
       <EntityTypeMapping TypeName="CourseProjectModel.Reservation">
         <MappingFragment StoreEntitySet="Reservation">
-          <ScalarProperty Name="idOfReservation" ColumnName="idOfReservation" />
+          <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="idOfRooms" ColumnName="idOfRooms" />
           <ScalarProperty Name="numberOfRoomsBooked" ColumnName="numberOfRoomsBooked" />
           <ScalarProperty Name="numberOfAdults" ColumnName="numberOfAdults" />
@@ -100,18 +91,19 @@
     <EntitySetMapping Name="TypeOfRoom">
       <EntityTypeMapping TypeName="CourseProjectModel.TypeOfRoom">
         <MappingFragment StoreEntitySet="TypeOfRoom">
-          <ScalarProperty Name="idTypeOfRoom" ColumnName="idTypeOfRoom" />
+          <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="roomName" ColumnName="roomName" />
           <ScalarProperty Name="pricePerDay" ColumnName="pricePerDay" />
-          <ScalarProperty Name="idOfRooms" ColumnName="idOfRooms" />
+          <ScalarProperty Name="idOfHotel" ColumnName="idOfHotel" />
           <ScalarProperty Name="roomDescription" ColumnName="roomDescription" />
+          <ScalarProperty Name="ImagePreview" ColumnName="ImagePreview" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Users">
       <EntityTypeMapping TypeName="CourseProjectModel.Users">
         <MappingFragment StoreEntitySet="Users">
-          <ScalarProperty Name="idOfUsers" ColumnName="idOfUsers" />
+          <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="login" ColumnName="login" />
           <ScalarProperty Name="password" ColumnName="password" />
           <ScalarProperty Name="email" ColumnName="email" />
@@ -119,13 +111,14 @@
           <ScalarProperty Name="surname" ColumnName="surname" />
           <ScalarProperty Name="patronymic" ColumnName="patronymic" />
           <ScalarProperty Name="phoneNumber" ColumnName="phoneNumber" />
+          <ScalarProperty Name="image" ColumnName="image" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Сountry">
       <EntityTypeMapping TypeName="CourseProjectModel.Сountry">
         <MappingFragment StoreEntitySet="Сountry">
-          <ScalarProperty Name="idOfCountry" ColumnName="idOfCountry" />
+          <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="nameOfCountry" ColumnName="nameOfCountry" />
         </MappingFragment>
       </EntityTypeMapping>

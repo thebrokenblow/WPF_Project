@@ -8,7 +8,7 @@ namespace WPF_Project
 {
     public static class Info
     {
-        public static Users userinfo = null;
+        public static Users userInfo = null;
     }
     public partial class Registration : Page
     {
@@ -18,6 +18,7 @@ namespace WPF_Project
         public Registration()
         {
             InitializeComponent();
+           
         }
         /// <summary>
         /// Метод по обработки события нажатия на кнопку регистрации пользователя
@@ -69,17 +70,9 @@ namespace WPF_Project
                         {
                             textBoxEmail.Background = Brushes.Transparent; //Transparent - очищение заднего фона текстового блока
                             textBoxEmail.ToolTip = null; //очищаем подсказку
-                            Users regUser = null; //Объект для работы с базой данных
-                                                  //using - Зактрытое окружение для подключения к базе данных
-                                                  //ApplicationContext conte = new ApplicationContext() - 
-                                                  //Создание объектра и выделение под него память
-                                                  //context - пременная для обращенияе к базе данных 
+                            Users regUser = null; 
                             using (ApplicationContext context = new ApplicationContext())
                             {
-                                //check => check.Login == login && check.Password == password - создание переменной check, 
-                                //которая будет проверять, есть ли login и password 
-                                //в базе данных, которые ввёл пользователь
-                                //FirstOrDefault() - метод, который находите первую найденную запись, либо ничего
                                 regUser = context.Users.Where(check => check.login == loginOfUser || check.email == emailOfUser).FirstOrDefault();
                                 if (regUser == null)
                                 {
@@ -91,7 +84,7 @@ namespace WPF_Project
                                     };
                                     context.Users.Add(user); //Добавляем наши данные в базу данных
                                     context.SaveChanges(); //Сохраняем наши данные в базу данных
-                                    Info.userinfo = context.Users.Where(x => x.login == loginOfUser).Select(x => x).FirstOrDefault();
+                                    Info.userInfo = context.Users.Where(x => x.login == loginOfUser).Select(x => x).FirstOrDefault();
                                     Uri HotelSearch = new Uri("HotelSearch.xaml", UriKind.Relative);
                                     this.NavigationService.Navigate(HotelSearch); //Переход на страницу Авторизации пользователя
                                 }
