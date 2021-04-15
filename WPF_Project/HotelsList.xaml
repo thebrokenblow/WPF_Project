@@ -8,7 +8,11 @@
       d:DesignHeight = "600" d:DesignWidth = "1080"
       Title = "HotelList" ShowsNavigationUI = "False">
     <Grid Background = "#371f60">
-        <ListView Grid.Row = "1" Name = "LViewHotels" ScrollViewer.HorizontalScrollBarVisibility = "Disabled" HorizontalAlignment = "Center">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="40"/>
+        </Grid.RowDefinitions>
+        <ListView Grid.Row="0" Name = "LViewHotels" ScrollViewer.HorizontalScrollBarVisibility = "Disabled" HorizontalAlignment = "Center">
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
                     <WrapPanel Orientation = "Horizontal" HorizontalAlignment="Center"/>
@@ -25,7 +29,7 @@
                             <ColumnDefinition Width = "10*"/>
                             <ColumnDefinition Width = "20*"/>
                         </Grid.ColumnDefinitions>
-                        
+
                         <Image Width = "320" Height = "auto" Stretch = "UniformToFill" HorizontalAlignment = "Left">
                             <Image.Source>
                                 <Binding Path = "ImagePreview"/>
@@ -45,11 +49,12 @@
                                    HorizontalAlignment = "Center" TextWrapping = "Wrap" Margin="0, 136, 0, 104" Grid.Row = "0" Grid.Column = "1"/>
 
                         <Button Tag = "{Binding}" Content = "Enter" Click="Button_Search_Room_Click" Width = "120" Height = "30" BorderBrush = "{x:Null}" Foreground = "#371f60" Background = "White" FontSize = "15" Grid.Column = "1" 
-                                Margin="520, 250, 0, 0"/>
-                        
+                                Margin="530, 250, 0, 0"/>
                     </Grid>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
+        <Button Grid.Row="1" Margin="20 0 0 0" Tag = "{Binding}" Content = "Back" Click="Button_Back_Click" Width = "120" Height = "30" BorderBrush = "{x:Null}" Foreground = "#371f60" Background = "White" FontSize = "15" 
+                                HorizontalAlignment="Left"/>
     </Grid>
 </Page>

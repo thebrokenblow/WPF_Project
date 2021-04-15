@@ -6,9 +6,9 @@ using System.Windows.Media;
 
 namespace WPF_Project
 {
-    public static class Info
+    public static class InfoOfUsers
     {
-        public static Users userInfo = null;
+        public static Users userInfo;
     }
     public partial class Registration : Page
     {
@@ -73,7 +73,8 @@ namespace WPF_Project
                             Users regUser = null; 
                             using (ApplicationContext context = new ApplicationContext())
                             {
-                                regUser = context.Users.Where(check => check.login == loginOfUser || check.email == emailOfUser).FirstOrDefault();
+                                regUser = context.Users.Where(check => check.login == loginOfUser || check.email == emailOfUser 
+                                || check.email == emailOfUser).FirstOrDefault();
                                 if (regUser == null)
                                 {
                                     var user = new Users() //Выделение памяти для занесения информации в базу данных
@@ -84,7 +85,7 @@ namespace WPF_Project
                                     };
                                     context.Users.Add(user); //Добавляем наши данные в базу данных
                                     context.SaveChanges(); //Сохраняем наши данные в базу данных
-                                    Info.userInfo = context.Users.Where(x => x.login == loginOfUser).Select(x => x).FirstOrDefault();
+                              
                                     Uri HotelSearch = new Uri("HotelSearch.xaml", UriKind.Relative);
                                     this.NavigationService.Navigate(HotelSearch); //Переход на страницу Авторизации пользователя
                                 }

@@ -45,6 +45,24 @@
                         </DoubleAnimation>
                     </Storyboard>
                 </BeginStoryboard>
+                <BeginStoryboard>
+                    <Storyboard TargetProperty = "Width" TargetName = "searchButton">
+                        <DoubleAnimation From = "0" To = "130"
+                                         AutoReverse = "True"
+                                         RepeatBehavior = "0:0:1.5"
+                                         Duration = "0:0:1.5">
+                        </DoubleAnimation>
+                    </Storyboard>
+                </BeginStoryboard>
+                <BeginStoryboard>
+                    <Storyboard TargetProperty = "Width" TargetName = "backButton">
+                        <DoubleAnimation From = "0" To = "130"
+                                         AutoReverse = "True"
+                                         RepeatBehavior = "0:0:1.5"
+                                         Duration = "0:0:1.5">
+                        </DoubleAnimation>
+                    </Storyboard>
+                </BeginStoryboard>
             </EventTrigger.Actions>
         </EventTrigger>
         <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="ButtonClose">
@@ -70,8 +88,8 @@
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
-                    <ComboBox Name="CbNaimTovCountry" Foreground="#371f60" FontWeight = "Bold" HorizontalAlignment="Left" Margin="0,85,0,0" FontSize="13"
-                  VerticalAlignment="Top" Width="180" Height="34"  materialDesign:HintAssist.Hint = "Enter Country" IsTextSearchCaseSensitive="False" SelectionChanged="ComboBox_Selected"
+                    <ComboBox Name="CbNaimTovCountry" Foreground="#371f60" FontWeight = "Bold" HorizontalAlignment="Left" Margin="0,85,0,0" FontSize="13" SelectionChanged="CbNaimTovCountry_SelectionChanged"
+                  VerticalAlignment="Top" Width="180" Height="34"  materialDesign:HintAssist.Hint = "Enter Country" IsTextSearchCaseSensitive="False"
                   IsTextSearchEnabled="False" IsEditable="True" TextSearch.TextPath="nameOfCountry" ItemsSource="{Binding nameOfCountry}" > 
                         <ComboBox.ItemTemplate>
                             <DataTemplate>
@@ -97,8 +115,8 @@
                         <Calendar x:Name="Calendar" SelectionMode="SingleRange" SelectedDatesChanged ="Calendar_SelectedDatesChanged"  Width="300" Height="400" 
                                   BorderBrush = "Black" Background="White"/>
                     </Border>
-                    <Button x:Name="countOfAdultChildreanRoomButton" Grid.Column="3" Foreground = "White" FontSize="12" BorderBrush = "{x:Null}" 
-                            Margin="0,85,150,446.667" Background="#371f60" Height="35" Click="countOfAdultChildreanRoomButton_Click" Template="{StaticResource MyButton}" Grid.ColumnSpan="2"/>
+                    <Button Name="countOfAdultChildreanRoomButton" Grid.Column="3" Foreground = "White" FontSize="12" BorderBrush = "{x:Null}" 
+                            Margin="0,85,150,446.667" Background="#371f60" Height="35" Width="220" Click="countOfAdultChildreanRoomButton_Click" Template="{StaticResource MyButton}" Grid.ColumnSpan="2"/>
 
                     <Border x:Name="borderCountOfAdultChildreanRoomButton" Grid.ColumnSpan="3" Grid.Column="2" Margin="116,120,147,217.333" Visibility="Collapsed">
                         <Grid>
@@ -132,17 +150,23 @@
                             <TextBlock x:Name="textRooms"  FontSize = "12" FontWeight = "Bold" TextAlignment="Center"
                                        Text="{x:Null}" Foreground = "#371f60" Height="30" Width="30" Margin="203,154,60.333,46"/>
 
-                            <Button  BorderBrush = "{x:Null}" Content="+" FontSize = "12" Background = "#371f60"
+                            <Button x:Name="buttonBack" BorderBrush = "{x:Null}" Content="+" FontSize = "12" Background = "#371f60"
                                     Click="Button_Rooms_Plus_Click" Width="50" Height="50" Margin="246,138,-3.333,42" Template="{StaticResource MyButton}"/>
                         </Grid>
                     </Border>
                     
-                    <Button Margin="54.667,85,0,446.667" Height="35" FontSize ="13" Content="Search" Foreground = "White" 
-                            Background = "#371f60" Grid.Column="4"  BorderBrush = "{x:Null}" Click="Search_Click" Template="{StaticResource MyButton}"/>
+                    <Button Name = "searchButton" Margin="54.667,85,0,446.667" Height="35" FontSize ="13" Content="Search" Foreground = "White" 
+                            Background = "#371f60" Grid.Column="4"  BorderBrush = "{x:Null}" Click="Search_Button_Click" Template="{StaticResource MyButton}"/>
 
-                    <Button x:Name = "personalAccountButton" Content = "Personal account" FontWeight = "Bold" Foreground = "White" Background = "#371f60"
+                    <Button Name = "personalAccountButton" Content = "Personal account" FontWeight = "Bold" Foreground = "White" Background = "#371f60"
                             Margin = "55,0,0,0" FontSize = "12" VerticalAlignment = "Top" Grid.Column = "4" BorderBrush = "{x:Null}" Height = "35" Width="130" 
-                            Click = "personalAccountButton_Click" Template = "{StaticResource MyButton}"/>
+                            Click = "Personal_Account_Button_Click" Template = "{StaticResource MyButton}"/>
+
+                    <TextBlock Name="errorTextBlock" FontWeight = "Bold" Foreground="#FFFF5E5B" FontSize = "15" Margin = "50, 270, 0, 0" Height="30" Width="700"/>
+                    
+                    <Button Name = "backButton" Content = "Back" FontWeight = "Bold" Foreground = "White" Background = "#FF371f60"
+                            Margin = "50, 400, 0, 0" FontSize = "12" VerticalAlignment = "Top" Grid.Column = "4" BorderBrush = "{x:Null}" Height = "35" Width="130" 
+                            Click = "Back_Button_Click" Template = "{StaticResource MyButton}"/>
                 </Grid>
             </StackPanel>
         </Border>

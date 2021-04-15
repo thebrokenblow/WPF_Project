@@ -6,12 +6,10 @@ using System.Windows.Controls;
 
 namespace WPF_Project
 {
-    public class informationAboutCountry
-    {
-        public static Сountry t = null;
-    }
+
     public class informationAboutHotel 
     {
+        public static int id;
         public static string Country;
         public static string City;
         public static DateTime dataBegin;
@@ -19,9 +17,10 @@ namespace WPF_Project
         public static int countOfAdults;
         public static int countOfChildren;
         public static int countOfRooms;
-        public informationAboutHotel(string nameOfCountry, string nameOfCity, DateTime firstDate, DateTime lastDate, 
+        public informationAboutHotel(int idOfCity, string nameOfCountry, string nameOfCity, DateTime firstDate, DateTime lastDate, 
             int countAdults, int countChildren, int countRooms)
         {
+            id = idOfCity;
             Country = nameOfCountry;
             City = nameOfCity;
             dataBegin = firstDate;
@@ -49,7 +48,7 @@ namespace WPF_Project
             InitializeComponent();
       
             CbNaimTovCountry.ItemsSource = CourseProjectEntitiesDataBase.GetContext().Сountry.ToList();
-            //CbNaimTovCity.ItemsSource = CourseProjectEntitiesDataBase.GetContext().City.Where(x => x.);
+            CbNaimTovCity.ItemsSource = CourseProjectEntitiesDataBase.GetContext().City.ToList();
             DateTime date = DateTime.Now;
             Calendar.DisplayDateStart = date;
             textAdults.Text = (countAdults).ToString();
@@ -158,45 +157,70 @@ namespace WPF_Project
             }
         }
 
-        /*private void CbNaimTovCountry_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void CbNaimTovCountry_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            string text = (e.AddedItems[0] as ComboBoxItem).Content as String;
+            //string text = (e.AddedItems[0] as ComboBoxItem).Content as String;
+            //MessageBox.Show(text);
+            /*var p = context.Country.Where(x => x.nameOfCountry == nameOfCountry).Select(x => x).FirstOrDefault();
             text = from City in City 
                    where City.id = Hotel.id
-                   select City;
-        }*/
+                   select City;*/
+        }
 
-        private void Search_Click(object sender, RoutedEventArgs e)
+        private void Search_Button_Click(object sender, RoutedEventArgs e)
         {
             string nameOfCountry = CbNaimTovCountry.Text;
-            //string nameOfCity = CbNaimTovCity.Text;
-            using (ApplicationContext context = new ApplicationContext())
+            if (nameOfCountry == "")
+                errorTextBlock.Text = "Select The Country";
+            else
             {
-                var p = context.Country.Where(x => x.nameOfCountry == nameOfCountry).Select(x => x).FirstOrDefault();
-                MessageBox.Show(p.id.ToString());
-                CbNaimTovCity.ItemsSource = (from x in context.City
-                                             select new { V = x.idCountry == p.id }).ToList();
+                errorTextBlock.Text = "";
+                string nameOfCity = CbNaimTovCity.Text;
+                if (nameOfCity == "")
+                    errorTextBlock.Text = "Select The City";
+                else 
+                {
+                    errorTextBlock.Text = "";
+                    if (firstDate == DateTime.Parse("01.01.0001 0:00:00"))    
+                    errorTextBlock.Text = "Select The Start Date";
+                    else
+                    {
+                        errorTextBlock.Text = "";
+                        if (lastDate == DateTime.Parse("01.01.0001 0:00:00"))
+                            errorTextBlock.Text = "Select The End Date";
+                        else
+                        {
+                            errorTextBlock.Text = "";
+                            if (firstDate == lastDate)
+                                errorTextBlock.Text = "Choose Different Dates";
+                            else
+                            {
+                                errorTextBlock.Text = "";
+                                using (var context = new CourseProjectEntitiesDataBase())
+                                {
+                                    var hotel = context.City.Where(x => x.nameOfCity == nameOfCity).Select(x => x).FirstOrDefault();
+                                    informationAboutHotel informationAboutHotel = new informationAboutHotel(hotel.id, nameOfCountry, nameOfCity, firstDate, lastDate, countAdults, countChildren, countRooms);
+                                }
+                                Uri HotelsList = new Uri("HotelsList.xaml", UriKind.Relative);
+                                this.NavigationService.Navigate(HotelsList);
+                            }
+                        }
+                    }
+                }
             }
-            //informationAboutHotel informationAboutHotel = new informationAboutHotel(nameOfCountry, nameOfCity, firstDate, lastDate, countAdults, countChildren, countRooms);
-        }
-       
-        private void ComboBox_Selected(object sender, RoutedEventArgs e)
-        {
-           // string nameOfCountry = CbNaimTovCountry.Text;
-           //// MessageBox.Show(nameOfCountry);
-           // using (ApplicationContext context = new ApplicationContext())
-           // {
-           //     var p = context.Country.Where(x => x.nameOfCountry == nameOfCountry).Select(x => x).FirstOrDefault();
-           //     MessageBox.Show(p.id.ToString());
-           //     CbNaimTovCity.ItemsSource = (from x in context.City
-           //                                  select new { V = x.idCountry == p.id }).ToList();
-           // }  
+           
         }
 
-        private void personalAccountButton_Click(object sender, RoutedEventArgs e)
+        private void Personal_Account_Button_Click(object sender, RoutedEventArgs e)
         {
             Uri PersonalAccount = new Uri("PersonalAccount.xaml", UriKind.Relative);
-            this.NavigationService.Navigate(PersonalAccount); //Переход на страницу Авторизации пользователя
+            this.NavigationService.Navigate(PersonalAccount); 
+        }
+
+        private void Back_Button_Click(object sender, RoutedEventArgs e)
+        {
+            Uri Registration = new Uri("Authorization.xaml", UriKind.Relative);
+            this.NavigationService.Navigate(Registration);
         }
 
         private void ListViewItem_Selected(object sender, RoutedEventArgs e)

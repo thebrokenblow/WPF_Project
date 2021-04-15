@@ -1,20 +1,8 @@
 ﻿using Microsoft.Win32;
 using System;
-using System.Collections.Generic;
-using System.Data.SqlClient;
 using System.Linq;
-using System.Runtime.Remoting.Contexts;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace WPF_Project
 {
@@ -26,14 +14,14 @@ namespace WPF_Project
         public PersonalAccount()
         {
             InitializeComponent();
-            using (var db = new ApplicationContext())
+            using (var context = new CourseProjectEntitiesDataBase())
             {
-                //var emailstr = db.Users.Where(x => x.id == Info.userinfo.id).Select(x => x.email).FirstOrDefault()?.ToString();
-                //var surname= db.Users.Where(d => d.id == Info.userinfo.id).Select(d => d.surname).FirstOrDefault()?.ToString();
-                //var name = db.Users.Where(x => x.id == Info.userinfo.id).Select(x => x.name).FirstOrDefault()?.ToString();
-                //emailText.Text = emailstr;
-                //surnameText.Text = surname;
-                //nameText.Text = name;
+                var email = context.Users.Where(x => x.id == InfoOfUsers.userInfo.id).Select(x => x.email).FirstOrDefault()?.ToString();
+                var surname= context.Users.Where(x => x.id == InfoOfUsers.userInfo.id).Select(x => x.surname).FirstOrDefault()?.ToString();
+                var name = context.Users.Where(x => x.id == InfoOfUsers.userInfo.id).Select(x => x.name).FirstOrDefault()?.ToString();
+                emailText.Text = email;
+                surnameText.Text = surname;
+                nameText.Text = name;
             }
         }
         /// <summary>
@@ -44,15 +32,13 @@ namespace WPF_Project
             Uri PersonalAccount = new Uri("HotelSearch.xaml", UriKind.Relative);
             this.NavigationService.Navigate(PersonalAccount); //Переход на страницу Авторизации пользователя
         }
-        private void ListViewItem_Selected(object sender, RoutedEventArgs e)
-        {
-        }
+
         private void saveChangesButton_Click(object sender, RoutedEventArgs e)
         {
             string surnameOfUser = surnameText.Text;
             using (ApplicationContext context = new ApplicationContext())
             {
-                (from p in context.Users where p.id == Info.userInfo.id select p).ToList().ForEach(x => x.surname = surnameOfUser);
+                (from x in context.Users where x.id == InfoOfUsers.userInfo.id select x).ToList().ForEach(x => x.surname = surnameOfUser);
                 context.SaveChanges();
             }
         }
@@ -72,6 +58,9 @@ namespace WPF_Project
                     //context.SaveChanges();
                 }
             }
+        }
+        private void ListViewItem_Selected(object sender, RoutedEventArgs e)
+        {
         }
     }
 }

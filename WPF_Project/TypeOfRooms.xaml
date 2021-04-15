@@ -7,48 +7,52 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800" ShowsNavigationUI="False"
       Title="TypeOfRooms">
-    <Grid>
-        <Grid Background = "#371f60">
-            <ListView Grid.Row = "1" Name = "LViewTypeOfRooms" ScrollViewer.HorizontalScrollBarVisibility = "Disabled" HorizontalAlignment = "Center">
-                <ListView.ItemsPanel>
-                    <ItemsPanelTemplate>
-                        <WrapPanel Orientation = "Horizontal" HorizontalAlignment="Center"/>
-                    </ItemsPanelTemplate>
-                </ListView.ItemsPanel>
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <Grid Width = "1280">
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height = "70*"/>
-                                <RowDefinition Height = "80*"/>
-                            </Grid.RowDefinitions>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width = "10*"/>
-                                <ColumnDefinition Width = "20*"/>
-                            </Grid.ColumnDefinitions>
+    <Grid Background = "#371f60">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="40"/>
+        </Grid.RowDefinitions>
+        <ListView Grid.Row = "0" Name = "LViewTypeOfRooms" ScrollViewer.HorizontalScrollBarVisibility = "Disabled" HorizontalAlignment = "Center">
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel Orientation = "Horizontal" HorizontalAlignment="Center"/>
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid Width = "1280">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height = "70*"/>
+                            <RowDefinition Height = "80*"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width = "10*"/>
+                            <ColumnDefinition Width = "20*"/>
+                        </Grid.ColumnDefinitions>
 
-                            <Image Width = "320" Height = "auto" Stretch = "UniformToFill" HorizontalAlignment = "Left">
-                                <Image.Source>
-                                    <Binding Path = "ImagePreview"/>
-                                </Image.Source>
-                            </Image>
+                        <Image Width = "320" Height = "auto" Stretch = "UniformToFill" HorizontalAlignment = "Left">
+                            <Image.Source>
+                                <Binding Path = "ImagePreview"/>
+                            </Image.Source>
+                        </Image>
 
-                            <TextBlock Text = "{Binding roomName}" Foreground = "White" FontSize = "20" Height = "40" Width = "720" VerticalAlignment = "Center" 
+                        <TextBlock Text = "{Binding roomName}" Foreground = "White" FontSize = "20" Height = "40" Width = "720" VerticalAlignment = "Center" 
                                    TextAlignment = "Center" HorizontalAlignment = "Center" TextWrapping = "Wrap" Margin = "0, 16, 0, 224" Grid.Row = "0" Grid.Column = "1" />
 
-                            <TextBlock Text = "{Binding pricePerDay}" Foreground = "White" FontSize = "20" Height = "40" Width = "720" VerticalAlignment = "Center" 
+                        <TextBlock Text = "{Binding pricePerDay, StringFormat = {}{0:N2} $}" Foreground = "White" FontSize = "20" Height = "40" Width = "720" VerticalAlignment = "Center" 
                                    TextAlignment = "Center" HorizontalAlignment = "Center" TextWrapping = "Wrap" Margin = "0, 56, 0, 184" Grid.Row = "0" Grid.Column = "1"/>
 
-                            <TextBlock Text = "{Binding roomDescription}" Foreground = "White" FontSize = "20" Height = "40" Width = "720" VerticalAlignment = "Center" 
+                        <TextBlock Text = "{Binding roomDescription}" Foreground = "White" FontSize = "20" Height = "40" Width = "720" VerticalAlignment = "Center" 
                                    TextAlignment = "Center" HorizontalAlignment = "Center" TextWrapping = "Wrap" Margin = "0, 96, 0, 144" Grid.Row = "0" Grid.Column = "1"/>
 
-                            <Button Tag = "{Binding}" Click="Button_Enter" Content = "Enter" Width = "120" Height = "30" BorderBrush = "{x:Null}" Foreground = "#371f60" Background = "White" FontSize = "15" Grid.Column = "1" 
+                        <Button Tag = "{Binding}" Click="Button_Enter" Content = "Enter" Width = "120" Height = "30" BorderBrush = "{x:Null}" Foreground = "#371f60" Background = "White" FontSize = "15" Grid.Column = "1" 
                                 Margin="520, 250, 0, 0"/>
 
-                        </Grid>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-        </Grid>
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Button Tag = "{Binding}" Content = "Back" Click="Button_Back_Click" Width = "120" Height = "30" BorderBrush = "{x:Null}" Foreground = "#371f60" Background = "White" FontSize = "15" 
+                                Margin="20 0 0 0" Grid.Row="1" HorizontalAlignment="Left"/>
     </Grid>
 </Page>

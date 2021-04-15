@@ -31,36 +31,30 @@ namespace WPF_Project
                 textBoxLogin.ToolTip = null;
                 if (password.Length <= 5 || password.Length >= 60)
                 {
-                    for (int i = 0; i < password.Length; i++)
+                    passwordBox.ToolTip = "The password is too short, enter more than 5 characters or or more 60 characters.";
+                    var backgroundColor = new BrushConverter();
+                    passwordBox.Background = (Brush)backgroundColor.ConvertFrom("#ff5e5b");
+                }
+                else
+                { 
+                    passwordBox.Background = Brushes.Transparent;
+                    passwordBox.ToolTip = null;
+                    Users authUser = null;
+                    using (ApplicationContext context = new ApplicationContext())
                     {
-                        if (!((password[i] >= '0') || password[i] <= '9')) 
-                        {
-                            passwordBox.ToolTip = "The password is too short, enter more than 5 characters or or more 60 characters.";
-                            var backgroundColor = new BrushConverter();
-                            passwordBox.Background = (Brush)backgroundColor.ConvertFrom("#ff5e5b");
-                        }
-                        else
-                        {
-                            passwordBox.Background = Brushes.Transparent;
-                            passwordBox.ToolTip = null;
-                            Users authUser = null;  
-                            using (ApplicationContext context = new ApplicationContext())
-                            {
-                                authUser = context.Users.Where(check => check.login == login && check.password == password).FirstOrDefault();
-                            }
-                            if (authUser != null)
-                            {
-                                using (ApplicationContext context = new ApplicationContext())
-                                {
-                                    Info.userInfo = context.Users.Where(x => x.login == login && x.password == password).Select(x => x).FirstOrDefault();
-                                }
-                                Uri HotelSearch = new Uri("HotelSearch.xaml", UriKind.Relative);
-                                this.NavigationService.Navigate(HotelSearch); //Переход на страницу поиска отелей
-                            }
-                            else
-                                errorBox.Text = "Make sure the login and password you entered is correct."; //Сообщение об ошибке неправельно введёееых данных
-                        }
+                        authUser = context.Users.Where(check => check.login == login && check.password == password).FirstOrDefault();
                     }
+                    if (authUser != null)
+                    {
+                        using (ApplicationContext context = new ApplicationContext())
+                        {
+                            InfoOfUsers.userInfo = context.Users.Where(x => x.login == login && x.password == password).Select(x => x).FirstOrDefault();
+                        }
+                        Uri HotelSearch = new Uri("HotelSearch.xaml", UriKind.Relative);
+                        this.NavigationService.Navigate(HotelSearch); //Переход на страницу поиска отелей
+                    }
+                    else
+                        errorBox.Text = "Make sure the login and password you entered is correct."; //Сообщение об ошибке неправельно введёееых данных
                 }
             }
         }

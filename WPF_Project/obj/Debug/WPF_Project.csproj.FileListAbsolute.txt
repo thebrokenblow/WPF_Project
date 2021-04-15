@@ -101,4 +101,6 @@ C:\Users\User\Desktop\C#_Projects\WPF_Project\WPF_Project\obj\Debug\WPF_Project.
 C:\Users\User\Desktop\C#_Projects\WPF_Project\WPF_Project\obj\Debug\WPF_Project.csproj.CopyComplete
 C:\Users\User\Desktop\C#_Projects\WPF_Project\WPF_Project\obj\Debug\WPF_Project.exe
 C:\Users\User\Desktop\C#_Projects\WPF_Project\WPF_Project\obj\Debug\WPF_Project.pdb
+C:\Users\User\Desktop\C#_Projects\WPF_Project\WPF_Project\obj\Debug\Receipt.g.cs
+C:\Users\User\Desktop\C#_Projects\WPF_Project\WPF_Project\obj\Debug\Receipt.baml
 C:\Users\User\Desktop\C#_Projects\WPF_Project\WPF_Project\obj\Debug\WPF_Project.csprojAssemblyReference.cache
