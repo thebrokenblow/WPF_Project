@@ -6,11 +6,11 @@
       xmlns:local="clr-namespace:WPF_Project"
       xmlns:materialDesign = "http://materialdesigninxaml.net/winfx/xaml/themes"
       mc:Ignorable="d" 
-       d:DesignHeight = "750" d:DesignWidth = "1000" ShowsNavigationUI = "False"
+       d:DesignHeight = "550" d:DesignWidth = "1000" ShowsNavigationUI = "False"
       Title="Receipt">
     <ScrollViewer>
         <Grid Background="White">
-            <Button HorizontalAlignment="Right" Margin="10" Background="#FF371F60" VerticalAlignment="Top">
+            <Button HorizontalAlignment="Right" Margin="10" Background="#FF371F60" Template = "{StaticResource MyButton}" VerticalAlignment="Top">
                 <materialDesign:PackIcon Kind="Printer"/>
             </Button>
             <Grid  Margin="0,0,0,-156">
@@ -90,55 +90,16 @@
                         <TextBlock Name ="pricePerDay" FontSize="13" Foreground = "#FF371F60" Width = "150" Height = "30" Grid.Column = "1" Margin = "0 0 0 0" HorizontalAlignment = "Center"/>
                         <TextBlock Name ="finalPrice" FontSize="13" Foreground = "#FF371F60" Width = "150" Height = "30" Grid.Column = "2" Margin = "0 0 0 0" HorizontalAlignment = "Center"/>
                     </Grid>
-                    <StackPanel Margin="0 10 0 0" Height="120">
-                        <Grid Margin="0 0 0 0">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="1*"/>
-                                <ColumnDefinition Width="1*"/>
-                                <ColumnDefinition Width="1*"/>
-                            </Grid.ColumnDefinitions>
-                            <TextBlock Text="BANK INFO" Grid.Column="0" Margin="300,0,0,0" FontSize="12" FontWeight="ExtraLight" Grid.ColumnSpan="2"/>
-                            <TextBlock Text="DUE BY" Grid.Column="1"  Margin="200,0,0,0" FontSize="12" FontWeight="ExtraLight" HorizontalAlignment="Left"/>
-                            <TextBlock Text="TOTAL DUE" Grid.Column="1" FontSize="12" FontWeight="ExtraLight" HorizontalAlignment="Right"/>
-                        </Grid>
-                        <Rectangle Fill="Black" Height="1" Margin="5" Opacity="0.5"/>
-                        <Grid Margin="0 0 0 0">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="1*"/>
-                                <ColumnDefinition Width="1*"/>
-                                <ColumnDefinition Width="1*"/>
-                            </Grid.ColumnDefinitions>
-                            <StackPanel Grid.Column="0" Margin="290 0 0 0">
-                                <StackPanel Orientation="Horizontal" Margin="0 0 0 0">
-                                    <TextBlock Text="Account No:" FontSize="10" Margin="5"/>
-                                    <TextBlock Text="123 456 78" FontSize="10" Margin="5" FontWeight="DemiBold"/>
-                                </StackPanel>
-                                <StackPanel Orientation="Horizontal" Margin="0 0 0 0">
-                                    <TextBlock Text="Sort Code:" FontSize="10" Margin="5"/>
-                                    <TextBlock Text="01 23 45" FontSize="10" Margin="5" FontWeight="DemiBold"/>
-                                </StackPanel>
-                            </StackPanel>
-                            <StackPanel Grid.Column="1" Margin="150 0 0 0">
-                                <TextBlock Name="date" FontSize="15" Margin="5"/>
-                            </StackPanel>
-                            <StackPanel  Grid.Column="1">
-                                <TextBlock Name="totalPrice" Margin="5" FontSize="20" HorizontalAlignment="Right" Foreground="#FF62013C" FontWeight="Bold"/>
-                            </StackPanel>
-                        </Grid>
-                    </StackPanel>
                 </StackPanel>
             </Grid>
             <Grid Margin="0 20" HorizontalAlignment="Stretch">
-                <StackPanel Orientation="Horizontal">
-                    <materialDesign:PackIcon Kind="Heart" Foreground="#FF62013C" Width="20" Height="20" Margin="5 600 0 0" VerticalAlignment="Center"/>
-                    <TextBlock Text="Thank you!" VerticalAlignment="Center" FontSize="20" Margin="0 600 0 0" FontWeight="Light"/>
-                </StackPanel>
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Bottom">
-                    <TextBlock Text="name@email.com" VerticalAlignment="Center" FontSize="8" Margin="5" FontWeight="Light"/>
-                    <TextBlock Text="99 9999-9999" VerticalAlignment="Center" FontSize="8" Margin="5" FontWeight="Light"/>
-                    <TextBlock Text="website.com" VerticalAlignment="Center" FontSize="8" Margin="5" FontWeight="Light"/>
+                <StackPanel Orientation="Horizontal" Margin="20,450,0,0" HorizontalAlignment="Left" Width="150" Height="50">
+                    <materialDesign:PackIcon Kind="Heart" Foreground="#FF371F60" Width="20" Height="20" VerticalAlignment="Center"/>
+                    <TextBlock Text="Thank you!" VerticalAlignment="Center" FontSize="20" Margin="2 -5 0 0" FontWeight="Light" Foreground="#FF371F60"/>
                 </StackPanel>
             </Grid>
+            <Button Height="30" Width="150" Margin="0 600 0 0" HorizontalAlignment="Left" Template = "{StaticResource MyButton}" BorderBrush="{x:Null}" Content="Back" Click="Back_Button_Click" Background = "#FF371F60"/>
+            <Button Height="30" Width="150" Margin="0 600 0 0" HorizontalAlignment="Right" Template = "{StaticResource MyButton}" BorderBrush="{x:Null}" Content="Save And To Book" Click="Save_And_To_Book_Button_Click" Background = "#FF371F60"/>
         </Grid>
     </ScrollViewer>
 </Page>

@@ -6,9 +6,9 @@ using System.Windows.Media;
 
 namespace WPF_Project
 {
-    public static class InfoOfUsers
+    public static class RecordOfUsers
     {
-        public static Users userInfo;
+        public static Users recordOfUsers;
     }
     public partial class Registration : Page
     {

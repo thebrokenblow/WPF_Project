@@ -22,7 +22,9 @@ namespace WPF_Project
     
         public int id { get; set; }
         public int idOfHotel { get; set; }
-        public Nullable<int> idOfType { get; set; }
+        public int idOfType { get; set; }
+        public Nullable<System.DateTime> dataStart { get; set; }
+        public Nullable<System.DateTime> dataEnd { get; set; }
     
         public virtual TypeOfRoom TypeOfRoom { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

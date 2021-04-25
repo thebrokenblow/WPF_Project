@@ -13,24 +13,25 @@ namespace WPF_Project
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class CourseProjectEntitiesDataBase : DbContext
+    public partial class CourseProjectDataBase : DbContext
     {
-        public static CourseProjectEntitiesDataBase context;
-        public CourseProjectEntitiesDataBase()
-            : base("name=CourseProjectEntitiesDataBase")
+        public static CourseProjectDataBase context;
+        public CourseProjectDataBase()
+            : base("name=CourseProjectDataBase")
         {
         }
-        public static CourseProjectEntitiesDataBase GetContext()
-        {
-            if (context == null)
-                context = new CourseProjectEntitiesDataBase();
-            return context;
-        }
+    
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             throw new UnintentionalCodeFirstException();
         }
-    
+        public static CourseProjectDataBase GetContext()
+        {
+            if (context == null)
+                context = new CourseProjectDataBase();
+            return context;
+        }
+
         public virtual DbSet<Administrator> Administrator { get; set; }
         public virtual DbSet<City> City { get; set; }
         public virtual DbSet<Hotel> Hotel { get; set; }

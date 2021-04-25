@@ -46,7 +46,9 @@
     </Key>
     <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="idOfHotel" Type="int" Nullable="false" />
-    <Property Name="idOfType" Type="int" />
+    <Property Name="idOfType" Type="int" Nullable="false" />
+    <Property Name="dataStart" Type="date" />
+    <Property Name="dataEnd" Type="date" />
   </EntityType>
   <EntityType Name="photosOfHotels">
     <Key>
@@ -60,14 +62,17 @@
     <Key>
       <PropertyRef Name="id" />
     </Key>
-    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idOfUsers" Type="int" Nullable="false" />
+    <Property Name="idOfHotel" Type="int" Nullable="false" />
+    <Property Name="idOfTypeOfRooms" Type="int" Nullable="false" />
     <Property Name="idOfRooms" Type="int" Nullable="false" />
-    <Property Name="numberOfRoomsBooked" Type="int" Nullable="false" />
     <Property Name="numberOfAdults" Type="int" Nullable="false" />
     <Property Name="numberOfChildren" Type="int" Nullable="false" />
+    <Property Name="numberOfRoomsBooked" Type="int" />
     <Property Name="startDate" Type="date" Nullable="false" />
     <Property Name="endDate" Type="date" Nullable="false" />
-    <Property Name="idOfUsers" Type="int" Nullable="false" />
+    <Property Name="fullPrice" Type="money" />
   </EntityType>
   <EntityType Name="sysdiagrams">
     <Key>
@@ -160,7 +165,7 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_ListOfRooms_TypeOfRoom">
-    <End Role="TypeOfRoom" Type="Self.TypeOfRoom" Multiplicity="0..1" />
+    <End Role="TypeOfRoom" Type="Self.TypeOfRoom" Multiplicity="1" />
     <End Role="ListOfRooms" Type="Self.ListOfRooms" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="TypeOfRoom">

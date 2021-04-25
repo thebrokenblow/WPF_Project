@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="Хранилище CourseProjectModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="Хранилище CourseProjectModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Administrator">
           <Key>
             <PropertyRef Name="id" />
@@ -51,7 +51,9 @@
           </Key>
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="idOfHotel" Type="int" Nullable="false" />
-          <Property Name="idOfType" Type="int" />
+          <Property Name="idOfType" Type="int" Nullable="false" />
+          <Property Name="dataStart" Type="date" />
+          <Property Name="dataEnd" Type="date" />
         </EntityType>
         <EntityType Name="photosOfHotels">
           <Key>
@@ -65,14 +67,17 @@
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idOfUsers" Type="int" Nullable="false" />
+          <Property Name="idOfHotel" Type="int" Nullable="false" />
+          <Property Name="idOfTypeOfRooms" Type="int" Nullable="false" />
           <Property Name="idOfRooms" Type="int" Nullable="false" />
-          <Property Name="numberOfRoomsBooked" Type="int" Nullable="false" />
           <Property Name="numberOfAdults" Type="int" Nullable="false" />
           <Property Name="numberOfChildren" Type="int" Nullable="false" />
+          <Property Name="numberOfRoomsBooked" Type="int" />
           <Property Name="startDate" Type="date" Nullable="false" />
           <Property Name="endDate" Type="date" Nullable="false" />
-          <Property Name="idOfUsers" Type="int" Nullable="false" />
+          <Property Name="fullPrice" Type="money" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -165,7 +170,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_ListOfRooms_TypeOfRoom">
-          <End Role="TypeOfRoom" Type="Self.TypeOfRoom" Multiplicity="0..1" />
+          <End Role="TypeOfRoom" Type="Self.TypeOfRoom" Multiplicity="1" />
           <End Role="ListOfRooms" Type="Self.ListOfRooms" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="TypeOfRoom">
@@ -273,7 +278,8 @@
             <End Role="TypeOfRoom" EntitySet="TypeOfRoom" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="CourseProjectModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -332,7 +338,9 @@
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="idOfHotel" Type="Int32" Nullable="false" />
-          <Property Name="idOfType" Type="Int32" />
+          <Property Name="idOfType" Type="Int32" Nullable="false" />
+          <Property Name="dataStart" Type="DateTime" Precision="0" />
+          <Property Name="dataEnd" Type="DateTime" Precision="0" />
           <NavigationProperty Name="TypeOfRoom" Relationship="Self.FK_ListOfRooms_TypeOfRoom" FromRole="ListOfRooms" ToRole="TypeOfRoom" />
           <NavigationProperty Name="Reservation" Relationship="Self.FK_Reservation_ListOfRooms" FromRole="ListOfRooms" ToRole="Reservation" />
         </EntityType>
@@ -349,14 +357,17 @@
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idOfUsers" Type="Int32" Nullable="false" />
+          <Property Name="idOfHotel" Type="Int32" Nullable="false" />
+          <Property Name="idOfTypeOfRooms" Type="Int32" Nullable="false" />
           <Property Name="idOfRooms" Type="Int32" Nullable="false" />
-          <Property Name="numberOfRoomsBooked" Type="Int32" Nullable="false" />
           <Property Name="numberOfAdults" Type="Int32" Nullable="false" />
           <Property Name="numberOfChildren" Type="Int32" Nullable="false" />
+          <Property Name="numberOfRoomsBooked" Type="Int32" />
           <Property Name="startDate" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="endDate" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="idOfUsers" Type="Int32" Nullable="false" />
+          <Property Name="fullPrice" Type="Decimal" Precision="19" Scale="4" />
           <NavigationProperty Name="ListOfRooms" Relationship="Self.FK_Reservation_ListOfRooms" FromRole="Reservation" ToRole="ListOfRooms" />
           <NavigationProperty Name="Users" Relationship="Self.FK_Reservation_Users" FromRole="Reservation" ToRole="Users" />
         </EntityType>
@@ -479,7 +490,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_ListOfRooms_TypeOfRoom">
-          <End Role="TypeOfRoom" Type="Self.TypeOfRoom" Multiplicity="0..1" />
+          <End Role="TypeOfRoom" Type="Self.TypeOfRoom" Multiplicity="1" />
           <End Role="ListOfRooms" Type="Self.ListOfRooms" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="TypeOfRoom">
@@ -514,7 +525,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="CourseProjectEntitiesDataBase" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="CourseProjectDataBase" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Administrator" EntityType="Self.Administrator" />
           <EntitySet Name="City" EntityType="Self.City" />
           <EntitySet Name="Hotel" EntityType="Self.Hotel" />
@@ -568,7 +579,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Хранилище CourseProjectModelContainer" CdmEntityContainer="CourseProjectEntitiesDataBase">
+        <EntityContainerMapping StorageEntityContainer="Хранилище CourseProjectModelContainer" CdmEntityContainer="CourseProjectDataBase">
           <EntitySetMapping Name="Administrator">
             <EntityTypeMapping TypeName="CourseProjectModel.Administrator">
               <MappingFragment StoreEntitySet="Administrator">
@@ -619,6 +630,8 @@
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="idOfHotel" ColumnName="idOfHotel" />
                 <ScalarProperty Name="idOfType" ColumnName="idOfType" />
+                <ScalarProperty Name="dataStart" ColumnName="dataStart" />
+                <ScalarProperty Name="dataEnd" ColumnName="dataEnd" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -635,13 +648,16 @@
             <EntityTypeMapping TypeName="CourseProjectModel.Reservation">
               <MappingFragment StoreEntitySet="Reservation">
                 <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="idOfUsers" ColumnName="idOfUsers" />
+                <ScalarProperty Name="idOfHotel" ColumnName="idOfHotel" />
+                <ScalarProperty Name="idOfTypeOfRooms" ColumnName="idOfTypeOfRooms" />
                 <ScalarProperty Name="idOfRooms" ColumnName="idOfRooms" />
-                <ScalarProperty Name="numberOfRoomsBooked" ColumnName="numberOfRoomsBooked" />
                 <ScalarProperty Name="numberOfAdults" ColumnName="numberOfAdults" />
                 <ScalarProperty Name="numberOfChildren" ColumnName="numberOfChildren" />
+                <ScalarProperty Name="numberOfRoomsBooked" ColumnName="numberOfRoomsBooked" />
                 <ScalarProperty Name="startDate" ColumnName="startDate" />
                 <ScalarProperty Name="endDate" ColumnName="endDate" />
-                <ScalarProperty Name="idOfUsers" ColumnName="idOfUsers" />
+                <ScalarProperty Name="fullPrice" ColumnName="fullPrice" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

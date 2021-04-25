@@ -7,23 +7,23 @@ using System.Windows.Controls;
 namespace WPF_Project
 {
 
-    public class informationAboutHotel 
+    public class AdditionalRecordAboutHotel
     {
         public static int id;
         public static string Country;
         public static string City;
-        public static DateTime dataBegin;
+        public static DateTime dataStart;
         public static DateTime dataEnd;
         public static int countOfAdults;
         public static int countOfChildren;
         public static int countOfRooms;
-        public informationAboutHotel(int idOfCity, string nameOfCountry, string nameOfCity, DateTime firstDate, DateTime lastDate, 
+        public AdditionalRecordAboutHotel(int idOfCity, string nameOfCountry, string nameOfCity, DateTime firstDate, DateTime lastDate, 
             int countAdults, int countChildren, int countRooms)
         {
             id = idOfCity;
             Country = nameOfCountry;
             City = nameOfCity;
-            dataBegin = firstDate;
+            dataStart = firstDate;
             dataEnd = lastDate;
             countOfAdults = countAdults;
             countOfChildren = countChildren;
@@ -37,7 +37,7 @@ namespace WPF_Project
         int countChildren = 0;  
         int countRooms = 1;
         
-        public void countOfAdultChildreanRoomBText(int countAdults, int countChildren, int countRooms)
+        public void Count_Of_Adult_Childrean_Room_Text(int countAdults, int countChildren, int countRooms)
         {
             countOfAdultChildreanRoomButton.Content = (countAdults).ToString() + "  adult  ·  " + (countChildren).ToString() + "  children  ·  " +
             (countRooms).ToString() + "  room";
@@ -47,14 +47,14 @@ namespace WPF_Project
         {
             InitializeComponent();
       
-            CbNaimTovCountry.ItemsSource = CourseProjectEntitiesDataBase.GetContext().Сountry.ToList();
-            CbNaimTovCity.ItemsSource = CourseProjectEntitiesDataBase.GetContext().City.ToList();
+            CbNaimTovCountry.ItemsSource = CourseProjectDataBase.GetContext().Сountry.ToList();
+            CbNaimTovCity.ItemsSource = CourseProjectDataBase.GetContext().City.ToList();
             DateTime date = DateTime.Now;
             Calendar.DisplayDateStart = date;
             textAdults.Text = (countAdults).ToString();
             textChildren.Text = (countChildren).ToString(); 
-            textRooms.Text = (countRooms).ToString(); 
-            countOfAdultChildreanRoomBText(countAdults, countChildren, countRooms); 
+            textRooms.Text = (countRooms).ToString();
+            Count_Of_Adult_Childrean_Room_Text(countAdults, countChildren, countRooms); 
             buttonCalender.Content = "Check-in  -  Check-out"; 
         }
 
@@ -63,8 +63,8 @@ namespace WPF_Project
             if (countAdults > 1)
             {
                 countAdults--;
-                textAdults.Text = (countAdults).ToString(); 
-                countOfAdultChildreanRoomBText(countAdults, countChildren, countRooms); 
+                textAdults.Text = (countAdults).ToString();
+                Count_Of_Adult_Childrean_Room_Text(countAdults, countChildren, countRooms); 
             }
         }
 
@@ -74,7 +74,7 @@ namespace WPF_Project
             {
                 countAdults++;
                 textAdults.Text = (countAdults).ToString();
-                countOfAdultChildreanRoomBText(countAdults, countChildren, countRooms);
+                Count_Of_Adult_Childrean_Room_Text(countAdults, countChildren, countRooms);
             }
         }
 
@@ -84,7 +84,7 @@ namespace WPF_Project
             {
                 countChildren--;
                 textChildren.Text = (countChildren).ToString();
-                countOfAdultChildreanRoomBText(countAdults, countChildren, countRooms);
+                Count_Of_Adult_Childrean_Room_Text(countAdults, countChildren, countRooms);
             }
         }
 
@@ -94,7 +94,7 @@ namespace WPF_Project
             {
                 countChildren++;
                 textChildren.Text = (countChildren).ToString();
-                countOfAdultChildreanRoomBText(countAdults, countChildren, countRooms);
+                Count_Of_Adult_Childrean_Room_Text(countAdults, countChildren, countRooms);
             }
         }
 
@@ -104,7 +104,7 @@ namespace WPF_Project
             {
                 countRooms--;
                 textRooms.Text = (countRooms).ToString();
-                countOfAdultChildreanRoomBText(countAdults, countChildren, countRooms);
+                Count_Of_Adult_Childrean_Room_Text(countAdults, countChildren, countRooms);
             }
         }
 
@@ -114,13 +114,13 @@ namespace WPF_Project
             {
                 countRooms++;
                 textRooms.Text = (countRooms).ToString();
-                countOfAdultChildreanRoomBText(countAdults, countChildren, countRooms);
+                Count_Of_Adult_Childrean_Room_Text(countAdults, countChildren, countRooms);
             }
         } 
        
         private bool flagbuttonCalender = false;
         private bool flagcountOfAdultChildreanRommButton = false;
-        private void buttonCalender_Click(object sender, RoutedEventArgs e)
+        private void Button_Calender_Click(object sender, RoutedEventArgs e)
         {
             if (flagbuttonCalender == false)
             {
@@ -143,7 +143,7 @@ namespace WPF_Project
             buttonCalender.Content = firstDate.ToString("M") + " - " + lastDate.ToString("M");
         }
 
-        private void countOfAdultChildreanRoomButton_Click(object sender, RoutedEventArgs e)
+        private void Count_Of_Adult_Childrean_Room_Button_Click(object sender, RoutedEventArgs e)
         {
             if (flagcountOfAdultChildreanRommButton == false)
             {
@@ -159,8 +159,10 @@ namespace WPF_Project
 
         private void CbNaimTovCountry_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            //string text = (e.AddedItems[0] as ComboBoxItem).Content as String;
-            //MessageBox.Show(text);
+            //string text = CbNaimTovCountry.Text;
+            //var t = CourseProjectDataBase.GetContext().Сountry.Where(x => x.nameOfCountry == text).Select(x => x).FirstOrDefault();
+            //if (t != null)
+            //CbNaimTovCity.ItemsSource = CourseProjectDataBase.GetContext().City.Where(x => x.idCountry == t.id);
             /*var p = context.Country.Where(x => x.nameOfCountry == nameOfCountry).Select(x => x).FirstOrDefault();
             text = from City in City 
                    where City.id = Hotel.id
@@ -196,10 +198,10 @@ namespace WPF_Project
                             else
                             {
                                 errorTextBlock.Text = "";
-                                using (var context = new CourseProjectEntitiesDataBase())
+                                using (var context = new CourseProjectDataBase())
                                 {
                                     var hotel = context.City.Where(x => x.nameOfCity == nameOfCity).Select(x => x).FirstOrDefault();
-                                    informationAboutHotel informationAboutHotel = new informationAboutHotel(hotel.id, nameOfCountry, nameOfCity, firstDate, lastDate, countAdults, countChildren, countRooms);
+                                    AdditionalRecordAboutHotel additionalRecordAboutHotel = new AdditionalRecordAboutHotel(hotel.id, nameOfCountry, nameOfCity, firstDate, lastDate, countAdults, countChildren, countRooms);
                                 }
                                 Uri HotelsList = new Uri("HotelsList.xaml", UriKind.Relative);
                                 this.NavigationService.Navigate(HotelsList);

@@ -1,18 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace WPF_Project
 {
@@ -34,11 +23,11 @@ namespace WPF_Project
             {
                 try
                 {
-                    CourseProjectEntitiesDataBase.GetContext().Hotel.RemoveRange(hotelsForRemoving);
-                    CourseProjectEntitiesDataBase.GetContext().SaveChanges();
+                    CourseProjectDataBase.GetContext().Hotel.RemoveRange(hotelsForRemoving);
+                    CourseProjectDataBase.GetContext().SaveChanges();
                     MessageBox.Show("Data deleted");
 
-                    DGridHotels.ItemsSource = CourseProjectEntitiesDataBase.GetContext().Hotel.ToList(); //Обращаемся к списку отелей, через контекст
+                    DGridHotels.ItemsSource = CourseProjectDataBase.GetContext().Hotel.ToList(); //Обращаемся к списку отелей, через контекст
                 }
                 catch (Exception ex)
                 {
@@ -49,19 +38,19 @@ namespace WPF_Project
         private void BtnEdit_Click(object sender, RoutedEventArgs e) 
         {
             Uri AddEditPage = new Uri("AddEditPage.xaml", UriKind.Relative);
-            this.NavigationService.Navigate(AddEditPage); //Переход на страницу Добавляения записи об отеле
+            this.NavigationService.Navigate(AddEditPage); 
         }
         private void BtnAdd_Click(object sender, RoutedEventArgs e)
         {
             Uri AddEditPage = new Uri("AddEditPage.xaml", UriKind.Relative);
-            this.NavigationService.Navigate(AddEditPage); //Переход на страницу Добавляения записи об отеле
+            this.NavigationService.Navigate(AddEditPage);
         }
         private void Page_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
             if (Visibility == Visibility.Visible)
             {
-                CourseProjectEntitiesDataBase.GetContext().ChangeTracker.Entries().ToList().ForEach(p => p.Reload());
-                DGridHotels.ItemsSource = CourseProjectEntitiesDataBase.GetContext().Hotel.ToList();
+                CourseProjectDataBase.GetContext().ChangeTracker.Entries().ToList().ForEach(p => p.Reload());
+                DGridHotels.ItemsSource = CourseProjectDataBase.GetContext().Hotel.ToList();
             }
         }
     }

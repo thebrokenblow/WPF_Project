@@ -89,20 +89,20 @@
 
                     <TextBlock Text = "Personal account" Foreground = "#371f60" FontSize = "25" FontWeight = "Bold" Margin="2,0,426,47"/>
 
-                    <TextBox Width="300" x:Name="surnameText" Text = "{Binding surname}" FontWeight = "Bold" Foreground = "#371f60" FontSize = "15" materialDesign:HintAssist.Hint = "Surname"
+                    <TextBox Width="300" x:Name="surnameText" FontWeight = "Bold" Foreground = "#371f60" FontSize = "15" materialDesign:HintAssist.Hint = "Surname"
                              Style = "{StaticResource MaterialDesignFloatingHintTextBox}" Margin = "340,76,0,-26" Height="48" VerticalAlignment="Top" />
 
-                    <TextBox Width="300" x:Name="nameText" Text = "{Binding name}" FontWeight = "Bold" Foreground = "#371f60" FontSize = "15" materialDesign:HintAssist.Hint = "Name" 
+                    <TextBox Width="300" Name="nameText" FontWeight = "Bold" Foreground = "#371f60" FontSize = "15" materialDesign:HintAssist.Hint = "Name" 
                              Style = "{StaticResource MaterialDesignFloatingHintTextBox}" Margin = "340,124,0,-75" />
 
-                    <TextBox Width="300" x:Name="patronymicText" Text = "{Binding patronymic}" FontWeight = "Bold" Foreground = "#371f60" FontSize = "15"  materialDesign:HintAssist.Hint = "Patronymic" 
+                    <TextBox Width="300" Name="patronymicText"  FontWeight = "Bold" Foreground = "#371f60" FontSize = "15"  materialDesign:HintAssist.Hint = "Patronymic" 
                                  Style = "{StaticResource MaterialDesignFloatingHintTextBox}" Margin = "341,173,-1,-122"/>
 
-                    <TextBox Width="300" Text = "{Binding email}" DataContext="" x:Name="emailText" FontWeight = "Bold" Foreground = "#371f60" FontSize = "15" 
+                    <TextBox Width="300" DataContext="" x:Name="emailText" FontWeight = "Bold" Foreground = "#371f60" FontSize = "15" 
                              materialDesign:HintAssist.Hint = "Enter email" Style = "{StaticResource MaterialDesignFloatingHintTextBox}" 
                              Margin = "340,220,0,-169"/>
 
-                    <TextBox Width="300" x:Name="phoneNumberText" Text = "{Binding phoneNumber}" FontWeight = "Bold" Foreground = "#371f60" FontSize = "15" 
+                    <TextBox Width="300" x:Name="phoneNumberText" FontWeight = "Bold" Foreground = "#371f60" FontSize = "15" 
                         materialDesign:HintAssist.Hint = "Phone number" Style = "{StaticResource MaterialDesignFloatingHintTextBox}" 
                         Margin = "341,268,-1,-217"/>
 

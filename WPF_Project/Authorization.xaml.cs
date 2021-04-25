@@ -48,23 +48,23 @@ namespace WPF_Project
                     {
                         using (ApplicationContext context = new ApplicationContext())
                         {
-                            InfoOfUsers.userInfo = context.Users.Where(x => x.login == login && x.password == password).Select(x => x).FirstOrDefault();
+                           RecordOfUsers.recordOfUsers = context.Users.Where(x => x.login == login && x.password == password).Select(x => x).FirstOrDefault();
                         }
                         Uri HotelSearch = new Uri("HotelSearch.xaml", UriKind.Relative);
-                        this.NavigationService.Navigate(HotelSearch); //Переход на страницу поиска отелей
+                        this.NavigationService.Navigate(HotelSearch);
                     }
                     else
-                        errorBox.Text = "Make sure the login and password you entered is correct."; //Сообщение об ошибке неправельно введёееых данных
+                        errorBox.Text = "Make sure the login and password you entered is correct.";
                 }
             }
         }
         /// <summary>
         /// Метод по обработки события нажатия на кнопку перехода к регистрации пользователя
         /// </summary>
-        private void Button_Transition_Reg_Click(object sender, RoutedEventArgs e) //Метод перехода к окну "Регистрация пользователя"
+        private void Button_Transition_Reg_Click(object sender, RoutedEventArgs e) 
         {
             Uri Registration = new Uri("Registration.xaml", UriKind.Relative);
-            this.NavigationService.Navigate(Registration); //Переход на страницу Авторизации пользователя
+            this.NavigationService.Navigate(Registration);
         }
         private void ListViewItem_Selected(object sender, RoutedEventArgs e)
         {

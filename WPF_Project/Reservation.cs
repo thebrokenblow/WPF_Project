@@ -15,13 +15,16 @@ namespace WPF_Project
     public partial class Reservation
     {
         public int id { get; set; }
+        public int idOfUsers { get; set; }
+        public int idOfHotel { get; set; }
+        public int idOfTypeOfRooms { get; set; }
         public int idOfRooms { get; set; }
-        public int numberOfRoomsBooked { get; set; }
         public int numberOfAdults { get; set; }
         public int numberOfChildren { get; set; }
+        public Nullable<int> numberOfRoomsBooked { get; set; }
         public System.DateTime startDate { get; set; }
         public System.DateTime endDate { get; set; }
-        public int idOfUsers { get; set; }
+        public Nullable<decimal> fullPrice { get; set; }
     
         public virtual ListOfRooms ListOfRooms { get; set; }
         public virtual Users Users { get; set; }

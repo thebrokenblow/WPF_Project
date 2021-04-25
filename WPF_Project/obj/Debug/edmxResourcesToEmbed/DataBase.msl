@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="Хранилище CourseProjectModelContainer" CdmEntityContainer="CourseProjectEntitiesDataBase">
+  <EntityContainerMapping StorageEntityContainer="Хранилище CourseProjectModelContainer" CdmEntityContainer="CourseProjectDataBase">
     <EntitySetMapping Name="Administrator">
       <EntityTypeMapping TypeName="CourseProjectModel.Administrator">
         <MappingFragment StoreEntitySet="Administrator">
@@ -51,6 +51,8 @@
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="idOfHotel" ColumnName="idOfHotel" />
           <ScalarProperty Name="idOfType" ColumnName="idOfType" />
+          <ScalarProperty Name="dataStart" ColumnName="dataStart" />
+          <ScalarProperty Name="dataEnd" ColumnName="dataEnd" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -67,13 +69,16 @@
       <EntityTypeMapping TypeName="CourseProjectModel.Reservation">
         <MappingFragment StoreEntitySet="Reservation">
           <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="idOfUsers" ColumnName="idOfUsers" />
+          <ScalarProperty Name="idOfHotel" ColumnName="idOfHotel" />
+          <ScalarProperty Name="idOfTypeOfRooms" ColumnName="idOfTypeOfRooms" />
           <ScalarProperty Name="idOfRooms" ColumnName="idOfRooms" />
-          <ScalarProperty Name="numberOfRoomsBooked" ColumnName="numberOfRoomsBooked" />
           <ScalarProperty Name="numberOfAdults" ColumnName="numberOfAdults" />
           <ScalarProperty Name="numberOfChildren" ColumnName="numberOfChildren" />
+          <ScalarProperty Name="numberOfRoomsBooked" ColumnName="numberOfRoomsBooked" />
           <ScalarProperty Name="startDate" ColumnName="startDate" />
           <ScalarProperty Name="endDate" ColumnName="endDate" />
-          <ScalarProperty Name="idOfUsers" ColumnName="idOfUsers" />
+          <ScalarProperty Name="fullPrice" ColumnName="fullPrice" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

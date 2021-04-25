@@ -55,7 +55,9 @@
     </Key>
     <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="idOfHotel" Type="Int32" Nullable="false" />
-    <Property Name="idOfType" Type="Int32" />
+    <Property Name="idOfType" Type="Int32" Nullable="false" />
+    <Property Name="dataStart" Type="DateTime" Precision="0" />
+    <Property Name="dataEnd" Type="DateTime" Precision="0" />
     <NavigationProperty Name="TypeOfRoom" Relationship="Self.FK_ListOfRooms_TypeOfRoom" FromRole="ListOfRooms" ToRole="TypeOfRoom" />
     <NavigationProperty Name="Reservation" Relationship="Self.FK_Reservation_ListOfRooms" FromRole="ListOfRooms" ToRole="Reservation" />
   </EntityType>
@@ -72,14 +74,17 @@
     <Key>
       <PropertyRef Name="id" />
     </Key>
-    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idOfUsers" Type="Int32" Nullable="false" />
+    <Property Name="idOfHotel" Type="Int32" Nullable="false" />
+    <Property Name="idOfTypeOfRooms" Type="Int32" Nullable="false" />
     <Property Name="idOfRooms" Type="Int32" Nullable="false" />
-    <Property Name="numberOfRoomsBooked" Type="Int32" Nullable="false" />
     <Property Name="numberOfAdults" Type="Int32" Nullable="false" />
     <Property Name="numberOfChildren" Type="Int32" Nullable="false" />
+    <Property Name="numberOfRoomsBooked" Type="Int32" />
     <Property Name="startDate" Type="DateTime" Nullable="false" Precision="0" />
     <Property Name="endDate" Type="DateTime" Nullable="false" Precision="0" />
-    <Property Name="idOfUsers" Type="Int32" Nullable="false" />
+    <Property Name="fullPrice" Type="Decimal" Precision="19" Scale="4" />
     <NavigationProperty Name="ListOfRooms" Relationship="Self.FK_Reservation_ListOfRooms" FromRole="Reservation" ToRole="ListOfRooms" />
     <NavigationProperty Name="Users" Relationship="Self.FK_Reservation_Users" FromRole="Reservation" ToRole="Users" />
   </EntityType>
@@ -202,7 +207,7 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_ListOfRooms_TypeOfRoom">
-    <End Role="TypeOfRoom" Type="Self.TypeOfRoom" Multiplicity="0..1" />
+    <End Role="TypeOfRoom" Type="Self.TypeOfRoom" Multiplicity="1" />
     <End Role="ListOfRooms" Type="Self.ListOfRooms" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="TypeOfRoom">
@@ -237,7 +242,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="CourseProjectEntitiesDataBase" annotation:LazyLoadingEnabled="true">
+  <EntityContainer Name="CourseProjectDataBase" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Administrator" EntityType="Self.Administrator" />
     <EntitySet Name="City" EntityType="Self.City" />
     <EntitySet Name="Hotel" EntityType="Self.Hotel" />
